@@ -6,13 +6,25 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { MyDialogsModule } from './dialogs/dialogs.module';
-import { MyButtonComponent } from './my-button/my-button.component';
+import { MyButtonsModule } from './buttons/buttons.module';
+import { MyNavsModule } from './navs/navs.module';
+
 import { MyNavbarComponent } from './my-navbar/my-navbar.component';
-import { MyTabComponent } from './my-tab/my-tab.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, NgbModule],
-  declarations: [ AppComponent, HelloComponent, MyButtonComponent, MyNavbarComponent, MyTabComponent ],
+  imports:      [ 
+    BrowserModule, 
+    FormsModule, 
+    NgbModule,
+    MyButtonsModule,
+    MyDialogsModule,
+    MyNavsModule
+  ],
+  declarations:   [
+    AppComponent,
+    HelloComponent,
+    MyNavbarComponent
+  ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
