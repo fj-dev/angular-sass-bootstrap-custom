@@ -31,4 +31,15 @@ $danger:        $red !default;
 $light:         $gray-200 !default;
 $dark:          $gray-700 !default;
 
-@import "../node_modules/bootstrap/scss/bootstrap";
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+) !default;
+
+@import "~bootstrap/scss/bootstrap";
