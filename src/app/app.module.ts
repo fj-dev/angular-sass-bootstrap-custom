@@ -22,6 +22,7 @@ import { MyButtonsModule } from './buttons/buttons.module';
 import { MyNavsModule } from './navs/navs.module';
 
 import { MyNavbarComponent } from './my-navbar/my-navbar.component';
+import { CustomButtonsComponent } from './custom-buttons/custom-buttons.component';
 
 @NgModule({
   imports:      [ 
@@ -35,7 +36,8 @@ import { MyNavbarComponent } from './my-navbar/my-navbar.component';
   ],
   declarations:   [
     AppComponent,
-    MyNavbarComponent
+    MyNavbarComponent,
+    CustomButtonsComponent
   ],
   bootstrap:    [ AppComponent ]
 })
