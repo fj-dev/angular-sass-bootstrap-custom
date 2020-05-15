@@ -1,5 +1,15 @@
-<nav [ngClass]="navbarClass">
-  <span class="navbar-brand">Navbar</span>
+<nav id="my-navbar" [ngClass]="navbarClass">
+  <span class="navbar-brand">
+    <!--<fa-icon
+    [icon]="['fas', 'dragon']"
+    [styles]="{'stroke': 'red', 'stroke-width': '10px', 'color': 'blue'}">      
+    </fa-icon>-->
+    <fa-layers [fixedWidth]="true">
+      <fa-icon [icon]="['fas', 'map-marker']" [classes]="['my-icon-class']"></fa-icon>
+      <fa-icon [icon]="['far', 'moon']" [classes]="['my-icon-class2']"></fa-icon>
+    </fa-layers>
+    Navbar
+  </span>
   <button 
     class="navbar-toggler" 
     type="button" 
@@ -10,10 +20,10 @@
     aria-label="Toggle navigation"
     (click)="collapsed = !collapsed"
   >
-    <span class="navbar-toggler-icon fas fa-ellipsis-v"></span>
+    <fa-icon [icon]="['fas', 'ellipsis-v']"></fa-icon>
   </button>
-  <div class="navbar-collapse" [class.collapse]="collapsed" id="navbarContent">
-    <ul class="navbar-nav ml-auto">
+  <div class="navbar-collapse" id="navbarContent">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link">Link 1</a>
       </li>
@@ -27,7 +37,7 @@
       -->
     </ul>
   </div>
-  <div class="navbar-collapse" [class.collapse]="collapsed">
+  <div class="navbar-collapse">
     <ul class="navbar-nav">
       <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-right">
         <a class="nav-link" style="cursor: pointer" ngbDropdownToggle role="button" id="navbarDropdown1">
@@ -44,7 +54,7 @@
       </li>
       <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-right">
         <a class="nav-link" style="cursor: pointer" ngbDropdownToggle role="button" id="navbarDropdown2">
-          <span class="fas fa-user"></span>
+          <fa-icon [icon]="['fas', 'user']"></fa-icon>
           <span class="navbar-text">User's Name</span>
         </a>
         <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu">
