@@ -1,10 +1,68 @@
-@import "./././vars.scss";
+@import "../../vars.scss";
 
 #my-navbar {
-  height: 50px;
+  height: 46px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  //min-width: 1050px;
+  font-size: 14px !important;
+  align-items: stretch;
 }
 
-.my-icon-class {
-  font-size: 16pt;
-  color: $primary;
+.navbar-brand {
+  height: 100%;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  display: inline-flex;
+  align-items: stretch;
+
+  .brand-logo {
+    display: inline-block;
+    min-height: 34px;
+
+    & ::ng-deep {
+      .fa-layers {
+        height: 34px;
+        vertical-align: middle;
+        .my-icon-class {
+          font-size: 34px;
+          color: $primary;
+        }
+        .my-icon-class2 {
+          margin-top: 5px !important;
+          font-size: 14px;
+          color: $light;
+        }
+      }
+    }
+  }
+
+  .brand-name {
+    margin-left: 5px;
+  }
+}
+
+.navbar-toggler {
+  font-size: 14px;
+  border: unset;
+}
+
+.navbar-collapse {
+  height: 100%;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  align-items: baseline !important;
+}
+
+#navbarContent {
+  margin-left: 10px;
+}
+#navbarActions {
+  justify-content: flex-end;
+  .nav-item {
+    padding-left: 10px;
+  }
+  .user-info {
+    padding-left: 5px;
+  }
 }

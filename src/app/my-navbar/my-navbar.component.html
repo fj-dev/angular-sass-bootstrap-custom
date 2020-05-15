@@ -1,15 +1,17 @@
 <nav id="my-navbar" [ngClass]="navbarClass">
-  <span class="navbar-brand">
+  <div class="navbar-brand">
     <!--<fa-icon
     [icon]="['fas', 'dragon']"
     [styles]="{'stroke': 'red', 'stroke-width': '10px', 'color': 'blue'}">      
     </fa-icon>-->
-    <fa-layers [fixedWidth]="true">
-      <fa-icon [icon]="['fas', 'map-marker']" [classes]="['my-icon-class']"></fa-icon>
-      <fa-icon [icon]="['far', 'moon']" [classes]="['my-icon-class2']"></fa-icon>
-    </fa-layers>
-    Navbar
-  </span>
+    <span class="brand-logo">
+      <fa-layers [fixedWidth]="true">
+        <fa-icon [icon]="['fas', 'map-marker']" [classes]="['my-icon-class']"></fa-icon>
+        <fa-icon [icon]="['fas', 'moon']" [classes]="['my-icon-class2']"></fa-icon>
+      </fa-layers>
+    </span>
+    <span class="brand-name">Navbar</span>
+  </div>
   <button 
     class="navbar-toggler" 
     type="button" 
@@ -37,7 +39,7 @@
       -->
     </ul>
   </div>
-  <div class="navbar-collapse">
+  <div class="navbar-collapse" id="navbarActions">
     <ul class="navbar-nav">
       <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-right">
         <a class="nav-link" style="cursor: pointer" ngbDropdownToggle role="button" id="navbarDropdown1">
@@ -47,7 +49,7 @@
           <span class="dropdown-item-text" ngbDropdownItem [disabled]="true">Actions</span>
           <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Action 1</a>
           <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Action 2</a>
-          <div ngbDropdownItem class="dropdown-divider"></div>
+          <div class="dropdown-divider"></div>
           <span ngbDropdownItem [disabled]="true">Tasks</span>
           <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Task 1</a>
         </div>
@@ -55,7 +57,7 @@
       <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-right">
         <a class="nav-link" style="cursor: pointer" ngbDropdownToggle role="button" id="navbarDropdown2">
           <fa-icon [icon]="['fas', 'user']"></fa-icon>
-          <span class="navbar-text">User's Name</span>
+          <span class="user-info">User's Name</span>
         </a>
         <div ngbDropdownMenu aria-labelledby="navbarDropdown2" class="dropdown-menu">
           <a ngbDropdownItem href="#" (click)="$event.preventDefault()">User Action</a>

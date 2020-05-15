@@ -34,7 +34,7 @@ export class MyNavbarComponent {
   private setNavbarClass() {
     this.navbarClass = {
       'navbar': true,
-      'navbar-expand-lg': true,
+      'navbar-expand-sm': true,
       'navbar-light': this.theme === 'light',
       'navbar-dark': this.theme !== 'light',
       'bg-primary': this.bgColor === 'primary',
