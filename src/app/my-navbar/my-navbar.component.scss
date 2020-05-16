@@ -1,5 +1,20 @@
 @import "../../vars.scss";
 
+.svg-settings {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px,1px,1px,1px);
+}
+
+.linear-stop1 {
+  stop-color: mix($white, $primary, 15%);
+}
+
+.linear-stop2 {
+  stop-color: $primary;
+}
 #my-navbar {
   height: 46px;
   padding-top: 4px;
@@ -26,12 +41,16 @@
         vertical-align: middle;
         .my-icon-class {
           font-size: 34px;
-          color: $primary;
+          stroke: $gray-900;
+          stroke-width: 5px;
+          path {
+            fill: url(#linear);
+          }
         }
         .my-icon-class2 {
           margin-top: 5px !important;
           font-size: 14px;
-          color: $light;
+          color: $secondary;
         }
       }
     }

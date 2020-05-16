@@ -3,3 +3,13 @@
     <my-button [title]=btn.title [theme]=btn.theme [size]="default"></my-button>
   </ng-container>
 </div>
+<div class="custom-buttons-container">
+  <ng-container *ngFor="let btn of controls">
+    <my-button [title]=btn.title [theme]=btn.theme [size]="default" [disabled]="true"></my-button>
+  </ng-container>
+</div>
+<div class="custom-buttons-container">
+  <ng-container *ngFor="let btn of controls">
+    <my-button [title]=btn.title [theme]=btn.theme size="small"></my-button>
+  </ng-container>
+</div>

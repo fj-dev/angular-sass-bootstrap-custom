@@ -41,6 +41,15 @@ export class MyButtonComponent {
     return this._outline;
   }
 
+  private _disabled: boolean = false;
+  @Input() set disabled(val) {
+    this._disabled = val;
+    this.setBtnClass();
+  }
+  get disabled() {
+    return this._disabled;
+  }
+
   btnClass: {};
 
   constructor() {
@@ -67,7 +76,8 @@ export class MyButtonComponent {
       'btn-outline-success': this.theme === 'success' && this.outline === true,
       'btn-outline-info': this.theme === 'info' && this.outline === true,
       'btn-outline-warning': this.theme === 'warning' && this.outline === true,
-      'btn-outline-danger': this.theme === 'danger' && this.outline === true 
+      'btn-outline-danger': this.theme === 'danger' && this.outline === true,
+      'disabled': this.disabled === true
     };
   }
 }
