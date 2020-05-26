@@ -20,25 +20,35 @@
     </span>
     <span class="brand-name">Navbar</span>
   </div>
+  <button 
+    class="navbar-toggler" 
+    type="button" 
+    data-toggle="collapse"
+    data-target="#navbarContent"
+    aria-controls="navbarContent"
+    [attr.aria-expanded]="!collapsed"
+    aria-label="Toggle navigation"
+    (click)="collapsed = !collapsed"
+  >
+    <fa-icon [icon]="['fas', 'ellipsis-v']"></fa-icon>
+  </button>
   <div class="navbar-collapse" id="navbarContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        <a class="nav-link">Link 1</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/buttons" routerLinkActive="active">Buttons</a>
+        <a class="nav-link">Link 2</a>
       </li>
-    </ul>    
+      <!--
+        <li class="nav-item">
+          <a routerLink="/home" routerLinkActive="active">Home</a>
+        </li>
+      -->
+    </ul>
   </div>
   <div class="navbar-collapse" id="navbarActions">
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" style="cursor: pointer" role="button" (click)="onToggleTheme()">
-          <fa-icon [icon]="['far', 'eye']" *ngIf="themeCollapsed === true"></fa-icon>
-          <fa-icon [icon]="['far', 'eye-slash']" *ngIf="themeCollapsed === false"></fa-icon>
-          <span class="toggle-theme-text">Theme Colors</span>
-        </a>
-      </li>
       <li class="nav-item" ngbDropdown display="dynamic" placement="bottom-right">
         <a class="nav-link" style="cursor: pointer" ngbDropdownToggle role="button" id="navbarDropdown1">
           Dropdown

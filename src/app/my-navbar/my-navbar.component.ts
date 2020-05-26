@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'my-navbar',
@@ -6,6 +6,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./my-navbar.component.scss']
 })
 export class MyNavbarComponent {
+  @Output() toggleTheme = new EventEmitter<any>();
+
   private _theme = 'light';
   @Input() set theme(val) {
     this._theme = val;
@@ -22,6 +24,14 @@ export class MyNavbarComponent {
   }
   get bgColor() {
     return this._bgColor;
+  }
+
+  private _themeCollapsed = false;
+  @Input() set themeCollapsed(val) {
+    this._themeCollapsed = val;
+  }
+  get themeCollapsed() {
+    return this._themeCollapsed;
   }
 
   collapsed = true;
@@ -46,5 +56,9 @@ export class MyNavbarComponent {
       'bg-warning': this.bgColor === 'warning',
       'bg-danger': this.bgColor === 'danger'
     };
+  }
+
+  onToggleTheme() {
+    this.toggleTheme.emit(true);
   }
 }
