@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent  {
   globalTheme = 'dark';
   navbarColor = 'dark';
+  isThemeCollapsed = true;
 }
