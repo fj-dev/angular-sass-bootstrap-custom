@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'date-time-picker',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./date-time-picker.component.scss']
 })
 export class DateTimePickerComponent {
-  
+  model: NgbDateStruct;
 }

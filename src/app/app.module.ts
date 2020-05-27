@@ -11,11 +11,17 @@ import {
   faEye as faSolidEye,
   faEyeSlash as faSolidEyeSlash,
   faMapMarker,
+  faCalendar as faSolidCalendar,
+  faCalendarAlt as faSolidCalendarAlt,
+  faClock as faSolidClock,
   faStar,
   faMoon as faSolidMoon
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
+  faCalendar,
+  faCalendarAlt,
+  faClock,
   faEye,
   faEyeSlash,
   faMoon
@@ -45,6 +51,10 @@ import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
     MyFormsModule,
     AppRoutingModule
   ],
+  exports: [
+    NgbModule,
+    FontAwesomeModule
+  ],
   declarations:   [
     AppComponent,
     MyNavbarComponent,
@@ -57,15 +67,15 @@ import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
 export class AppModule {
   constructor(library: FaIconLibrary) {
     library.addIcons(
+      faCalendar, faSolidCalendar,
+      faCalendarAlt, faSolidCalendarAlt,
+      faClock, faSolidClock,
       faEllipsisV,
-      faEye,
-      faSolidEye,
-      faEyeSlash,
-      faSolidEyeSlash,
+      faEye, faSolidEye,
+      faEyeSlash, faSolidEyeSlash,
       faUser,
       faDragon,
-      faMoon,
-      faSolidMoon,
+      faMoon, faSolidMoon,
       faMapMarker,
       faStar
     );
