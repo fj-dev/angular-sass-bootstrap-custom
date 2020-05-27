@@ -25,6 +25,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MyDialogsModule } from './dialogs/dialogs.module';
 import { MyButtonsModule } from './buttons/buttons.module';
+import { MyFormsModule } from './forms/forms.module';
 import { MyNavsModule } from './navs/navs.module';
 
 import { MyNavbarComponent } from './my-navbar/my-navbar.component';
@@ -41,6 +42,7 @@ import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
     MyButtonsModule,
     MyDialogsModule,
     MyNavsModule,
+    MyFormsModule,
     AppRoutingModule
   ],
   declarations:   [
