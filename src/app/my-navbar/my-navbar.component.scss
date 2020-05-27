@@ -20,6 +20,7 @@
   padding-top: 4px;
   padding-bottom: 4px;
   //min-width: 1050px;
+  flex-wrap: nowrap !important;
   font-size: 14px !important;
   align-items: stretch;
 }
@@ -60,12 +61,12 @@
     margin-left: 5px;
   }
 }
-
+/*
 .navbar-toggler {
   font-size: 14px;
   border: unset;
 }
-
+*/
 .navbar-collapse {
   height: 100%;
   padding-top: 0px;
@@ -76,9 +77,11 @@
 #navbarContent {
   margin-left: 10px;
   .nav-item {
-    border-bottom: 1px solid $primary;
-    &:not(& > .nav-link.active){
-      border-bottom: 1px solid $dark;
+    .nav-link {
+      border-bottom: 2px solid transparent;
+      &.active {
+        border-bottom-color: $primary;
+      }
     }
   }
 }
