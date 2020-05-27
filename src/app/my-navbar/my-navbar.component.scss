@@ -19,10 +19,11 @@
   height: 46px;
   padding-top: 4px;
   padding-bottom: 4px;
-  //min-width: 1050px;
   flex-wrap: nowrap !important;
   font-size: 14px !important;
   align-items: stretch;
+
+  justify-content: space-between;
 }
 
 .navbar-brand {
@@ -71,27 +72,52 @@
   height: 100%;
   padding-top: 0px;
   padding-bottom: 0px;
-  align-items: baseline !important;
+  display: flex !important;
+  flex-basis: auto !important;
+
+  .navbar-nav {
+    flex-direction: row !important;
+    align-items: baseline !important;
+  }
 }
 
 #navbarContent {
   margin-left: 10px;
+  justify-content: space-evenly;
+  flex-grow: 4;
+
+  .navbar-nav {
+    padding-right: 10px;
+    padding-left: 10px;
+    justify-content: space-between;
+    flex-basis: auto;
+  }
   .nav-item {
+    padding-left: 15px;
     .nav-link {
+      padding-right: 4px;
+      padding-left: 4px;
       border-bottom: 2px solid transparent;
       &.active {
         border-bottom-color: $primary;
+        font-weight: 600;
       }
     }
   }
 }
 #navbarActions {
   justify-content: flex-end;
+  
+  .navbar-nav {
+    justify-content: space-between;
+    flex-basis: auto;
+  }
   .nav-item {
     padding-left: 10px;
   }
   .user-info {
     padding-left: 5px;
+    padding-right: 5px;
   }
   .toggle-theme-text {
     padding-left: 5px;
