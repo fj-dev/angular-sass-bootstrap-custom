@@ -47,6 +47,7 @@ import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
     FormsModule, 
     NgbModule,
     FontAwesomeModule,
+    NgSelectModule,
     MyButtonsModule,
     MyDialogsModule,
     MyNavsModule,

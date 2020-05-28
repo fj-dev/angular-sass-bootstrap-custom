@@ -20,10 +20,10 @@
       [ngModel]="datetime"
       (dateSelect)="onDateChange($event)"></ngb-datepicker>
   <ng-select
-    placeholder="HH:MM" 
-    [items]="timeOptions"
+    placeholder="HH:MM"
     [(ngModel)]="datetime"
     (change)="onTimeChange($event)"
     (add)="onTimeAdd($event)">
+    <ng-option *ngFor="let opt of timeOptions" [value]="opt.value">{{opt.label}}</ng-option>
   </ng-select>
 </ng-template>

@@ -4,32 +4,39 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { DateTimeModel } from '../date-time.model';
 
+const defaultHours = new Array(24).fill(0).map((x, i) => {return x+i;});
+const defaultMinutes = [0,30];
+const defaultTimes = new Array(48).fill({}).map((obj, idx) => {
+      const h = (idx % 2 === 0) ? defaultHours[idx / 2] : defaultHours[(idx - 1) / 2];
+      return {hour: h, minute: defaultMinutes[idx % 2], second: 0};
+    });
+
 @Component({
-    selector: 'date-time-picker',
-    templateUrl: './date-time-picker.component.html',
-    styleUrls: ['./date-time-picker.component.scss'],
+    selector: 'date-time-picker2',
+    templateUrl: './date-time-picker2.component.html',
+    styleUrls: ['./date-time-picker2.component.scss'],
     providers: [
         DatePipe,
         {
             provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => DateTimePickerComponent),
+            useExisting: forwardRef(() => DateTimePickerComponent2),
             multi: true
         }
     ]
 })
-export class DateTimePickerComponent implements ControlValueAccessor, OnInit {
+export class DateTimePickerComponent2 implements ControlValueAccessor, OnInit {
     @Input()
     dateString: string;
 
     @Input()
     inputDatetimeFormat = 'M/d/yyyy H:mm';
     
-    private hourOptions = new Array(24).fill(0).map((x, i) => {return i;});
-    private minutesOptions = [0,30];
-    private defaultTimeOptions = new Array(48).fill({hour: 0, minute: 0, second: 0}).map((obj, idx) => {
-      let newObj = {hour: 0, minute: 0, second: 0};
+    //private hourOptions = new Array(24).fill(0).map((x, i) => {return x+i;});
+    //private minutesOptions = [0,30];
+    private timeOptions = defaultTimes.map(x => {
+      const newStr = x.hour.toString().padStart(2,0) + ':' + x.minute.toString().padStart(2,0);
       
-      return newObj;
+      return {label: newStr, value: x};
     });
 
     private datetime: DateTimeModel = new DateTimeModel();
@@ -40,8 +47,6 @@ export class DateTimePickerComponent implements ControlValueAccessor, OnInit {
 
     @ViewChild(NgbPopover, {static: true})
     private popover: NgbPopover;
-
-    timeOptions = new Array[48];
 
     onTouch: () => { };
     onChange: (_: any) => { };
@@ -121,7 +126,13 @@ export class DateTimePickerComponent implements ControlValueAccessor, OnInit {
         this.datetime.minute = event.minute;
         this.datetime.second = event.second;
 
+        console.log('onTimeChange',event);
+
         this.setDateStringModel();
+    }
+
+    onTimeAdd(evt) {
+      console.log('onTimeAdd', evt);
     }
 
     setDateStringModel() {
