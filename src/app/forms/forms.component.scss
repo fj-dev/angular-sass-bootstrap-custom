@@ -1,0 +1,9 @@
+@import "./../../vars.scss";
+
+.form-control-info {
+  font-size: normal;
+  font-weight: 600;
+  font-style: italic;
+  color: $gray-700;
+  margin-left: 0.5rem;
+}

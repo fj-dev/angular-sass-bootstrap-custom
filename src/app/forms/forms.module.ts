@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import { MyFormsComponent } from './forms.component';
 import { DateTimePickerComponent } from './date-time-picker/date-time-picker.component';
 import { NgbTime } from '@ng-bootstrap/ng-bootstrap/timepicker/ngb-time';
 
@@ -17,10 +18,12 @@ import { NgbTime } from '@ng-bootstrap/ng-bootstrap/timepicker/ngb-time';
     FontAwesomeModule
   ],
   declarations: [
-    DateTimePickerComponent
+    DateTimePickerComponent,
+    MyFormsComponent
   ],
   exports: [
-   DateTimePickerComponent
+   DateTimePickerComponent,
+   MyFormsComponent
   ]
 })
 export class MyFormsModule{}
