@@ -1,7 +1,6 @@
 <div class="input-group mr-2">
   <input
     [placeholder]="placeholder"
-    [ngClass]="ngControl?.valid ? 'ng-valid' : 'ng-invalid'"
     class="form-control"
     (blur)="inputBlur($event)"
     [ngModel]="date | date: inputDatetimeFormat"
@@ -16,7 +15,8 @@
       [disabled]="disabled"
       type="button"
     >
-      <i class="fa fa-calendar"></i>
+      <!--<i class="fa fa-calendar"></i>-->
+      <fa-icon [icon]="['far', 'calendar-alt']"></fa-icon>
     </button>
   </div>
 </div>
@@ -31,15 +31,12 @@
         (ngModelChange)="onDateChange($event)"
       ></ngb-datepicker>
       <ngb-timepicker
-        meridian="true"
         [seconds]="false"
         #tp
         name="timepicker"
         [(ngModel)]="timeStruct"
         (ngModelChange)="onTimeChange($event)"
-        [seconds]="seconds"
-        [hourStep]="hourStep"
-        [minuteStep]="minuteStep"
+        [minuteStep]="30"
       ></ngb-timepicker>
     </div>
   </div>

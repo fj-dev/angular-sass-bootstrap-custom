@@ -41,15 +41,6 @@ export class DateTimePickerComponent implements ControlValueAccessor, OnInit, Af
   @Input()
   placeholder: string = "";
   @Input()
-  hourStep = 1;
-  @Input()
-  minuteStep = 15;
-  @Input()
-  secondStep = 30;
-  @Input()
-  seconds = true;
-
-  @Input()
   disabled = false;
 
   @ViewChild(NgbDatepicker, null)
@@ -58,23 +49,23 @@ export class DateTimePickerComponent implements ControlValueAccessor, OnInit, Af
   @ViewChild(NgbPopover, null)
   private popover: NgbPopover;
 
-  private onTouched: () => { };
-  private onChange: (_: any) => { };
+  private onTouched: any = () => { };
+  private onChange: any = (_: any) => { };
 
-  public ngControl: NgControl;
+  //public ngControl: NgControl;
 
   dateStruct: NgbDateStruct;
   timeStruct: NgbTimeStruct;
   date: Date;
   
-  constructor(private config: NgbPopoverConfig, private inj: Injector) {
+  constructor(private config: NgbPopoverConfig/*, private inj: Injector*/) {
     config.autoClose = 'outside';
     config.placement = 'auto';
   }
 
   ngOnInit(): void {
     // tslint:disable-next-line: deprecation
-    this.ngControl = this.inj.get(NgControl);
+    //this.ngControl = this.inj.get(NgControl);
   }
 
   ngAfterViewInit(): void {

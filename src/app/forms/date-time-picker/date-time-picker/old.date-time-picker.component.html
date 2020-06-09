@@ -35,31 +35,11 @@
             </div>
         </div>
     </div>-->
-    <!--<ngb-datepicker 
+    <ngb-datepicker 
       #dp 
       name="datepicker"
       [ngModel]="datetime"
       (dateSelect)="onDateChange($event)"></ngb-datepicker>
     <ngb-timepicker #tp name="timepicker" [ngModel]="datetime" (ngModelChange)="onTimeChange($event)" [minuteStep]="30"></ngb-timepicker>
-    -->
-  <div>
-    <ngb-datepicker
-        #dp
-        name="datepicker"
-        [(ngModel)]="dateStruct"
-        (ngModelChange)="onDateChange($event)"
-      ></ngb-datepicker>
-      <ngb-timepicker
-        meridian="true"
-        [seconds]="false"
-        #tp
-        name="timepicker"
-        [(ngModel)]="timeStruct"
-        (ngModelChange)="onTimeChange($event)"
-        [seconds]="seconds"
-        [hourStep]="hourStep"
-        [minuteStep]="minuteStep"
-      ></ngb-timepicker>
-  </div>
 </ng-template>
 
