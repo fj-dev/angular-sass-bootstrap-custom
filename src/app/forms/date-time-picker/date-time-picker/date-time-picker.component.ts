@@ -37,9 +37,9 @@ import { DatePipe } from '@angular/common';
 export class DateTimePickerComponent implements ControlValueAccessor, OnInit, AfterViewInit {
  
   @Input()
-  inputDatetimeFormat = 'd/M/yyyy H:mm:ss';
+  inputDatetimeFormat = 'M/d/yyyy H:mm';
   @Input()
-  placeholder: string = "";
+  placeholder: string = "M/d/yyyy H:mm";
   @Input()
   disabled = false;
 
@@ -57,6 +57,14 @@ export class DateTimePickerComponent implements ControlValueAccessor, OnInit, Af
   dateStruct: NgbDateStruct;
   timeStruct: NgbTimeStruct;
   date: Date;
+  
+  set dateTime(val) {
+    if (val !== undefined && this.date !== val) {
+      this.date = val;
+      this.onChange(val)
+      this.onTouched(val);
+    }
+  }
   
   constructor(private config: NgbPopoverConfig/*, private inj: Injector*/) {
     config.autoClose = 'outside';
@@ -130,7 +138,8 @@ export class DateTimePickerComponent implements ControlValueAccessor, OnInit, Af
         this.timeStruct.second
       );
 
-      this.onChange(this.date);
+      //this.onChange(this.date);
+      this.dateTime = this.date;
     }
   }
 
