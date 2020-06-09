@@ -2,7 +2,7 @@ import { Component, OnInit, Input, forwardRef, ViewChild } from '@angular/core';
 import { NgbTimeStruct, NgbDateStruct, NgbPopoverConfig, NgbPopover, NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { DateTimeModel } from '../date-time.model';
+import { DateTimeModel } from '../date-time-picker/date-time.model';
 
 const defaultHours = new Array(24).fill(0).map((x, i) => {return x+i;});
 const defaultMinutes = [0,30];
