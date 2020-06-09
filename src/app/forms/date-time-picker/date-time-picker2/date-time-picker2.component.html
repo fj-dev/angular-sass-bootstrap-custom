@@ -1,20 +1,26 @@
 <div class="input-group my-datetime">
-    <input 
-      class="form-control form-control-sm" 
-      (blur)="inputBlur($event)" 
-      placeholder="{{inputDatetimeFormat}}" 
-      [ngModel]="dateString | date:inputDatetimeFormat" 
-      (change)="onInputChange($event)" />
+  <input 
+    class="form-control form-control-sm" 
+    (blur)="inputBlur($event)" 
+    [placeholder]="placeholder" 
+    [ngModel]="date | date: inputDatetimeFormat" 
+    (change)="onInputChange($event)"
+  />
 
-    <div class="input-group-append">
-        <button class="btn btn-sm btn-outline-secondary" [ngbPopover]="calendarContent" placement="bottom-right" type="button">
-            <fa-icon [icon]="['far', 'calendar-alt']"></fa-icon>
-        </button>
-    </div>
+  <div class="input-group-append">
+    <button 
+      class="btn btn-sm btn-outline-secondary"
+      [ngbPopover]="calendarContent"
+      placement="bottom-right"
+      type="button"
+    >
+      <fa-icon [icon]="['far', 'calendar-alt']"></fa-icon>
+    </button>
+  </div>
 </div>
 
 <ng-template #calendarContent>
-  <ngb-datepicker 
+  <!--<ngb-datepicker 
       #dp 
       name="datepicker"
       [ngModel]="datetime"
@@ -25,5 +31,20 @@
     (change)="onTimeChange($event)"
     (add)="onTimeAdd($event)">
     <ng-option *ngFor="let opt of timeOptions" [value]="opt.value">{{opt.label}}</ng-option>
-  </ng-select>
+  </ng-select>-->
+  <div>
+    <ngb-datepicker
+      #dp
+      name="datepicker"
+      [(ngModel)]="dateStruct"
+      (ngModelChange)="onDateChange($event)"
+    ></ngb-datepicker>
+    <ng-select
+      placeholder="HH:MM"
+      [(ngModel)]="timeStruct"
+      (ngModelChange)="onTimeChange($event)"
+      (add)="onTimeAdd($event)">
+      <ng-option *ngFor="let opt of timeOptions" [value]="opt.value">{{opt.label}}</ng-option>
+    </ng-select>
+  </div>
 </ng-template>
