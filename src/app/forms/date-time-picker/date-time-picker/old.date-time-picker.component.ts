@@ -5,19 +5,19 @@ import { DatePipe } from '@angular/common';
 import { DateTimeModel } from './date-time.model';
 
 @Component({
-    selector: 'date-time-picker',
+    selector: 'old-date-time-picker',
     templateUrl: './date-time-picker.component.html',
     styleUrls: ['./date-time-picker.component.scss'],
     providers: [
         DatePipe,
         {
             provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => DateTimePickerComponent),
+            useExisting: forwardRef(() => OldDateTimePickerComponent),
             multi: true
         }
     ]
 })
-export class DateTimePickerComponent implements ControlValueAccessor, OnInit, AfterViewInit {
+export class OldDateTimePickerComponent implements ControlValueAccessor, OnInit, AfterViewInit {
     @Input()
     dateString: string;
 

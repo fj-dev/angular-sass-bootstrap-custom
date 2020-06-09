@@ -7,7 +7,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { MyFormsComponent } from './forms.component';
-import { DateTimePickerComponent } from './date-time-picker/date-time-picker.component';
+import { DateTimePickerComponent } from './date-time-picker/date-time-picker/date-time-picker.component';
 import { DateTimePickerComponent2 } from './date-time-picker/date-time-picker2/date-time-picker2.component';
 import { NgbTime } from '@ng-bootstrap/ng-bootstrap/timepicker/ngb-time';
 
