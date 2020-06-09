@@ -191,18 +191,7 @@ export class DateTimePickerComponent2 implements ControlValueAccessor, OnInit {
       console.log('onTimeAdd', evt);
     }
 
-    setDateStringModel() {
-      /*  this.dateString = this.datetime.toString();
-
-        if (!this.firstTimeAssign) {
-            this.onChange(this.dateString);
-        } else {
-            // Skip very first assignment to null done by Angular
-            if (this.dateString !== null) {
-                this.firstTimeAssign = false;
-            }
-        }
-      */
+  setDateStringModel() {
     if (!this.timeStruct) {
       const dateA = new Date();
       this.timeStruct = {
