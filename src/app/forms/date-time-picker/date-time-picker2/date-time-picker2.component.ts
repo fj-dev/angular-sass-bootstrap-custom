@@ -1,130 +1,127 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  forwardRef,
-  ViewChild
-} from '@angular/core';
+import { Component, OnInit, Input, forwardRef, ViewChild } from "@angular/core";
 import {
   NgbTimeStruct,
   NgbDateStruct,
   NgbPopoverConfig,
   NgbPopover,
   NgbDatepicker
-} from '@ng-bootstrap/ng-bootstrap';
-import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-import { DatePipe } from '@angular/common';
-//import { DateTimeModel } from '../date-time-picker/date-time.model';
+} from "@ng-bootstrap/ng-bootstrap";
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from "@angular/forms";
+import { DatePipe } from "@angular/common";
 
 export interface ITime extends NgbTimeStruct {
   timeString: string;
 }
 
-const defaultHours = new Array(24).fill(0).map((x, i) => {return x+i;});
-const defaultMinutes = [0,30];
+const defaultHours = new Array(24).fill(0).map((x, i) => {
+  return x + i;
+});
+const defaultMinutes = [0, 30];
 const defaultTimes = new Array(48).fill({}).map((obj, idx) => {
-      const h = (idx % 2 === 0) ? defaultHours[idx / 2] : defaultHours[(idx - 1) / 2];
-      return {hour: h, minute: defaultMinutes[idx % 2], second: 0};
-    });
+  const h = idx % 2 === 0 ? defaultHours[idx / 2] : defaultHours[(idx - 1) / 2];
+  const m = defaultMinutes[idx % 2];
+  return { hour: h, minute: m, second: 0 };
+});
 
 @Component({
-    selector: 'date-time-picker2',
-    templateUrl: './date-time-picker2.component.html',
-    styleUrls: ['./date-time-picker2.component.scss'],
-    providers: [
-        DatePipe,
-        {
-            provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => DateTimePickerComponent2),
-            multi: true
-        }
-    ]
+  selector: "date-time-picker2",
+  templateUrl: "./date-time-picker2.component.html",
+  styleUrls: ["./date-time-picker2.component.scss"],
+  providers: [
+    DatePipe,
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => DateTimePickerComponent2),
+      multi: true
+    }
+  ]
 })
 export class DateTimePickerComponent2 implements ControlValueAccessor, OnInit {
-    //@Input() dateString: string;
-    @Input()
-    inputDatetimeFormat = 'M/d/yyyy H:mm';
-    @Input()
-    placeholder: string = "MM/dd/yyyy HH:mm";
-    
-    //private hourOptions = new Array(24).fill(0).map((x, i) => {return x+i;});
-    //private minutesOptions = [0,30];
-    private timeOptions = defaultTimes.map(x => {
-      const newStr = x.hour.toString().padStart(2,0) + ':' + x.minute.toString().padStart(2,0);
-      
-      return {label: newStr, value: x};
-    });
+  //@Input() dateString: string;
+  @Input()
+  inputDatetimeFormat = "MM/dd/yyyy HH:mm";
+  @Input()
+  placeholder: string = "MM/dd/yyyy HH:mm";
 
-    //private datetime: DateTimeModel = new DateTimeModel();
-    //private firstTimeAssign = true;
+  //private hourOptions = new Array(24).fill(0).map((x, i) => {return x+i;});
+  //private minutesOptions = [0,30];
+  private timeOptions = defaultTimes.map(x => {
+    return {
+      hour: x.hour,
+      minute: x.minute,
+      second: x.second,
+      timeString:
+        x.hour.toString().padStart(2, 0) +
+        ":" +
+        x.minute.toString().padStart(2, 0)
+    };
+  });
 
-    @ViewChild(NgbDatepicker, {static: true})
-    private dp: NgbDatepicker;
+  @ViewChild(NgbDatepicker, { static: true })
+  private dp: NgbDatepicker;
 
-    @ViewChild(NgbPopover, {static: true})
-    private popover: NgbPopover;
+  @ViewChild(NgbPopover, { static: true })
+  private popover: NgbPopover;
 
-    private onTouched: any = () => { };
-    private onChange: any = (_: any) => { };
+  private onTouched: any = () => {};
+  private onChange: any = (_: any) => {};
 
-    dateStruct: NgbDateStruct;
-    timeStruct: ITime;
-    date: Date;
+  dateStruct: NgbDateStruct;
+  timeStruct: ITime;
+  date: Date;
 
-    set dateTime(val) {
-      if (val !== undefined && this.date !== val) {
-        this.date = val;
-        this.onChange(val);
-        this.onTouched(val);
-      }
+  set dateTime(val) {
+    if (val !== undefined && this.date !== val) {
+      this.date = val;
+      this.onChange(val);
+      this.onTouched(val);
     }
+  }
 
-    constructor(private config: NgbPopoverConfig) {
-        config.autoClose = 'outside';
-        config.placement = 'auto';
+  constructor(private config: NgbPopoverConfig) {
+    config.autoClose = "outside";
+    config.placement = "auto";
+  }
+
+  ngOnInit(): void {}
+
+  writeValue(newModel: string) {
+    if (newModel) {
+      const myDate = new Date(newModel);
+
+      this.dateStruct = {
+        year: myDate.getFullYear(),
+        month: myDate.getMonth() + 1,
+        day: myDate.getDate()
+      };
+
+      this.timeStruct = {
+        hour: myDate.getHours(),
+        minute: myDate.getMinutes(),
+        second: 0,
+        timeString:
+          myDate
+            .getHours()
+            .toString()
+            .padStart(2, 0) +
+          ":" +
+          myDate.getMinutes().toString.padStart(2, 0)
+      };
+
+      this.setDateStringModel();
     }
+  }
 
-    ngOnInit(): void {
-    }
+  registerOnChange(fn: any) {
+    this.onChange = fn;
+  }
 
-    writeValue(newModel: string) {
-        /*if (newModel) {
-            this.datetime = Object.assign(this.datetime, DateTimeModel.fromLocalString(newModel));
-            this.dateString = newModel;
-            this.setDateStringModel();
-        } else {
-            this.datetime = new DateTimeModel();
-        }*/
-      if (newModel) {
-        const myDate = new Date(newModel);
+  registerOnTouched(fn: any) {
+    this.onTouched = fn;
+  }
 
-        this.dateStruct = {
-          year: myDate.getFullYear(),
-          month: myDate.getMonth() + 1,
-          day: myDate.getDate()
-        };
-
-        this.timeStruct = {
-          hour: myDate.getHours(),
-          minute: myDate.getMinutes(),
-          second: 0,
-          timeString: myDate.getHours().toString().padStart(2,0) + ':' + myDate.getMinutes().toString.padStart(2,0)
-        };
-
-        this.setDateStringModel();
-      }
-    }
-
-    registerOnChange(fn: any) {
-        this.onChange = fn;
-    }
-
-    registerOnTouched(fn: any) {
-        this.onTouched = fn;
-    }
-
-    onInputChange($event: any) {
-      /*  const value = $event.target.value;
+  onInputChange($event: any) {
+    /*  const value = $event.target.value;
         const dt = DateTimeModel.fromLocalString(value);
 
         if (dt) {
@@ -137,68 +134,37 @@ export class DateTimePickerComponent2 implements ControlValueAccessor, OnInit {
         } else {
               this.onChange(value);
         }*/
-    }
+  }
 
-    onDateChange($event) {        
-        /*if ($event.year){
-          $event = `${$event.year}-${$event.month}-${$event.day}`
-        }
+  onDateChange($event) {
+    this.setDateStringModel();
+  }
 
-        const date = DateTimeModel.fromLocalString($event);
-   
-        if (!date) {
-            this.dateString = this.dateString;
-            return;
-        }
+  onTimeChange($event) {
+    this.setDateStringModel();
+  }
 
-        if (!this.datetime) {
-            this.datetime = date;
-        }
-
-        this.datetime.year = date.year;
-        this.datetime.month = date.month;
-        this.datetime.day = date.day;
-
-        if (this.dp) {
-          this.dp.navigateTo({ year: this.datetime.year, month: this.datetime.month });
-          console.log('navigated');
-        }
-        console.log('test');
-        this.setDateStringModel();*/
-      this.setDateStringModel();
-    }
-
-    onTimeChange($event: string) {
-      console.log('onTimeChange',$event);
-        /*this.datetime.hour = event.hour;
-        this.datetime.minute = event.minute;
-        this.datetime.second = event.second;
-
-        console.log('onTimeChange',event);
-
-        this.setDateStringModel();*/
-      /*const newTime = $event.split(':').map(x=>parseInt(x, 10));
-      this.timeStruct = {
+  addTagFn(timeValue) {
+    const newTime = timeValue.split(":").map(x => parseInt(x, 10));
+    if (newTime.length < 2) {
+      return false;
+    } else {
+      return {
         hour: newTime[0],
         minute: newTime[1],
         second: 0,
-        timeString: $event
-      }*/
-      this.setDateStringModel();
+        timeString: timeValue
+      };
     }
-
-    onTimeAdd(evt) {
-      console.log('onTimeAdd', evt);
-    }
+  }
 
   setDateStringModel() {
     if (!this.timeStruct) {
-      const dateA = new Date();
       this.timeStruct = {
-        hour: dateA.getHours(),
-        minute: dateA.getMinutes(),
+        hour: 0,
+        minute: 0,
         second: 0,
-        timeString: dateA.getHours().toString().padStart(2,0) + ':' + dateA.getMinutes().toString.padStart(2,0)
+        timeString: "00:00"
       };
     }
 
@@ -209,12 +175,17 @@ export class DateTimePickerComponent2 implements ControlValueAccessor, OnInit {
         this.dateStruct.day,
         this.timeStruct.hour,
         this.timeStruct.minute,
-        this.timeStruct.second
+        this.timeStruct.second,
+        0
       );
-
-      //this.onChange(this.date);
-      this.dateTime = this.date;
+    } else {
+      this.date = new Date();
+      this.date.setHours(this.timeStruct.hour);
+      this.date.setMinutes(this.timeStruct.minute);
+      this.date.setSeconds(this.timeStruct.second);
+      this.date.setMilliseconds(0);
     }
+    this.dateTime = this.date;
   }
 
   inputBlur($event) {

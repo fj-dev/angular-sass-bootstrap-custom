@@ -20,18 +20,6 @@
 </div>
 
 <ng-template #calendarContent>
-  <!--<ngb-datepicker 
-      #dp 
-      name="datepicker"
-      [ngModel]="datetime"
-      (dateSelect)="onDateChange($event)"></ngb-datepicker>
-  <ng-select
-    placeholder="HH:MM"
-    [(ngModel)]="datetime"
-    (change)="onTimeChange($event)"
-    (add)="onTimeAdd($event)">
-    <ng-option *ngFor="let opt of timeOptions" [value]="opt.value">{{opt.label}}</ng-option>
-  </ng-select>-->
   <div>
     <ngb-datepicker
       #dp
@@ -43,8 +31,11 @@
       placeholder="HH:MM"
       [(ngModel)]="timeStruct"
       (ngModelChange)="onTimeChange($event)"
-      (add)="onTimeAdd($event)">
-      <ng-option *ngFor="let opt of timeOptions" [value]="opt.value">{{opt.label}}</ng-option>
-    </ng-select>
+      [addTag]="addTagFn"
+      [clearable]="false"
+      [items]="timeOptions"
+      bindLabel="timeString"
+      addTagText="">
+    </ng-select>    
   </div>
 </ng-template>
