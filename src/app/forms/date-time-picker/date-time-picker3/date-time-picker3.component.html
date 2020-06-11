@@ -50,11 +50,19 @@
       </span>
     </div>
     <div class="col pl-0">
-      <select class="custom-select custom-select-sm text-sm-left w-auto select-minute">
+      <!--
+      <select class="custom-select custom-select-sm text-sm-left w-auto select-minute">   
         <option *ngFor="let m of defaultMinutes" value="m">
           {{m.toString().padStart(2,0)}}
         </option>
       </select>
+      -->
+      <input list="minute-options" class="custom-select custom-select-sm text-sm-left w-auto select-minute"/>
+      <datalist id="minute-options">
+        <option *ngFor="let m of defaultMinutes" value="m">
+          {{m.toString().padStart(2,0)}}
+        </option>
+      </datalist>
     </div>
   </div>
 
