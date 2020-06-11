@@ -1,0 +1,61 @@
+<div class="input-group my-datetime">
+  <input 
+    class="form-control form-control-sm" 
+    (blur)="inputBlur($event)" 
+    [placeholder]="placeholder" 
+    [ngModel]="date | date: inputDatetimeFormat" 
+    (change)="onInputChange($event)"
+  />
+
+  <div class="input-group-append">
+    <button 
+      class="btn btn-sm btn-outline-secondary"
+      [ngbPopover]="calendarContent"
+      placement="bottom-right"
+      type="button"
+    >
+      <fa-icon [icon]="['far', 'calendar-alt']"></fa-icon>
+    </button>
+  </div>
+</div>
+
+<ng-template #calendarContent>
+  <div>
+    <ngb-datepicker
+      #dp
+      name="datepicker"
+      [(ngModel)]="dateStruct"
+      (ngModelChange)="onDateChange($event)"
+      [footerTemplate]="footerTemplate"
+    ></ngb-datepicker> 
+  </div>
+</ng-template>
+
+<ng-template #footerTemplate>
+  <hr class="my-0"/>
+  <div class="row p-1">
+    <div class="col">
+      <span class="ml-1 font-weight-bold align-middle">Time</span>
+    </div>
+    <div class="col pr-0">
+      <select class="custom-select custom-select-sm select-hour text-sm-left w-auto">
+        <option *ngFor="let h of defaultHours" value="h">
+          {{h.toString().padStart(2,0)}}
+        </option>
+      </select>
+    </div>
+    <div class="col-sm-1 px-0 text-center">
+      <span class="font-weight-bold">
+        :
+      </span>
+    </div>
+    <div class="col pl-0">
+      <select class="custom-select custom-select-sm text-sm-left w-auto select-minute">
+        <option *ngFor="let m of defaultMinutes" value="m">
+          {{m.toString().padStart(2,0)}}
+        </option>
+      </select>
+    </div>
+  </div>
+
+</ng-template>

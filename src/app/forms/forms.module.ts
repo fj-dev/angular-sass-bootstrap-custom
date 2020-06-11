@@ -9,6 +9,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MyFormsComponent } from './forms.component';
 import { DateTimePickerComponent } from './date-time-picker/date-time-picker/date-time-picker.component';
 import { DateTimePickerComponent2 } from './date-time-picker/date-time-picker2/date-time-picker2.component';
+import { DateTimePickerComponent3 } from './date-time-picker/date-time-picker3/date-time-picker3.component';
+
 import { NgbTime } from '@ng-bootstrap/ng-bootstrap/timepicker/ngb-time';
 
 @NgModule({
@@ -23,11 +25,13 @@ import { NgbTime } from '@ng-bootstrap/ng-bootstrap/timepicker/ngb-time';
   declarations: [
     DateTimePickerComponent,
     DateTimePickerComponent2,
+    DateTimePickerComponent3,
     MyFormsComponent
   ],
   exports: [
    DateTimePickerComponent,
    DateTimePickerComponent2,
+   DateTimePickerComponent3,
    MyFormsComponent
   ]
 })
