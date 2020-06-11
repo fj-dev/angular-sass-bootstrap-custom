@@ -186,6 +186,14 @@ $theme-colors: (
     background-color: rgba(255, 255, 255, 0.75);
   }
 }
+.form-inline .custom-select,
+.form-inline .input-group {
+  width: auto;
+}
+.custom-select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
 
 // Navs ========================================================================
 
