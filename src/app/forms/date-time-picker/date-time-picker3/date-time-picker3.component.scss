@@ -1,4 +1,20 @@
+@import "../../../.././vars.scss";
 .select-hour, .select-minute {
   height: 1.5rem;
   padding-top: 0px;
+}
+
+.calendar-content {
+  //background-color: $gray-100;
+  ::ng-deep ngb-datepicker .btn-light {
+    color: $info;
+    &:hover {
+      background-color: rgba($light,0.2);
+      background-image: none;
+      color: $info;
+    }
+  }
+  .footer-hr {
+    border-color: $gray-700;
+  }
 }
