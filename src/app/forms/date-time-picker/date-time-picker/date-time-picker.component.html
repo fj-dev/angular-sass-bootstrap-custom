@@ -22,22 +22,23 @@
 </div>
 
 <ng-template #calendarContent>
-  <div>
-    <div>
-      <ngb-datepicker
-        #dp
-        name="datepicker"
-        [(ngModel)]="dateStruct"
-        (ngModelChange)="onDateChange($event)"
-      ></ngb-datepicker>
-      <ngb-timepicker
-        [seconds]="false"
-        #tp
-        name="timepicker"
-        [(ngModel)]="timeStruct"
-        (ngModelChange)="onTimeChange($event)"
-        [minuteStep]="30"
-      ></ngb-timepicker>
-    </div>
+  <div class="calendar-content">
+    <ngb-datepicker
+      #dp
+      name="datepicker"
+      [(ngModel)]="dateStruct"
+      (ngModelChange)="onDateChange($event)"
+      [footerTemplate]="footerTemplate"
+    ></ngb-datepicker>
   </div>
+</ng-template>
+<ng-template #footerTemplate>
+  <ngb-timepicker
+      [seconds]="false"
+      #tp
+      name="timepicker"
+      [(ngModel)]="timeStruct"
+      (ngModelChange)="onTimeChange($event)"
+      [minuteStep]="30"
+    ></ngb-timepicker>
 </ng-template>

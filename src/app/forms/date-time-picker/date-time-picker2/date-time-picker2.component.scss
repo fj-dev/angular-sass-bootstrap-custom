@@ -1,0 +1,22 @@
+@import "../../../.././vars.scss";
+
+.calendar-content {
+  ::ng-deep ngb-datepicker .btn-light {
+    color: $secondary;
+    &:hover {
+      background-color: rgba($light,0.2);
+      background-image: none;
+      color: $info;
+    }
+  }
+  .footer-hr {
+    border-color: $gray-700;
+  }
+  ::ng-deep .ng-select-container {
+    height: 1.5rem;
+    min-height: 1.5rem;
+    .ng-value-container .ng-input {
+      top: unset !important;
+    }
+  }
+}

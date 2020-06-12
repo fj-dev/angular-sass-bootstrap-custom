@@ -12,30 +12,40 @@
       class="btn btn-sm btn-outline-secondary"
       [ngbPopover]="calendarContent"
       placement="bottom-right"
-      type="button"
-    >
+      type="button">
       <fa-icon [icon]="['far', 'calendar-alt']"></fa-icon>
     </button>
   </div>
 </div>
 
 <ng-template #calendarContent>
-  <div>
+  <div class="calendar-content">
     <ngb-datepicker
       #dp
       name="datepicker"
       [(ngModel)]="dateStruct"
       (ngModelChange)="onDateChange($event)"
-    ></ngb-datepicker>
-    <ng-select
-      placeholder="HH:MM"
-      [(ngModel)]="timeStruct"
-      (ngModelChange)="onTimeChange($event)"
-      [addTag]="addTagFn"
-      [clearable]="false"
-      [items]="timeOptions"
-      bindLabel="timeString"
-      addTagText="">
-    </ng-select>    
+      [footerTemplate]="footerTemplate"
+    ></ngb-datepicker>        
+  </div>
+</ng-template>
+<ng-template #footerTemplate>
+  <hr class="my-0 footer-hr"/>
+  <div class="row p-1">
+    <div class="col">
+      <span class="m1-1 font-weight-bold align-middle">Time</span>
+    </div>
+    <div class="col">
+      <ng-select
+        placeholder="HH:MM"
+        [(ngModel)]="timeStruct"
+        (ngModelChange)="onTimeChange($event)"
+        [addTag]="addTagFn"
+        [clearable]="false"
+        [items]="timeOptions"
+        bindLabel="timeString"
+        addTagText="">
+      </ng-select>
+    </div>
   </div>
 </ng-template>
