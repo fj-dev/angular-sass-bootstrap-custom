@@ -45,13 +45,18 @@ export class DateTimePickerComponent3 implements ControlValueAccessor, OnInit {
   private onChange: any = (_: any) => {};
 
   dateStruct: NgbDateStruct;
-  timeStruct: ITime;
+  timeStruct: ITime = {
+    hour: null,
+    minute: null,
+    second: null,
+    timeString: null
+  };
   date: Date;
 
   defaultHours = new Array(24).fill(0).map((x, i) => {
-    return x + i;
+    return {value: x + i, label: (x + i).toString().padStart(2,0)};
   });
-  defaultMinutes = [0, 30];
+  defaultMinutes = [0, 30].map(x=>{return {value: x, label: x.toString().padStart(2,0)};});
 
   set dateTime(val) {
     if (val !== undefined && this.date !== val) {
@@ -124,11 +129,12 @@ export class DateTimePickerComponent3 implements ControlValueAccessor, OnInit {
   }
 
   onTimeChange($event) {
-    this.setDateStringModel();
+    console.log('onTimeChange', $event)
+    //this.setDateStringModel();
   }
 
-  addTagFn(timeValue) {
-    const newTime = timeValue.split(":").map(x => parseInt(x, 10));
+  addTagFn(val) {
+    /*const newTime = timeValue.split(":").map(x => parseInt(x, 10));
     if (newTime.length < 2) {
       return false;
     } else {
@@ -138,7 +144,11 @@ export class DateTimePickerComponent3 implements ControlValueAccessor, OnInit {
         second: 0,
         timeString: timeValue
       };
+    }*/
+    if (isNaN(val)) {
+      return false;
     }
+    return {value: parseInt(val, 10), label: val.toString().padStart(2,0)};
   }
 
   setDateStringModel() {

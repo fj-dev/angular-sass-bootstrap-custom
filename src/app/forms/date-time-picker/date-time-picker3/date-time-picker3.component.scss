@@ -17,4 +17,11 @@
   .footer-hr {
     border-color: $gray-700;
   }
+  ::ng-deep .ng-select-container {
+    height: 1.5rem;
+    min-height: 1.5rem;
+    .ng-value-container .ng-input {
+      top: unset !important;
+    }
+  }
 }

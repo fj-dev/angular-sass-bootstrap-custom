@@ -38,11 +38,21 @@
       <span class="ml-1 font-weight-bold align-middle">Time</span>
     </div>
     <div class="col pr-0">
+      <!--
       <select class="custom-select custom-select-sm select-hour text-sm-left w-auto">
         <option *ngFor="let h of defaultHours" value="h">
           {{h.toString().padStart(2,0)}}
         </option>
       </select>
+      -->
+      <ng-select
+        placeholder="HH"
+        [(ngModel)]="timeStruct.hour"
+        (ngModelChange)="onTimeChange($event)"
+        notFoundText=""
+        [clearable]="false"
+        [items]="defaultHours">
+      </ng-select>
     </div>
     <div class="col-sm-1 px-0 text-center">
       <span class="font-weight-bold">
@@ -57,12 +67,22 @@
         </option>
       </select>
       -->
-      <input list="minute-options" class="custom-select custom-select-sm text-sm-left w-auto select-minute"/>
+      <!--<input list="minute-options" class="custom-select custom-select-sm text-sm-left w-auto select-minute"/>
       <datalist id="minute-options">
         <option *ngFor="let m of defaultMinutes" value="m">
           {{m.toString().padStart(2,0)}}
         </option>
       </datalist>
+      -->
+      <ng-select
+        placeholder="MM"
+        [(ngModel)]="timeStruct.minute"
+        (ngModelChange)="onTimeChange($event)"
+        [addTag]="addTagFn"
+        [clearable]="false"
+        [items]="defaultMinutes"
+        addTagText="">
+      </ng-select>
     </div>
   </div>
 
