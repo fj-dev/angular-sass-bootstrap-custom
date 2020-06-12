@@ -4,8 +4,7 @@ import {
   Input,
   forwardRef,
   ViewChild,
-  AfterViewInit,
-  Injector
+  AfterViewInit
 } from '@angular/core';
 import {
   NgbTimeStruct,
@@ -16,8 +15,7 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 import {
   NG_VALUE_ACCESSOR,
-  ControlValueAccessor,
-  NgControl
+  ControlValueAccessor
 } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 
@@ -66,22 +64,18 @@ export class DateTimePickerComponent implements ControlValueAccessor, OnInit, Af
     }
   }
   
-  constructor(private config: NgbPopoverConfig/*, private inj: Injector*/) {
+  constructor(private config: NgbPopoverConfig) {
     config.autoClose = 'outside';
     config.placement = 'auto';
   }
 
-  ngOnInit(): void {
-    // tslint:disable-next-line: deprecation
-    //this.ngControl = this.inj.get(NgControl);
-  }
+  ngOnInit(): void { }
 
   ngAfterViewInit(): void {
   }
 
   writeValue(newModel: string) {
     if (newModel) {
-      //const myDate = moment(newModel).toDate();
       const myDate = new Date(newModel);
 
       this.dateStruct = {
@@ -138,7 +132,6 @@ export class DateTimePickerComponent implements ControlValueAccessor, OnInit, Af
         this.timeStruct.second
       );
 
-      //this.onChange(this.date);
       this.dateTime = this.date;
     }
   }

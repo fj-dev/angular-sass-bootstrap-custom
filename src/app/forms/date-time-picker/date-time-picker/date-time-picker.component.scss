@@ -3,17 +3,17 @@
 
 .calendar-content {
   ::ng-deep ngb-datepicker .btn-light {
-    color: $secondary;
+    color: $info;
     &:hover {
       background-color: rgba($light,0.2);
       background-image: none;
       color: $info;
     }
+  }
   
-  ::ng-deep ngb-timepicker {
-    .ngb-tp {
-      justify-content: center;
-    }
+  ::ng-deep ngb-timepicker .ngb-tp {
+    justify-content: center !important;
+
     .ngb-tp-input-container {
       width: auto;
     }
@@ -25,6 +25,5 @@
       height: 1.5rem;
     }
     
-  }
   }
 }
