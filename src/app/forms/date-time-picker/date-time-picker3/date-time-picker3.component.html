@@ -47,8 +47,8 @@
       -->
       <ng-select
         placeholder="HH"
-        [(ngModel)]="timeStruct.hour"
-        (ngModelChange)="onTimeChange($event)"
+        [(ngModel)]="timeStructHour"
+        (ngModelChange)="onHourChange($event)"
         notFoundText=""
         [clearable]="false"
         [items]="defaultHours">
@@ -76,8 +76,8 @@
       -->
       <ng-select
         placeholder="MM"
-        [(ngModel)]="timeStruct.minute"
-        (ngModelChange)="onTimeChange($event)"
+        [(ngModel)]="timeStructMinute"
+        (ngModelChange)="onMinuteChange($event)"
         [addTag]="addTagFn"
         [clearable]="false"
         [items]="defaultMinutes"

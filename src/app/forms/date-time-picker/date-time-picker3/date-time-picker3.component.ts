@@ -51,10 +51,22 @@ export class DateTimePickerComponent3 implements ControlValueAccessor, OnInit {
     second: null,
     timeString: null
   };
+
+  timeStructHour: {
+    value: number, 
+    label: string
+  } = null;
+
+  timeStructMinute: {
+    value: number,
+    label: string
+  } = null;
+
   date: Date;
 
   defaultHours = new Array(24).fill(0).map((x, i) => {
-    return {value: x + i, label: (x + i).toString().padStart(2,0)};
+    const h = x + i;
+    return {value: h, label: h.toString().padStart(2,0)};
   });
   defaultMinutes = [0, 30].map(x=>{return {value: x, label: x.toString().padStart(2,0)};});
 
@@ -128,23 +140,20 @@ export class DateTimePickerComponent3 implements ControlValueAccessor, OnInit {
     this.setDateStringModel();
   }
 
-  onTimeChange($event) {
-    console.log('onTimeChange', $event)
-    //this.setDateStringModel();
+  onHourChange($event) {
+    this.timeStruct.hour = $event.value;
+    if (this.timeStruct.minute !== null) {
+      this.setDateStringModel();
+    }
+  }
+  onMinuteChange($event) {
+    this.timeStruct.minute = $event.value;
+    if (this.timeStruct.hour !== null) {
+      this.setDateStringModel();
+    }
   }
 
   addTagFn(val) {
-    /*const newTime = timeValue.split(":").map(x => parseInt(x, 10));
-    if (newTime.length < 2) {
-      return false;
-    } else {
-      return {
-        hour: newTime[0],
-        minute: newTime[1],
-        second: 0,
-        timeString: timeValue
-      };
-    }*/
     if (isNaN(val)) {
       return false;
     }
