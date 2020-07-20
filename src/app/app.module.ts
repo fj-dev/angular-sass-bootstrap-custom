@@ -36,6 +36,7 @@ import { MyDialogsModule } from './dialogs/dialogs.module';
 import { MyButtonsModule } from './buttons/buttons.module';
 import { MyFormsModule } from './forms/forms.module';
 import { MyNavsModule } from './navs/navs.module';
+import { MyCalendarModule } from './calendar/calendar.module';
 
 import { MyNavbarComponent } from './my-navbar/my-navbar.component';
 import { CustomButtonsComponent } from './custom-buttons/custom-buttons.component';
@@ -48,12 +49,13 @@ import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
     FormsModule, 
     NgbModule,
     FontAwesomeModule,
+    FullCalendarModule,
     NgSelectModule,
     MyButtonsModule,
     MyDialogsModule,
     MyNavsModule,
     MyFormsModule,
-    FullCalendarModule,
+    MyCalendarModule,
     AppRoutingModule
   ],
   exports: [
@@ -65,7 +67,7 @@ import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
     MyNavbarComponent,
     CustomButtonsComponent,
     MyThemeComponent,
-    MyDashboardComponent
+    MyDashboardComponent,    
   ],
   bootstrap:    [ AppComponent ]
 })
