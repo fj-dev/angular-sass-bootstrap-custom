@@ -22,20 +22,23 @@ export class MockEvents {
         title: 'Multi-Day Event',
         start: new Date(this.dt.getFullYear(), this.dt.getMonth(), this.dt.getDate()-11, 7, 0),
         end: new Date(this.dt.getFullYear(), this.dt.getMonth(), this.dt.getDate()-7, 16, 30),
-        className: 'multi-day'
+        className: 'multi-day',
+        extendedProps: {multiDay: true}
       },
       {
         title: 'All Day Event',
         start: new Date(this.dt.getFullYear(), this.dt.getMonth(), this.dt.getDate()+3, 0, 0),
         allDay: true,
-        className: 'all-day'
+        className: 'all-day',
+        extendedProps: {allDay: true}
       },
       {
         title: 'Multi-Day All Day Event',
         start: new Date(this.dt.getFullYear(), this.dt.getMonth(), this.dt.getDate()+7, 0, 0),
         end: new Date(this.dt.getFullYear(), this.dt.getMonth(), this.dt.getDate()+9, 0, 0),
         allDay: true,
-        className: 'multi-day all-day'
+        className: 'all-day',
+        extendedProps: {multiDay: true, allDay: true}
       },
     ];
   }
