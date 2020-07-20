@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FullCalendarModule } from '@fullcalendar/angular';
 
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
@@ -52,6 +53,7 @@ import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
     MyDialogsModule,
     MyNavsModule,
     MyFormsModule,
+    FullCalendarModule,
     AppRoutingModule
   ],
   exports: [
