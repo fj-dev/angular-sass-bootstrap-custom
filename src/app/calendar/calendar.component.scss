@@ -15,18 +15,26 @@
   }
   .fc-view-container {
     .fc-event {
-    background-color: $primary;
-    border-color: $primary;
-    color: $light;
-  }
+      background-color: $primary;
+      border-color: $primary;
+      color: $light;
 
-  .fc-today {
-    background-color: rgba($light, 0.2);
-  }
+      &.reg-event .fc-content {
+        text-overflow: ellipsis;
+      }
+      &.long-title .fc-content {
+        overflow-wrap: break-word;
+        overflow: visible;
+        white-space: normal;
+      }
+    }
 
-  .fc-head, .fc-widget-header, .fc-row, .fc-body, .fc-widget-content {
-    border-color: $secondary;
-  }
-  }
-  
+    .fc-today {
+      background-color: rgba($light, 0.2);
+    }
+
+    .fc-head, .fc-widget-header, .fc-row, .fc-body, .fc-widget-content {
+      border-color: $secondary;
+    }
+  }  
 }
