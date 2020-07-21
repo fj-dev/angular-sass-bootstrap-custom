@@ -33,6 +33,13 @@ export class MockEvents {
         extendedProps: {allDay: true}
       },
       {
+        title: 'All Day Event #2',
+        start: new Date(this.dt.getFullYear(), this.dt.getMonth(), this.dt.getDate()+7, 0, 0),
+        allDay: true,
+        className: 'all-day',
+        extendedProps: {allDay: true}
+      },
+      {
         title: 'Multi-Day All Day Event',
         start: new Date(this.dt.getFullYear(), this.dt.getMonth(), this.dt.getDate()+7, 0, 0),
         end: new Date(this.dt.getFullYear(), this.dt.getMonth(), this.dt.getDate()+9, 0, 0),
