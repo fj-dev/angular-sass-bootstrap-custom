@@ -61,7 +61,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
 
   onEventRender(arg) {
     // this.logMsg('eventRender: ' + arg.event.title);
-    if (arg.event.extendedProps.multiDay && !arg.event.extendedProps.allDay) {
+    if (arg.view.type === 'dayGridMonth' && arg.event.extendedProps.multiDay && !arg.event.extendedProps.allDay) {
       //this.logMsg('eventRender', arg.event.start.getHours());
       const startTime = arg.event.start.getHours().toString().padStart(2,0) + ':' + arg.event.start.getMinutes().toString().padStart(2,0);
       const endTime = arg.event.end.getHours().toString().padStart(2,0) + ':' + arg.event.end.getMinutes().toString().padStart(2,0);
