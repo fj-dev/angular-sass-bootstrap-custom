@@ -61,6 +61,24 @@ export class MockEvents {
         className: 'all-day',
         extendedProps: {multiDay: true, allDay: true}
       },
+      {
+        title: 'Overlap Event #1',
+        start: new Date(this.dt.getFullYear(), this.dt.getMonth(), 28, 14, 0),
+        end: new Date(this.dt.getFullYear(), this.dt.getMonth(), 28, 15, 30),
+        className: 'reg-event'
+      },
+      {
+        title: 'Overlap Event #2',
+        start: new Date(this.dt.getFullYear(), this.dt.getMonth(), 28, 14, 30),
+        end: new Date(this.dt.getFullYear(), this.dt.getMonth(), 28, 15, 15),
+        className: 'reg-event'
+      },
+      {
+        title: 'Overlap Event #3',
+        start: new Date(this.dt.getFullYear(), this.dt.getMonth(), 28, 14, 30),
+        end: new Date(this.dt.getFullYear(), this.dt.getMonth(), 28, 16, 30),
+        className: 'reg-event'
+      },
     ];
   }
 }
