@@ -16,6 +16,28 @@ import {MockEvents} from './mock-events';
 export class CalendarComponent implements OnInit, AfterViewInit, AfterContentInit {
   @ViewChild('calendar', {static: false}) calendarComponent: FullCalendarComponent;
 
+  calHeader = {
+    left: 'prev,next today',
+    center: 'title',
+    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+  };
+  timeFormat = {
+    hour: '2-digit',
+    minute: '2-digit',
+    meridiem: false,
+    hour12: false
+  };
+  slotFormat = {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+    omitZeroMinute: false,
+    meridiem: false
+  };
+
+  calendarPlugins = [dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin];
+  calendarEvents = this.mockEvents.getData();
+
   constructor(private mockEvents: MockEvents){}
 
   ngOnInit() {
@@ -27,9 +49,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
   ngAfterViewInit() {
     // this.logMsg('...afterViewInit...');
   }
-  calendarPlugins = [dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin];
-  calendarEvents = this.mockEvents.getData();
-
+  
   onViewSkeletonRender(arg) {
     // this.logMsg('viewSkeletonRender', arg);
     // this.logMsg('viewSkeletonRender: ' + arg.view.type);

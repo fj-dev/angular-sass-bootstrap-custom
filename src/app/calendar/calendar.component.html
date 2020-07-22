@@ -1,42 +1,27 @@
 <div class="my-calendar">
-<full-calendar
-  #calendar
-  defaultView="dayGridMonth"
-  [header]="{
-    left: 'prev,next today',
-    center: 'title',
-    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-  }"
-  [allDaySlot]="true"
-  [allDayText]="'All Day'"
-  [slotEventOverlap]="false"
-  [timeGridEventMinHeight]="20"
-  [eventTimeFormat]="{
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false,
-    meridiem: false
-  }"
-  [slotLabelFormat]="{
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false,
-    omitZeroMinute: false,
-    meridiem: false
-  }"
-  [displayEventEnd]="true"
-  [themeSystem]="'bootstrap'"
-  [plugins]="calendarPlugins"
-  [events]="calendarEvents"
-  (dateClick)="onDateClick($event)"
-  (viewSkeletonRender)="onViewSkeletonRender($event)"
-  (viewSkeletonDestroy)="onViewSkeletonDestroy($event)"
-  (datesRender)="onDatesRender($event)"
-  (datesDetroy)="onDatesDestroy($event)"
-  (select)="onSelect($event)"
-  (unselect)="onUnselect($event)"
-  (eventRender)="onEventRender($event)"
-  (eventPositioned)="onEventPositioned($event)"
-  (eventDestroy)="onEventDestroy($event)"
-></full-calendar>
+	<full-calendar
+    #calendar
+    defaultView="dayGridMonth"
+    [header]="calHeader"
+    [allDaySlot]="true"
+    [allDayText]="'All Day'"
+    [slotEventOverlap]="false"
+    [timeGridEventMinHeight]="20"
+		[eventTimeFormat]="timeFormat"
+    [slotLabelFormat]="slotFormat"
+    [displayEventEnd]="true"
+    [themeSystem]="'bootstrap'"
+    [plugins]="calendarPlugins"
+    [events]="calendarEvents"
+		(dateClick)="onDateClick($event)"
+    (viewSkeletonRender)="onViewSkeletonRender($event)"
+		(viewSkeletonDestroy)="onViewSkeletonDestroy($event)"
+    (datesRender)="onDatesRender($event)"
+		(datesDetroy)="onDatesDestroy($event)"
+    (select)="onSelect($event)"
+    (unselect)="onUnselect($event)"
+		(eventRender)="onEventRender($event)"
+    (eventPositioned)="onEventPositioned($event)"
+		(eventDestroy)="onEventDestroy($event)">
+  </full-calendar>
 </div>
