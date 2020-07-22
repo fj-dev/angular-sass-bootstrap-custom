@@ -71,18 +71,13 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
     // this.logMsg('datesDestroy: ' + arg.view.type);
   }
 
-  onSelect(arg) {
+  onSelect(arg) { }
 
-  }
-
-  onUnselect(arg) {
-
-  }
+  onUnselect(arg) { }
 
   onEventRender(arg) {
     // this.logMsg('eventRender: ' + arg.event.title);
     if (arg.view.type === 'dayGridMonth' && arg.event.extendedProps.multiDay && !arg.event.extendedProps.allDay) {
-      //this.logMsg('eventRender', arg.event.start.getHours());
       const startTime = arg.event.start.getHours().toString().padStart(2,0) + ':' + arg.event.start.getMinutes().toString().padStart(2,0);
       const endTime = arg.event.end.getHours().toString().padStart(2,0) + ':' + arg.event.end.getMinutes().toString().padStart(2,0);
       /*let elA = document.createElement('a');
@@ -96,7 +91,10 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
         elDiv.appendChild(start);*/
         arg.el.querySelector('.fc-time').innerHTML = startTime;
         //arg.el.querySelector('.fc-time').classList.add('start-time');
+      } else {
+        arg.el.querySelector('.fc-title').innerHTML = '';
       }
+      
       /*let title = document.createElement('span');
       title.className = 'fc-title';
       title.innerHTML = arg.event.title;
@@ -117,8 +115,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
   onEventPositioned(arg) {
     if (arg.event.extendedProps.multiDay && !arg.event.extendedProps.allDay) {
       ///this.logMsg('eventPositioned', arg.el);
-    }
-    // this.logMsg('eventPositioned: ' + arg.event.title);
+    } // this.logMsg('eventPositioned: ' + arg.event.title);
   }
 
   onEventDestroy(arg) {

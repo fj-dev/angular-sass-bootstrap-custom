@@ -33,6 +33,9 @@
       &.multi-day .fc-content {
         display: flex;
         justify-content: space-between;
+        .fc-title {
+          margin: auto;
+        }
       }
     }
 
