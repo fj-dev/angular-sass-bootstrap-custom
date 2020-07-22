@@ -80,35 +80,19 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
     if (arg.view.type === 'dayGridMonth' && arg.event.extendedProps.multiDay && !arg.event.extendedProps.allDay) {
       const startTime = arg.event.start.getHours().toString().padStart(2,0) + ':' + arg.event.start.getMinutes().toString().padStart(2,0);
       const endTime = arg.event.end.getHours().toString().padStart(2,0) + ':' + arg.event.end.getMinutes().toString().padStart(2,0);
-      /*let elA = document.createElement('a');
-      elA.className = arg.el.className;
-      let elDiv = document.createElement('div');
-      elDiv.className = 'fc-content';*/
+
       if (arg.isStart === true) {
-        /*let start = document.createElement('span');
-        start.className = 'fc-time start-event-time';
-        start.innerHTML = startTime;
-        elDiv.appendChild(start);*/
         arg.el.querySelector('.fc-time').innerHTML = startTime;
-        //arg.el.querySelector('.fc-time').classList.add('start-time');
       } else {
         arg.el.querySelector('.fc-title').innerHTML = '';
       }
       
-      /*let title = document.createElement('span');
-      title.className = 'fc-title';
-      title.innerHTML = arg.event.title;
-      elDiv.appendChild(title);*/
       if (arg.isEnd === true) {
         let end = document.createElement('span');
-        //end.className = 'fc-time end-time';
         end.className = 'fc-time';
         end.innerHTML = endTime;
         arg.el.querySelector('.fc-content').appendChild(end);
-        //elDiv.appendChild(end);
       }
-      //elA.appendChild(elDiv);
-      //arg.el = elA;
     }
   }
 
