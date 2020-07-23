@@ -3,6 +3,7 @@
 .calendar-container {
   margin: 1rem auto;
   max-width: 1000px;
+  padding: 0 1rem;
 }
 
 .fc ::ng-deep {
@@ -33,8 +34,10 @@
         justify-content: space-between;
         align-items: stretch;
         .fc-title {
-          padding: 0 2px;
+          padding: 0 0.2rem;
           flex-shrink: 2;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
         .event-time-start {
           flex-shrink: 0;

@@ -28,7 +28,7 @@ export class MockEvents {
       },
       /** Multi-day Event: 16 days **/
       {
-        title: 'Jaxson, Karen, Alex - Conference/Expo in Europe',
+        title: 'Jaxson, Alex - Conference/Expo in Europe',
         start: new Date(this.dt.getFullYear(), this.dt.getMonth(), 9, 7, 0),
         end: new Date(this.dt.getFullYear(), this.dt.getMonth(), 25, 16, 30),
         className: 'multi-day',
