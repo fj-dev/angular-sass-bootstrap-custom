@@ -1,4 +1,4 @@
-<div class="my-calendar">
+<div class="calendar-container">
 	<full-calendar
     #calendar
     defaultView="dayGridMonth"
@@ -13,6 +13,7 @@
     [themeSystem]="'bootstrap'"
     [plugins]="calendarPlugins"
     [events]="calendarEvents"
+    [eventLimit]="3"
 		(dateClick)="onDateClick($event)"
     (viewSkeletonRender)="onViewSkeletonRender($event)"
 		(viewSkeletonDestroy)="onViewSkeletonDestroy($event)"

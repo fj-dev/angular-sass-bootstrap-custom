@@ -42,6 +42,7 @@ import { MyNavbarComponent } from './my-navbar/my-navbar.component';
 import { CustomButtonsComponent } from './custom-buttons/custom-buttons.component';
 import { MyThemeComponent } from './my-theme/my-theme.component';
 import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
+import { MyCalendarComponent } from './my-calendar/my-calendar.component';
 
 @NgModule({
   imports:      [ 
@@ -68,6 +69,7 @@ import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
     CustomButtonsComponent,
     MyThemeComponent,
     MyDashboardComponent,    
+    MyCalendarComponent,
   ],
   bootstrap:    [ AppComponent ]
 })

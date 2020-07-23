@@ -8,7 +8,7 @@ import listPlugin from '@fullcalendar/list';
 import {MockEvents} from './mock-events';
 
 @Component({
-  selector: 'my-calendar',
+  selector: 'main-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss'],
   providers: [MockEvents]
@@ -21,6 +21,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
     center: 'title',
     right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
   };
+
   timeFormat = {
     hour: '2-digit',
     minute: '2-digit',
@@ -51,6 +52,10 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
   }
   
   onViewSkeletonRender(arg) {
+    const api = this.calendarComponent.getApi();
+    let h = document.body.clientHeight - document.getElementsByClassName('navbar')[0].clientHeight;
+    h = h - (parseInt(getComputedStyle(document.getElementsByClassName('calendar-container')[0]).marginTop, 10) * 2);
+    api.setOption('height', h);
     // this.logMsg('viewSkeletonRender', arg);
     // this.logMsg('viewSkeletonRender: ' + arg.view.type);
   }
@@ -77,21 +82,28 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
 
   onEventRender(arg) {
     // this.logMsg('eventRender: ' + arg.event.title);
+    if (arg.event.extendedProps.allDay && arg.view.type !== 'listWeek') {
+      arg.el.querySelector('.fc-title').innerHTML = 'All Day - ' + arg.event.title;
+    }
+
     if (arg.view.type === 'dayGridMonth' && arg.event.extendedProps.multiDay && !arg.event.extendedProps.allDay) {
       const startTime = arg.event.start.getHours().toString().padStart(2,0) + ':' + arg.event.start.getMinutes().toString().padStart(2,0);
       const endTime = arg.event.end.getHours().toString().padStart(2,0) + ':' + arg.event.end.getMinutes().toString().padStart(2,0);
 
       if (arg.isStart === true) {
         arg.el.querySelector('.fc-time').innerHTML = startTime;
+        arg.el.querySelector('.fc-time').classList.add('event-time-start');
       } else {
-        arg.el.querySelector('.fc-title').innerHTML = '';
+        arg.el.querySelector('.fc-title').style.margin = 'auto';
       }
       
       if (arg.isEnd === true) {
         let end = document.createElement('span');
-        end.className = 'fc-time';
+        end.className = 'fc-time event-time-end';
         end.innerHTML = endTime;
         arg.el.querySelector('.fc-content').appendChild(end);
+      } else {
+        arg.el.querySelector('.fc-title').style.margin = 'auto';
       }
     }
   }

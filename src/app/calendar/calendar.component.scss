@@ -1,8 +1,8 @@
 @import "./../../vars.scss";
 
-.my-calendar {
-  margin: 3rem auto;
-  max-width: 900px;
+.calendar-container {
+  margin: 1rem auto;
+  max-width: 1000px;
 }
 
 .fc ::ng-deep {
@@ -21,8 +21,6 @@
       .fc-content {
         padding-right: 0.2rem;
         padding-left: 0.2rem;
-      }
-      &.reg-event .fc-content {
         text-overflow: ellipsis;
       }
       &.long-title .fc-content {
@@ -33,9 +31,20 @@
       &.multi-day .fc-content {
         display: flex;
         justify-content: space-between;
+        align-items: stretch;
         .fc-title {
-          margin: auto;
+          padding: 0 2px;
+          flex-shrink: 2;
         }
+        .event-time-start {
+          flex-shrink: 0;
+        }
+        .event-time-end {
+          flex-shrink: 0;
+        }
+      }
+      .fc-time {
+        font-weight: normal;
       }
     }
 

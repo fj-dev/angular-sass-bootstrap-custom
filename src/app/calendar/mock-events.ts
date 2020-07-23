@@ -6,75 +6,90 @@ export class MockEvents {
   
   getData() {
     return [
+      /** Short event **/
       {
-        title: 'Quick 15 min Event',
+        title: 'Jaxson - Quick tag-up meeting',
         start: new Date(this.dt.getFullYear(), this.dt.getMonth(), 1, 6, 30),
         end: new Date(this.dt.getFullYear(), this.dt.getMonth(), 1, 6, 45),
-        className: 'short-event'
+        className: 'short-event long-title'
       },
+      /** Same day events with long titles  **/
       {
-        title: '1-hour Event',
-        start: new Date(this.dt.getFullYear(), this.dt.getMonth(), 14, 9, 30),
-        end: new Date(this.dt.getFullYear(), this.dt.getMonth(), 14, 10, 30),
+        title: 'Karen - Meeting with Marketing Team',
+        start: new Date(this.dt.getFullYear(), this.dt.getMonth(), 7, 9, 30),
+        end: new Date(this.dt.getFullYear(), this.dt.getMonth(), 7, 10, 30),
         className: 'reg-event'
       },
       {
-        title: 'Long Event Title',
-        start: new Date(this.dt.getFullYear(), this.dt.getMonth(), 14, 12, 30),
-        end: new Date(this.dt.getFullYear(), this.dt.getMonth(), 14, 13, 0),
+        title: 'Karen - Team Quarterly Meeting',
+        start: new Date(this.dt.getFullYear(), this.dt.getMonth(), 7, 12, 30),
+        end: new Date(this.dt.getFullYear(), this.dt.getMonth(), 7, 13, 0),
         className: 'long-title'
       },
+      /** Multi-day Event: 16 days **/
       {
-        title: 'Multi-Day Event #1',
+        title: 'Jaxson, Karen, Alex - Conference/Expo in Europe',
         start: new Date(this.dt.getFullYear(), this.dt.getMonth(), 9, 7, 0),
-        end: new Date(this.dt.getFullYear(), this.dt.getMonth(), 12, 16, 30),
+        end: new Date(this.dt.getFullYear(), this.dt.getMonth(), 25, 16, 30),
         className: 'multi-day',
         extendedProps: {multiDay: true}
       },
+      /** Single all day event **/
       {
-        title: 'All Day - Event #1',
+        title: 'Team Building Activity w/o end time',
         start: new Date(this.dt.getFullYear(), this.dt.getMonth(), 5, 0, 0),
         allDay: true,
         className: 'all-day',
         extendedProps: {allDay: true}
       },
       {
-        title: 'All Day - Event #2',
+        title: 'Team Building Activity w/ end time',
         start: new Date(this.dt.getFullYear(), this.dt.getMonth(), 22, 0, 0),
+        end: new Date(this.dt.getFullYear(), this.dt.getMonth(), 22, 23, 59),
         allDay: true,
         className: 'all-day',
         extendedProps: {allDay: true}
       },
+      /** Multi-day all day event: 3 days **/
       {
-        title: 'All Day - Multi-Day Event #2',
+        title: 'Karen - Out of the Office',
         start: new Date(this.dt.getFullYear(), this.dt.getMonth(), 22, 0, 0),
-        end: new Date(this.dt.getFullYear(), this.dt.getMonth(), 24, 0, 0),
+        end: new Date(this.dt.getFullYear(), this.dt.getMonth(), 25, 0, 0),
         allDay: true,
         className: 'all-day',
         extendedProps: {multiDay: true, allDay: true}
       },
+      /** Multi-day Event: 1.5 days **/
       {
-        title: 'All Day - Multi-Day Event #3',
-        start: new Date(this.dt.getFullYear(), this.dt.getMonth(), 26, 0, 0),
-        end: new Date(this.dt.getFullYear(), this.dt.getMonth(), 27, 23, 59),
-        allDay: true,
-        className: 'all-day',
-        extendedProps: {multiDay: true, allDay: true}
+        title: 'Jaxson - Out of state meeting with clients',
+        start: new Date(this.dt.getFullYear(), this.dt.getMonth(), 26, 9, 0),
+        end: new Date(this.dt.getFullYear(), this.dt.getMonth(), 27, 15, 0),
+        className: 'multi-day',
+        extendedProps: {multiDay: true}
       },
+      /** Multi-day Event: 3 days **/
       {
-        title: 'Overlap Event #1',
+        title: 'Alex, Dylan - West coast meeting with clients',
+        start: new Date(this.dt.getFullYear(), this.dt.getMonth(), 1, 6, 0),
+        end: new Date(this.dt.getFullYear(), this.dt.getMonth(), 3, 20, 0),
+        className: 'multi-day',
+        extendedProps: {multiDay: true}
+      },
+      /** Overlapping events **/
+      {
+        title: 'Karen - Meeting with clients',
         start: new Date(this.dt.getFullYear(), this.dt.getMonth(), 28, 14, 0),
         end: new Date(this.dt.getFullYear(), this.dt.getMonth(), 28, 15, 30),
         className: 'reg-event'
       },
       {
-        title: 'Overlap Event #2',
+        title: 'Alex - Meeting with XYZ Corp',
         start: new Date(this.dt.getFullYear(), this.dt.getMonth(), 28, 14, 30),
         end: new Date(this.dt.getFullYear(), this.dt.getMonth(), 28, 15, 15),
         className: 'reg-event'
       },
       {
-        title: 'Overlap Event #3',
+        title: 'Dylan - Meeting with clients',
         start: new Date(this.dt.getFullYear(), this.dt.getMonth(), 28, 14, 30),
         end: new Date(this.dt.getFullYear(), this.dt.getMonth(), 28, 16, 30),
         className: 'reg-event'
