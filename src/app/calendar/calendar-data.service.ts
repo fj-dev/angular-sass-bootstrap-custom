@@ -9,5 +9,15 @@ export class CalendarDataService {
     return this.mockEvents.getData();
   }
 
+  get calendarEvents() {
+    return this.parseEventsData(this.mockEvents.getEventsData());
+  }
+  parseEventsData(evts) {
+    let newEvents = evts.slice();
+    newEvents
+  }
+  parseMultiDayEvent(start, end, title) {
+
+  }
 
 }
