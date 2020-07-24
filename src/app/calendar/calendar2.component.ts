@@ -6,57 +6,74 @@ import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 
 import {MockEvents} from './mock-events';
-import {CalendarDataService} from './calendar-data.service';
-import {CalendarService} from './calendar.service';
-import {CALENDAR_CONFIG} from './calendar.config';
 
 @Component({
   selector: 'main-calendar',
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss'],
-  providers: [MockEvents, CalendarDataService, CalendarService]
+  providers: [MockEvents]
 })
-export class CalendarComponent implements OnInit, AfterViewInit, AfterContentInit {
+export class CalendarComponent2 implements OnInit, AfterViewInit, AfterContentInit {
   @ViewChild('calendar', {static: false}) calendarComponent: FullCalendarComponent;
-  config = CALENDAR_CONFIG;
-  calendarPlugins = [dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin];
-  calendarEvents = this.dataService.getEvents();
 
-  constructor(
-    private dataService: CalendarDataService,
-    private service: CalendarService
-  ){}
+  calHeader = {
+    left: 'prev,next today',
+    center: 'title',
+    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+  };
+
+  timeFormat = {
+    hour: '2-digit',
+    minute: '2-digit',
+    meridiem: false,
+    hour12: false
+  };
+  slotFormat = {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+    omitZeroMinute: false,
+    meridiem: false
+  };
+
+  calendarPlugins = [dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin];
+  calendarEvents = this.mockEvents.getData();
+
+  constructor(private mockEvents: MockEvents){}
 
   ngOnInit() {
-    // this.service.logMsg('...onInit...');
+    // this.logMsg('...onInit...');
   }
   ngAfterContentInit() {
-    // this.service.logMsg('...afterContentInit...');
+    // this.logMsg('...afterContentInit...');
   }
   ngAfterViewInit() {
-    // this.service.logMsg('...afterViewInit...');
+    // this.logMsg('...afterViewInit...');
   }
   
   onViewSkeletonRender(arg) {
     const api = this.calendarComponent.getApi();
-    api.setOption('height', this.service.calcHeight());    
-    // this.service.logMsg('viewSkeletonRender: ' + arg.view.type);
+    let h = document.body.clientHeight - document.getElementsByClassName('navbar')[0].clientHeight;
+    h = h - (parseInt(getComputedStyle(document.getElementsByClassName('calendar-container')[0]).marginTop, 10) * 2);
+    api.setOption('height', h);
+    // this.logMsg('viewSkeletonRender', arg);
+    // this.logMsg('viewSkeletonRender: ' + arg.view.type);
   }
 
   onViewSkeletonDestroy(arg) {
-    // this.service.logMsg('viewSkeletonDestroy: ' + arg.view.type);
+    // this.logMsg('viewSkeletonDestroy: ' + arg.view.type);
   }
 
   onDateClick(arg) {
-    // this.service.logMsg('dateClick', arg);
+    // this.logMsg('dateClick', arg);
   }
 
   onDatesRender(arg) {
-    // this.service.logMsg('datesRender: ' + arg.view.type);
+    // this.logMsg('datesRender: ' + arg.view.type);
   }
 
   onDatesDestroy(arg) {
-    // this.service.logMsg('datesDestroy: ' + arg.view.type);
+    // this.logMsg('datesDestroy: ' + arg.view.type);
   }
 
   onSelect(arg) { }
@@ -64,8 +81,15 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
   onUnselect(arg) { }
 
   onEventRender(arg) {
-    // this.service.logMsg('eventRender: ' + arg.event.title);
-
+    if (arg.view.type === 'timeGridWeek') {
+      //let x = arg.view.el.getElementsByClassName('fc-title').length;
+      /*if (x < 1) {
+        console.log(arg);
+      }*/
+      //console.log(arg.view.el.getElementsByClassName('fc-title'));
+      console.log(arg.event.start);
+    }
+    // this.logMsg('eventRender: ' + arg.event.title);
     if (arg.event.extendedProps.allDay && arg.view.type !== 'listWeek') {
       arg.el.querySelector('.fc-title').innerHTML = 'All Day - ' + arg.event.title;
     }
@@ -133,11 +157,24 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
     
   }
 
+
+
   onEventPositioned(arg) {
-    // this.service.logMsg('eventPositioned: ' + arg.event.title);
+    if (arg.event.extendedProps.multiDay && !arg.event.extendedProps.allDay && arg.view.type === 'timeGridWeek') {
+      //console.log(arg.el);
+      ///this.logMsg('eventPositioned', arg.el);
+    } // this.logMsg('eventPositioned: ' + arg.event.title);
   }
 
   onEventDestroy(arg) {
-    // this.service.logMsg('eventDestroy: ' + arg.event.title);
+    // this.logMsg('eventDestroy: ' + arg.event.title);
+  }
+
+  logMsg(msg, obj?) {
+    if (!obj){
+      console.log(msg);
+    } else {
+      console.log(msg, obj);
+    }
   }
 }
