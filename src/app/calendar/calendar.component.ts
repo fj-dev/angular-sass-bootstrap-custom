@@ -120,7 +120,6 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
         if (arg.isStart === true && arg.isEnd === true){
           arg.el.querySelector('.fc-title').style.margin = 'auto';
         } else {
-console.log('eventRender', {allDay: arg.event.allDay, start: arg.event.start, end: arg.event.end});
           const divEl = document.createElement('div');
           divEl.className = 'fc-content';
 
