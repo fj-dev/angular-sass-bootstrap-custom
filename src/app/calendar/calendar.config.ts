@@ -2,7 +2,8 @@ export const CALENDAR_CONFIG = {
   calHeader: {
     left: 'prev,next today',
     center: 'title',
-    right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+    //right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+    right: 'myMonthView,myWeekView,myDayView,myListView'
   },
   timeFormat: {
     hour: '2-digit',
