@@ -18,7 +18,11 @@ import {
   faCalendarAlt as faSolidCalendarAlt,
   faClock as faSolidClock,
   faStar,
-  faMoon as faSolidMoon
+  faMoon as faSolidMoon,
+  faUserPlus, faUserMinus, faUserTimes,
+  faPlus, faPlusSquare, faPlusCircle,
+  faMinus, faMinusSquare, faMinusCircle,
+  faTimes, faTimesCircle,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -43,6 +47,7 @@ import { CustomButtonsComponent } from './custom-buttons/custom-buttons.componen
 import { MyThemeComponent } from './my-theme/my-theme.component';
 import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
 import { MyCalendarComponent } from './my-calendar/my-calendar.component';
+import { MyFormComponent } from './my-form/my-form.component';
 
 @NgModule({
   imports:      [ 
@@ -70,6 +75,7 @@ import { MyCalendarComponent } from './my-calendar/my-calendar.component';
     MyThemeComponent,
     MyDashboardComponent,    
     MyCalendarComponent,
+    MyFormComponent,
   ],
   bootstrap:    [ AppComponent ]
 })
@@ -86,7 +92,11 @@ export class AppModule {
       faDragon,
       faMoon, faSolidMoon,
       faMapMarker,
-      faStar
+      faStar,
+      faUserPlus, faUserMinus, faUserTimes,
+      faPlus, faPlusSquare, faPlusCircle,
+      faMinus, faMinusSquare, faMinusCircle,
+      faTimes, faTimesCircle,
     );
   }
 }
