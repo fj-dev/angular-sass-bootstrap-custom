@@ -1,3 +1,5 @@
+import { Injectable } from '@angular/core';
+
 export interface IMyEmployee {
   id: string | number;
   name: string;
@@ -7,9 +9,10 @@ export interface IMyEmployee {
   job_title: string;
 }
 
-export class MockData {
+@Injectable()
+export class MockEmployees {
   
-  getEmployees(): Array<IMyEmployee> {
+  getData(): Array<IMyEmployee> {
     const employees = [
       {
         id: 'GPDoe001',

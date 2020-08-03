@@ -1,16 +1,23 @@
-<div class="container">
+<div class="container py-2">
   <div class="row">
     <div class="col">
       <button type="button" class="btn btn-primary" (click)="open(content)">Pick Employee</button>
     </div>
   </div>
-  <div class="row">
-    <div class="col">   
+  <div class="row mt-3">
+    <div class="col">
+      <h5>Selected Employees:</h5>
+    </div>
+  </div>
+  <div class="row ml-3">
+    <div class="col picked-employees">   
       <ul class="list-group">
         <ng-container *ngFor="let emp of employeesPicked">
           <li class="list-group-item d-flex justify-content-between align-items-center">
             <span class="employeeName">{{emp.name}}</span>
-            <fa-icon [icon]="['fas', 'user-times']"></fa-icon>
+            <button type="button" class="btn btn-remove-employee" (click)="removeEmployeeFromPicked(emp.id)">
+              <fa-icon [icon]="['fas', 'user-times']"></fa-icon>
+            </button>
           </li>
         </ng-container>
       </ul>
@@ -31,6 +38,6 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-primary" (click)="modal.close(employeeSelect.value)">Add {{employeeSelect.value}}</button>
-  <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss()">Cancel</button>
+  <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss()">Cancel</button>
 </div>
 </ng-template>

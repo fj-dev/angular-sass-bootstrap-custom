@@ -1,0 +1,8 @@
+@import "./../../../vars.scss";
+.picked-employees {
+  max-width: 400px;
+}
+
+.btn-remove-employee:hover {
+  color: $danger;
+}

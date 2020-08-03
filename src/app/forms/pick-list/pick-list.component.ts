@@ -2,28 +2,29 @@ import { Component } from '@angular/core';
 
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
-import { IMyEmployee, MockData } from './mock-data';
+import { IMyEmployee, MockEmployees } from './mock-employees';
 
 @Component({
   selector: 'pick-list',
   templateUrl: './pick-list.component.html',
-  styleUrls: ['./pick-list.component.scss']
+  styleUrls: ['./pick-list.component.scss'],
+  providers: [MockEmployees]
 })
 export class PickListComponent {
   employeesList: Array<IMyEmployee> = [];
   employeesPicked: Array<IMyEmployee> = [];
 
-  constructor( private modalService: NgbModal) {
-    this.employeesList = MockData.getEmployees();
+  constructor( private modalService: NgbModal, private data: MockEmployees) {
+    this.employeesList = this.data.getData();
   }
 
   open(content) {
     this.modalService.open(content, { size: 'sm'}).result.then((result) => {
-      
-    })
+      this.addEmployeeToPicked(result);
+    });
   }
   resetLists() {
-    this.employeesList = MockData.getEmployees();
+    this.employeesList = this.data.getData();
     this.employeesPicked = [];
   }
 
