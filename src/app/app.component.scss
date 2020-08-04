@@ -5,3 +5,31 @@ p {
   margin-top: 10px;
   padding: 8px;
 }
+
+/** sliding animation **/
+.collapse {
+  transition: transform .35s, opacity .35s, max-height .9s ease-out;
+  opacity: 0;
+  max-height: 0;
+  display: block !important;
+
+  &.show {
+    opacity: 1;
+    max-height: 600px;
+  }
+}
+
+/** fading animation **/
+/*.collapse, .collapse.show {
+  display: block;
+  transition: all 1s linear;
+}
+
+.collapse {
+  opacity: 0;
+  height: 0;
+}
+
+.collapse.show {
+  opacity: 1;
+}*/
