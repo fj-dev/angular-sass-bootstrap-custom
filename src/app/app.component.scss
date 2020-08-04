@@ -7,13 +7,14 @@ p {
 }
 
 /** sliding animation **/
-.collapse {
-  transition: transform .35s, opacity .35s, max-height .9s ease-out;
+.my-theme-container.collapse {
+  transition: transform .35s, opacity .35s, max-height .3s ease-out;
   opacity: 0;
   max-height: 0;
   display: block !important;
 
   &.show {
+    transition: transform .35s, opacity .35s, max-height .35s ease-in;
     opacity: 1;
     max-height: 600px;
   }

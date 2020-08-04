@@ -9,4 +9,5 @@ export class AppComponent  {
   globalTheme = 'dark';
   navbarColor = 'dark';
   isThemeCollapsed = true;
+  isLeftSidePanelCollapsed = true;
 }

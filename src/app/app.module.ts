@@ -48,7 +48,7 @@ import { MyThemeComponent } from './my-theme/my-theme.component';
 import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
 import { MyCalendarComponent } from './my-calendar/my-calendar.component';
 import { MyFormComponent } from './my-form/my-form.component';
-import { MyLeftSidePanelComponent} from './my-sidepanel/my-left-sidepanel.component';
+import { MyLeftSidePanelComponent} from './my-sidepanel/my-left-side-panel.component';
 
 @NgModule({
   imports:      [ 

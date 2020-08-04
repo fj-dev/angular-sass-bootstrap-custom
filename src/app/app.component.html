@@ -4,7 +4,10 @@
   [themeCollapsed]="isThemeCollapsed"
   (toggleTheme)="isThemeCollapsed = !isThemeCollapsed">
 </my-navbar>
-<div class="content-container" [ngbCollapse]="isThemeCollapsed">
+<div class="content-container my-theme-container" [ngbCollapse]="isThemeCollapsed">
   <my-theme></my-theme>
 </div>
+<!--<div class="left-side-panel-container" [ngbCollapse]="isLeftSidePanelCollapsed">
+  <my-left-sidepanel></my-left-sidepanel>  
+</div>-->
 <router-outlet></router-outlet>
