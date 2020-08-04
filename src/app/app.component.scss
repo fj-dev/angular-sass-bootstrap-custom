@@ -1,27 +1,32 @@
+@import "./../vars.scss";
 p {
   font-family: Lato;
 }
-.my-sticky-navbar {
+my-navbar {
   position: sticky;
   top: 0;
+  z-index: 1039;
 }
-.content-container {
-  margin-top: 10px;
-  padding: 8px;
-  position: absolute;
-  bottom: 0;
-}
+
 .router-content {
-  position: absolute;
-  left: 0;
+  min-height: 100%;
+  height: auto !important;
+  max-width: 100%;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  width: 100%;  
 }
 /** sliding animation **/
-.my-theme-container.collapse {
-  transition: transform .35s, opacity .35s, max-height .3s ease-out;
-  opacity: 0;
-  max-height: 0;
-  display: block !important;
-
+.my-theme-container {
+  position: absolute;
+  bottom: 0;
+  .collapse {
+    transition: transform .35s, opacity .35s, max-height .3s ease-out;
+    opacity: 0;
+    max-height: 0;
+    display: block !important;
+  }
   &.show {
     transition: transform .35s, opacity .35s, max-height .35s ease-in;
     opacity: 1;
@@ -29,39 +34,29 @@ p {
   }
 }
 .left-side-panel {
-  position: absolute;
+  position: fixed;
   left: 0;
-}
-.left-side-panel-container {
-  &.collapse {
-    transition: transform .35s, opacity .35s, max-width .3s, min-height .3s ease-out;
-    opacity: 0;
-    max-width: 0;
-    min-height: 0;
-    display: block !important;
-  }
-  &.show {
-    transition: transform .35s, opacity .35s, max-width .35s, min-height .35s ease-in;
-    opacity: 1;
-    min-height: 80vh;
-    max-width: 400px;
+  top: 46px;
+  z-index: 1030;
+  my-left-sidepanel {
+    background-color: rgba($light, 0.8);
+    min-height: calc(100vh - 46px);
+    &.collapse {
+      transition: transform .35s, opacity .35s, width .3s ease-out;
+      opacity: 0;
+      width: 0;
+      display: block !important;
+    }
+    &.show {
+      transition: transform .35s, opacity .35s, width .35s ease-in;
+      opacity: 1;
+      width: 300px;
+    }
   }
   .side-panel-button {
-    width: 25px;
-    height: 25px;
+    z-index: 1035;
+    &:focus, &:focus-within {
+      box-shadow: unset;
+    }
   }
 }
-/** fading animation **/
-/*.collapse, .collapse.show {
-  display: block;
-  transition: all 1s linear;
-}
-
-.collapse {
-  opacity: 0;
-  height: 0;
-}
-
-.collapse.show {
-  opacity: 1;
-}*/
