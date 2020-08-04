@@ -20,6 +20,21 @@ p {
   }
 }
 
+.left-side-panel-container {
+  &.collapse {
+    transition: transform .35s, opacity .35s, max-width .3s, min-height .3s ease-out;
+    opacity: 0;
+    max-width: 0;
+    min-height: 0;
+    display: block !important;
+  }
+  &.show {
+    transition: transform .35s, opacity .35s, max-width .35s, min-height .35s ease-in;
+    opacity: 1;
+    min-height: 80vh;
+    max-width: 400px;
+  }
+}
 /** fading animation **/
 /*.collapse, .collapse.show {
   display: block;

@@ -4,10 +4,17 @@
   [themeCollapsed]="isThemeCollapsed"
   (toggleTheme)="isThemeCollapsed = !isThemeCollapsed">
 </my-navbar>
+<div class="left-side-panel d-inline-flex flex-row align-items-start">
+  <!--<div class="left-side-panel-container align-self-stretch" [ngbCollapse]="isLeftSidePanelCollapsed">-->
+  <my-left-sidepanel class="left-side-panel-container align-self-stretch" [ngbCollapse]="isLeftSidePanelCollapsed">
+  </my-left-sidepanel>
+  <!--</div>-->
+  <button type="button" class="btn btn-secondary btn-sm align-self-start" (click)="isLeftSidePanelCollapsed = !isLeftSidePanelCollapsed">
+    <fa-icon *ngIf="isLeftSidePanelCollapsed" [icon]="['fas', 'chevron-right']"></fa-icon>
+    <fa-icon *ngIf="!isLeftSidePanelCollapsed" [icon]="['fas', 'chevron-left']"></fa-icon>
+  </button>
+</div>
+<router-outlet></router-outlet>
 <div class="content-container my-theme-container" [ngbCollapse]="isThemeCollapsed">
   <my-theme></my-theme>
 </div>
-<!--<div class="left-side-panel-container" [ngbCollapse]="isLeftSidePanelCollapsed">
-  <my-left-sidepanel></my-left-sidepanel>  
-</div>-->
-<router-outlet></router-outlet>

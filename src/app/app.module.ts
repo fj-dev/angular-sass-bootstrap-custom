@@ -23,6 +23,7 @@ import {
   faPlus, faPlusSquare, faPlusCircle,
   faMinus, faMinusSquare, faMinusCircle,
   faTimes, faTimesCircle,
+  faChevronRight, faChevronLeft
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -99,6 +100,7 @@ export class AppModule {
       faPlus, faPlusSquare, faPlusCircle,
       faMinus, faMinusSquare, faMinusCircle,
       faTimes, faTimesCircle,
+      faChevronRight, faChevronLeft
     );
   }
 }

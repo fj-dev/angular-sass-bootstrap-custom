@@ -1,0 +1,8 @@
+@import "./../../vars.scss";
+.side-panel-container {
+  max-width: 350px;
+  min-width: 100px;
+  background-color: rgba($light, 0.4);
+  //max-height: 300px;
+  //min-height: 0px;
+}
