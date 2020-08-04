@@ -1,11 +1,20 @@
 p {
   font-family: Lato;
 }
+.my-sticky-navbar {
+  position: sticky;
+  top: 0;
+}
 .content-container {
   margin-top: 10px;
   padding: 8px;
+  position: absolute;
+  bottom: 0;
 }
-
+.router-content {
+  position: absolute;
+  left: 0;
+}
 /** sliding animation **/
 .my-theme-container.collapse {
   transition: transform .35s, opacity .35s, max-height .3s ease-out;
@@ -19,7 +28,10 @@ p {
     max-height: 600px;
   }
 }
-
+.left-side-panel {
+  position: absolute;
+  left: 0;
+}
 .left-side-panel-container {
   &.collapse {
     transition: transform .35s, opacity .35s, max-width .3s, min-height .3s ease-out;
@@ -33,6 +45,10 @@ p {
     opacity: 1;
     min-height: 80vh;
     max-width: 400px;
+  }
+  .side-panel-button {
+    width: 25px;
+    height: 25px;
   }
 }
 /** fading animation **/

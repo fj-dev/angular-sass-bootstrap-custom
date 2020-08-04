@@ -1,20 +1,26 @@
 <my-navbar
+  class="my-sticky-navbar"
   [theme]="globalTheme"
   [bgColor]="navbarColor"
   [themeCollapsed]="isThemeCollapsed"
   (toggleTheme)="isThemeCollapsed = !isThemeCollapsed">
 </my-navbar>
+
+<div class="router-content">
+  <router-outlet></router-outlet>
+</div>
+
 <div class="left-side-panel d-inline-flex flex-row align-items-start">
   <!--<div class="left-side-panel-container align-self-stretch" [ngbCollapse]="isLeftSidePanelCollapsed">-->
   <my-left-sidepanel class="left-side-panel-container align-self-stretch" [ngbCollapse]="isLeftSidePanelCollapsed">
   </my-left-sidepanel>
   <!--</div>-->
-  <button type="button" class="btn btn-secondary btn-sm align-self-start" (click)="isLeftSidePanelCollapsed = !isLeftSidePanelCollapsed">
-    <fa-icon *ngIf="isLeftSidePanelCollapsed" [icon]="['fas', 'chevron-right']"></fa-icon>
+  <button type="button" class="btn btn-secondary btn-sm align-self-start side-panel-button" (click)="isLeftSidePanelCollapsed = !isLeftSidePanelCollapsed">
+    <fa-icon *ngIf="isLeftSidePanelCollapsed" [icon]="['fas', 'chevron-right']" ></fa-icon>
     <fa-icon *ngIf="!isLeftSidePanelCollapsed" [icon]="['fas', 'chevron-left']"></fa-icon>
   </button>
 </div>
-<router-outlet></router-outlet>
+
 <div class="content-container my-theme-container" [ngbCollapse]="isThemeCollapsed">
   <my-theme></my-theme>
 </div>
