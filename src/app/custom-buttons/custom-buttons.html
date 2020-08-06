@@ -1,14 +1,19 @@
-<div class="custom-buttons-container">
+<p class="h1 m-2">Buttons</p>
+<hr class="border-primary mx-2">
+<div class="custom-buttons-container my-3 ml-4">
+  <p class="h4 mb-1 mt-2">Default Size</p>
   <ng-container *ngFor="let btn of controls">
     <my-button [title]=btn.title [theme]=btn.theme [size]="default"></my-button>
   </ng-container>
 </div>
-<div class="custom-buttons-container">
+<div class="custom-buttons-container my-3 ml-4">
+  <p class="h4 mb-1 mt-2">Disabled</p>
   <ng-container *ngFor="let btn of controls">
     <my-button [title]=btn.title [theme]=btn.theme [size]="default" [disabled]="true"></my-button>
   </ng-container>
 </div>
-<div class="custom-buttons-container">
+<div class="custom-buttons-container my-3 ml-4">
+  <p class="h4 mb-1 mt-2">Small Size</p>
   <ng-container *ngFor="let btn of controls">
     <my-button [title]=btn.title [theme]=btn.theme size="small"></my-button>
   </ng-container>
