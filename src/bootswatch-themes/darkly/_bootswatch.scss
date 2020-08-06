@@ -1,51 +1,27 @@
-/* Add application styles & imports to this file! */
-@import "./vars.scss";
+// Darkly 4.5.1
+// Bootswatch
+
 
 // Variables ===================================================================
-$theme-colors: (
-  "primary":    $primary,
-  "secondary":  $secondary,
-  "success":    $success,
-  "info":       $info,
-  "warning":    $warning,
-  "danger":     $danger,
-  "light":      $light,
-  "dark":       $dark
-) !default;
 
-@import "~bootstrap/scss/bootstrap";
+$web-font-path: "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" !default;
+@import url($web-font-path);
 
 // Navbar ======================================================================
 
 // Buttons =====================================================================
 
-.btn {
-  @each $color, $value in $theme-colors {
-    &-#{$color} {
-      @if $enable-gradients {
-        background: $value linear-gradient(180deg, mix($white, $value, 15%), $value) repeat-x;
-      } @else {
-        background-color: $value;
-      }
-    }
+// Typography ==================================================================
+
+.blockquote {
+  &-footer {
+    color: $gray-600;
   }
 }
-
-// Typography ==================================================================
 
 // Tables ======================================================================
 
 .table {
-
-  &-primary,
-  &-secondary,
-  &-dark,
-  &-success,
-  &-info,
-  &-warning,
-  &-danger {
-    color: #fff;
-  }
 
   &-primary {
     &, > th, > td {
@@ -162,40 +138,46 @@ $theme-colors: (
 
 // Forms =======================================================================
 
-.custom-control-input:checked ~ .custom-control-label::before {
-  background: $primary;
-}
-
-.custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
-  border-color: $primary;
-}
-
-.custom-control-input:not(:disabled):active ~ .custom-control-label::before {
-  background: $primary;
-  border-color: $primary;
-}
-
-.custom-switch {
-  .custom-control-label::after {
-    background-color: rgba(255, 255, 255, 1);
-  }
-
-  .custom-control-input:checked ~ .custom-control-label::after {
-    background-color: rgba(255, 255, 255, 0.75);
-  }
-}
-.form-inline .custom-select,
-.form-inline .input-group {
-  width: auto;
-}
-.custom-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
+.input-group-addon {
+  color: #fff;
 }
 
 // Navs ========================================================================
 
+.nav-tabs,
+.nav-pills {
+
+  .nav-link,
+  .nav-link.active,
+  .nav-link.active:focus,
+  .nav-link.active:hover,
+  .nav-item.open .nav-link,
+  .nav-item.open .nav-link:focus,
+  .nav-item.open .nav-link:hover {
+    color: #fff;
+  }
+}
+
+.breadcrumb a {
+  color: #fff;
+}
+
+.pagination {
+  a:hover {
+    text-decoration: none;
+  }
+}
+
 // Indicators ==================================================================
+
+.close {
+  opacity: 0.4;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
 
 .alert {
   border: none;
@@ -216,30 +198,23 @@ $theme-colors: (
       }
     }
   }
-
-  &-light {
-    &,
-    & a:not(.btn),
-    & .alert-link {
-      color: $body-bg;
-    }
-  }
 }
 
 // Progress bars ===============================================================
 
-// Popovers      ===============================================================
-
 // Containers ==================================================================
 
 
-@import '~@fullcalendar/core/main.css';
-@import '~@fullcalendar/daygrid/main.css';
-@import '~@fullcalendar/timegrid/main.css';
-@import '~@fullcalendar/list/main.css';
+.list-group-item-action {
+  color: #fff;
 
-body {
-  font-size: 14px;
-  height: 100%;
-  min-width: 900px;
+  &:hover,
+  &:focus {
+    background-color: $gray-700;
+    color: #fff;
+  }
+
+  .list-group-item-heading {
+    color: #fff;
+  }
 }

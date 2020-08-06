@@ -1,19 +1,11 @@
-/* Add application styles & imports to this file! */
-@import "./vars.scss";
+// Solar 4.5.1
+// Bootswatch
+
 
 // Variables ===================================================================
-$theme-colors: (
-  "primary":    $primary,
-  "secondary":  $secondary,
-  "success":    $success,
-  "info":       $info,
-  "warning":    $warning,
-  "danger":     $danger,
-  "light":      $light,
-  "dark":       $dark
-) !default;
 
-@import "~bootstrap/scss/bootstrap";
+$web-font-path: "https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" !default;
+@import url($web-font-path);
 
 // Navbar ======================================================================
 
@@ -184,14 +176,6 @@ $theme-colors: (
     background-color: rgba(255, 255, 255, 0.75);
   }
 }
-.form-inline .custom-select,
-.form-inline .input-group {
-  width: auto;
-}
-.custom-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-}
 
 // Navs ========================================================================
 
@@ -228,18 +212,4 @@ $theme-colors: (
 
 // Progress bars ===============================================================
 
-// Popovers      ===============================================================
-
 // Containers ==================================================================
-
-
-@import '~@fullcalendar/core/main.css';
-@import '~@fullcalendar/daygrid/main.css';
-@import '~@fullcalendar/timegrid/main.css';
-@import '~@fullcalendar/list/main.css';
-
-body {
-  font-size: 14px;
-  height: 100%;
-  min-width: 900px;
-}

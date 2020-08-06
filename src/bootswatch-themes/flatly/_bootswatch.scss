@@ -1,33 +1,38 @@
-/* Add application styles & imports to this file! */
-@import "./vars.scss";
+// Flatly 4.5.1
+// Bootswatch
+
 
 // Variables ===================================================================
-$theme-colors: (
-  "primary":    $primary,
-  "secondary":  $secondary,
-  "success":    $success,
-  "info":       $info,
-  "warning":    $warning,
-  "danger":     $danger,
-  "light":      $light,
-  "dark":       $dark
-) !default;
 
-@import "~bootstrap/scss/bootstrap";
+$web-font-path: "https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap" !default;
+@import url($web-font-path);
 
-// Navbar ======================================================================
+// Navbar =======================================================================
+
+.bg-primary {
+  .navbar-nav .active > .nav-link {
+    color: $success !important;
+  }
+}
+
+.bg-dark {
+  &.navbar-dark .navbar-nav {
+    .nav-link:focus,
+    .nav-link:hover,
+    .active > .nav-link {
+      color: $primary !important;
+    }
+  }
+}
 
 // Buttons =====================================================================
 
 .btn {
-  @each $color, $value in $theme-colors {
-    &-#{$color} {
-      @if $enable-gradients {
-        background: $value linear-gradient(180deg, mix($white, $value, 15%), $value) repeat-x;
-      } @else {
-        background-color: $value;
-      }
-    }
+  &-secondary,
+  &-secondary:hover,
+  &-warning,
+  &-warning:hover {
+    color: #fff;
   }
 }
 
@@ -39,7 +44,6 @@ $theme-colors: (
 
   &-primary,
   &-secondary,
-  &-dark,
   &-success,
   &-info,
   &-warning,
@@ -162,40 +166,43 @@ $theme-colors: (
 
 // Forms =======================================================================
 
-.custom-control-input:checked ~ .custom-control-label::before {
-  background: $primary;
-}
-
-.custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
-  border-color: $primary;
-}
-
-.custom-control-input:not(:disabled):active ~ .custom-control-label::before {
-  background: $primary;
-  border-color: $primary;
-}
-
-.custom-switch {
-  .custom-control-label::after {
-    background-color: rgba(255, 255, 255, 1);
-  }
-
-  .custom-control-input:checked ~ .custom-control-label::after {
-    background-color: rgba(255, 255, 255, 0.75);
-  }
-}
-.form-inline .custom-select,
-.form-inline .input-group {
-  width: auto;
-}
-.custom-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-}
-
 // Navs ========================================================================
 
+.nav-tabs {
+  .nav-link.active,
+  .nav-link.active:focus,
+  .nav-link.active:hover,
+  .nav-item.open .nav-link,
+  .nav-item.open .nav-link:focus,
+  .nav-item.open .nav-link:hover {
+    color: $primary;
+  }
+}
+
+.pagination {
+  a:hover {
+    text-decoration: none;
+  }
+}
+
 // Indicators ==================================================================
+
+.close {
+  text-decoration: none;
+  opacity: 0.4;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
+
+.badge {
+  &-secondary,
+  &-warning {
+    color: #fff;
+  }
+}
 
 .alert {
   border: none;
@@ -210,7 +217,7 @@ $theme-colors: (
   @each $color, $value in $theme-colors {
     &-#{$color} {
       @if $enable-gradients {
-        background: $value linear-gradient(180deg, mix($white, $value, 15%), $value) repeat-x;
+        background: $value linear-gradient(180deg, mix($body-bg, $value, 15%), $value) repeat-x;
       } @else {
         background-color: $value;
       }
@@ -219,27 +226,26 @@ $theme-colors: (
 
   &-light {
     &,
-    & a:not(.btn),
+    & a,
     & .alert-link {
-      color: $body-bg;
+      color: $body-color;
     }
   }
 }
 
 // Progress bars ===============================================================
 
-// Popovers      ===============================================================
-
 // Containers ==================================================================
 
+.modal,
+.toast {
 
-@import '~@fullcalendar/core/main.css';
-@import '~@fullcalendar/daygrid/main.css';
-@import '~@fullcalendar/timegrid/main.css';
-@import '~@fullcalendar/list/main.css';
+  .close {
+    color: $black;
 
-body {
-  font-size: 14px;
-  height: 100%;
-  min-width: 900px;
+    &:not(:disabled):not(.disabled):hover,
+    &:not(:disabled):not(.disabled):focus {
+      color: $black;
+    }
+  }
 }

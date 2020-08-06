@@ -1,25 +1,33 @@
-$white:    #f6f8f8 !default;
-$gray-100: #e5ebeb !default;
-$gray-200: #d4dede !default;
-$gray-300: #cbd7d7 !default;
-$gray-400: #c2d0d0 !default;
-$gray-500: #bacaca !default;
-$gray-600: #A9BDBD !default;
-$gray-700: #657171 !default;
-$gray-800: #323838 !default;
-$gray-900: #212525 !default;
+// Solar 4.5.1
+// Bootswatch
+
+//
+// Color system
+//
+
+// stylelint-disable
+$white:    #fff !default;
+$gray-100: #fdf6e3 !default;
+$gray-200: #eee8d5 !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #839496 !default;
+$gray-700: #495057 !default;
+$gray-800: #073642 !default;
+$gray-900: #002b36 !default;
 $black:    #000 !default;
 
-$blue:    #05668D !default;
+$blue:    #b58900 !default;
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
-$red:     #E71D36 !default;
-$orange:  #cb4b16 !default;
-$yellow:  #e99002 !default;
-$green:   #1a936f !default;
-$teal:    #02c39A !default;
-$cyan:    #2ec4b6 !default;
+$red:     #d33682 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #cb4b16 !default;
+$green:   #2aa198 !default;
+$teal:    #20c997 !default;
+$cyan:    #268bd2 !default;
 
 $primary:       $blue !default;
 $secondary:     $gray-600 !default;
@@ -29,8 +37,6 @@ $warning:       $yellow !default;
 $danger:        $red !default;
 $light:         $gray-100 !default;
 $dark:          $gray-800 !default;
-
-// Options
 
 $enable-gradients: true;
 
@@ -47,8 +53,7 @@ $link-hover-color:          $link-color !default;
 // Components
 
 $component-active-color:      rgba(255,255,255,.75) !default;
-//$component-active-bg:         $gray-800 !default;
-$component-active-bg:         $secondary !default;
+$component-active-bg:         $gray-800 !default;
 
 // Fonts
 
@@ -67,7 +72,7 @@ $table-dark-color:            $body-bg !default;
 
 // Forms
 
-$input-bg:                              $gray-400 !default;
+$input-bg:                              #A9BDBD !default;
 $input-disabled-bg:                     #657B83 !default;
 
 $input-border-color:                    rgba($black,.15) !default;
@@ -76,7 +81,6 @@ $input-placeholder-color:               #657B83 !default;
 
 $input-group-addon-color:               $gray-600 !default;
 $input-group-addon-bg:                  $gray-800 !default;
-$input-btn-focus-box-shadow: 0 0 0 .2rem rgba($component-active-bg, .25) !default;
 
 // Dropdowns
 

@@ -1,21 +1,17 @@
-/* Add application styles & imports to this file! */
-@import "./vars.scss";
+// Superhero 4.5.1
+// Bootswatch
+
 
 // Variables ===================================================================
-$theme-colors: (
-  "primary":    $primary,
-  "secondary":  $secondary,
-  "success":    $success,
-  "info":       $info,
-  "warning":    $warning,
-  "danger":     $danger,
-  "light":      $light,
-  "dark":       $dark
-) !default;
 
-@import "~bootstrap/scss/bootstrap";
+$web-font-path: "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" !default;
+@import url($web-font-path);
 
 // Navbar ======================================================================
+
+.navbar {
+  font-size: $font-size-sm;
+}
 
 // Buttons =====================================================================
 
@@ -33,17 +29,42 @@ $theme-colors: (
 
 // Typography ==================================================================
 
+.dropdown-menu {
+
+  font-size: $font-size-sm;
+}
+
+.dropdown-header {
+  font-size: $font-size-sm;
+}
+
+.blockquote-footer {
+  color: $body-color;
+}
+
 // Tables ======================================================================
 
 .table {
+  font-size: $font-size-sm;
 
-  &-primary,
-  &-secondary,
-  &-dark,
-  &-success,
-  &-info,
-  &-warning,
-  &-danger {
+  .thead-dark th {
+    color: $white;
+  }
+
+  a:not(.btn) {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  .dropdown-menu a {
+    text-decoration: none;
+  }
+
+  .text-muted {
+    color: $text-muted;
+  }
+
+  &-dark {
     color: #fff;
   }
 
@@ -162,38 +183,32 @@ $theme-colors: (
 
 // Forms =======================================================================
 
-.custom-control-input:checked ~ .custom-control-label::before {
-  background: $primary;
-}
-
-.custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
-  border-color: $primary;
-}
-
-.custom-control-input:not(:disabled):active ~ .custom-control-label::before {
-  background: $primary;
-  border-color: $primary;
-}
-
-.custom-switch {
-  .custom-control-label::after {
-    background-color: rgba(255, 255, 255, 1);
-  }
-
-  .custom-control-input:checked ~ .custom-control-label::after {
-    background-color: rgba(255, 255, 255, 0.75);
-  }
-}
-.form-inline .custom-select,
-.form-inline .input-group {
-  width: auto;
-}
-.custom-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
+label,
+.radio label,
+.checkbox label,
+.help-block {
+  font-size: $font-size-sm;
 }
 
 // Navs ========================================================================
+
+.nav-tabs,
+.nav-pills {
+  .nav-link,
+  .nav-link:hover {
+    color: $body-color;
+  }
+
+  .nav-link.disabled {
+    color: $nav-link-disabled-color;
+  }
+}
+
+.page-link:hover,
+.page-link:focus {
+  color: #fff;
+  text-decoration: none;
+}
 
 // Indicators ==================================================================
 
@@ -216,13 +231,23 @@ $theme-colors: (
       }
     }
   }
+}
 
-  &-light {
-    &,
-    & a:not(.btn),
-    & .alert-link {
-      color: $body-bg;
-    }
+.badge {
+  &-warning,
+  &-info {
+    color: $white;
+  }
+}
+
+.close {
+  color: #fff;
+  text-shadow: none;
+  opacity: 0.5;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
   }
 }
 
@@ -230,16 +255,16 @@ $theme-colors: (
 
 // Popovers      ===============================================================
 
+.popover-header {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
 // Containers ==================================================================
 
-
-@import '~@fullcalendar/core/main.css';
-@import '~@fullcalendar/daygrid/main.css';
-@import '~@fullcalendar/timegrid/main.css';
-@import '~@fullcalendar/list/main.css';
-
-body {
-  font-size: 14px;
-  height: 100%;
-  min-width: 900px;
+.modal {
+  &-header,
+  &-footer {
+    background-color: $table-hover-bg;
+  }
 }
