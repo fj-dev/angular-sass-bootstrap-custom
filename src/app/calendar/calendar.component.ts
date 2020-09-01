@@ -5,7 +5,8 @@ import { CalendarOptions, FullCalendarComponent } from '@fullcalendar/angular';
 import {MockEvents} from './mock-events';
 import {CalendarDataService} from './calendar-data.service';
 import {CalendarService} from './calendar.service';
-import {CALENDAR_CONFIG} from './calendar.config';
+
+import { createDayGridEvent, createTimeGridEvent, createListWeekEvent } from './calendar-utils';
 
 @Component({
   selector: 'main-calendar',
@@ -15,9 +16,8 @@ import {CALENDAR_CONFIG} from './calendar.config';
 })
 export class CalendarComponent implements OnInit, AfterViewInit, AfterContentInit {
   @ViewChild('calendar') calendarComponent: FullCalendarComponent;
-  config = CALENDAR_CONFIG;
-
-  calendarEvents = this.dataService.getEvents();
+  
+  //calendarEvents = this.dataService.getEvents();
 
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
@@ -27,7 +27,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
       right: 'myMonthView,myWeekView,myDayView,myListView'
     },
     allDaySlot: true,
-    allDayContent: 'All Day',
+    allDayText: 'All Day',
     slotEventOverlap: false,
     eventTimeFormat: {
       hour: '2-digit',
@@ -148,68 +148,26 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
 
   onEventRender(arg) {
     // this.service.logMsg('eventRender: ' + arg.event.title);
+    let content;
 
-   /* if (arg.event.extendedProps.allDay && arg.view.type !== 'listWeek') {
-      arg.el.querySelector('.fc-title').innerHTML = 'All Day - ' + arg.event.title;
+    switch (arg.view.type) {
+      case 'timeGridWeek':
+      case 'timeGridDay': {
+        content = createTimeGridEvent(arg);
+        break;
+      }
+      case 'listWeek': {
+        content = createListWeekEvent(arg);
+        break;
+      }
+      case 'dayGridMonth':
+      default: {
+        content = createDayGridEvent(arg);
+        break;
+      }
     }
-    if (arg.event.extendedProps.multiDay && !arg.event.extendedProps.allDay) {
-      if (arg.view.type === 'dayGridMonth') {
-        const startTime = arg.event.start.getHours().toString().padStart(2,0) + ':' + arg.event.start.getMinutes().toString().padStart(2,0);
-        const endTime = arg.event.end.getHours().toString().padStart(2,0) + ':' + arg.event.end.getMinutes().toString().padStart(2,0);
-        if (arg.isStart === true) {
-          arg.el.querySelector('.fc-time').innerHTML = startTime;
-          arg.el.querySelector('.fc-time').classList.add('event-time-start');
-        } else {
-          arg.el.querySelector('.fc-title').style.margin = 'auto';
-        }
-      
-        if (arg.isEnd === true) {
-          let end = document.createElement('span');
-          end.className = 'fc-time event-time-end';
-          end.innerHTML = endTime;
-          arg.el.querySelector('.fc-content').appendChild(end);
-        } else {
-          arg.el.querySelector('.fc-title').style.margin = 'auto';
-        }
-      }
-      if (arg.view.type === 'timeGridWeek') {
-        if (arg.isStart === true && arg.isEnd === true){
-          arg.el.querySelector('.fc-title').style.margin = 'auto';
-        } else {
-          const divEl = document.createElement('div');
-          divEl.className = 'fc-content';
-
-          const startEl = document.createElement('span');
-          startEl.className = 'fc-time event-time-start';
-          
-          const endEl = document.createElement('span');
-          endEl.className = 'fc-time event-time-end';
-          endEl.innerHTML = arg.event.extendedProps.endDate;
-
-          if (arg.isStart === true) {
-            startEl.innerHTML = arg.event.extendedProps.startDate + ' ' + arg.event.extendedProps.startTime;
-          } else {
-            startEl.innerHTML = arg.event.extendedProps.startDate;
-          }
-          divEl.appendChild(startEl);
-
-          const titleEl = document.createElement('span');
-          titleEl.className = 'fc-title';
-          titleEl.innerHTML = arg.event.title;
-          divEl.appendChild(titleEl);
-
-          if (arg.isEnd === true) {
-            endEl.innerHTML = arg.event.extendedProps.endDate + ' ' + arg.event.extendedProps.endTime;
-          } else {
-            endEl.innerHTML = arg.event.extendedProps.endDate;
-          }
-          divEl.appendChild(endEl);
-
-          arg.el.removeChild(arg.el.querySelector('.fc-content'));
-          arg.el.appendChild(divEl);
-        }
-      }
-    }*/
+    
+    return content;
     
   }
 
