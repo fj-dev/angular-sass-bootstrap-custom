@@ -1,10 +1,5 @@
 import {Component, ViewChild, OnInit, AfterViewInit, AfterContentInit} from '@angular/core';
 
-//import {FullCalendarComponent} from '@fullcalendar/angular';
-//import dayGridPlugin from '@fullcalendar/daygrid';
-//import timeGridPlugin from '@fullcalendar/timegrid';
-//import interactionPlugin from '@fullcalendar/interaction';
-//import listPlugin from '@fullcalendar/list';
 import { CalendarOptions, FullCalendarComponent } from '@fullcalendar/angular';
 
 import {MockEvents} from './mock-events';
@@ -34,8 +29,19 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
     allDaySlot: true,
     allDayContent: 'All Day',
     slotEventOverlap: false,
-    eventTimeFormat: this.config.timeFormat,
-    slotLabelFormat: this.config.slotFormat,
+    eventTimeFormat: {
+      hour: '2-digit',
+      minute: '2-digit',
+      meridiem: false,
+      hour12: false
+    },
+    slotLabelFormat: {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+      omitZeroMinute: false,
+      meridiem: false
+    },
     displayEventEnd: true,
     themeSystem: 'bootstrap',
     events: [],
@@ -118,10 +124,6 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
 
   onDatesRender(arg) {
     // this.service.logMsg('datesRender: ' + arg.view.type);
-  }
-
-  onDatesDestroy(arg) {
-    // this.service.logMsg('datesDestroy: ' + arg.view.type);
   }
 
   onViewChange(newView) {
