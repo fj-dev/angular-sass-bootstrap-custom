@@ -5,4 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './forms.component.html',
   styleUrls: ['./forms.component.scss']
 })
-export class MyFormsComponent {}
+export class MyFormsComponent {
+  optionItems = [1, 2, 3, 4, 5];
+  
+}
