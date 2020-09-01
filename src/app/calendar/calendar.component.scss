@@ -14,6 +14,11 @@
       border-color: $primary;
     }
   }
+
+  .fc-timegrid-event-harness {
+    min-height: 20px;
+  }
+
   .fc-view-container {
     .fc-event {
       background-color: $primary;
@@ -29,7 +34,7 @@
         overflow: visible;
         white-space: normal;
       }
-      &.multi-day .fc-content {
+      &.multi-day .fc-content { 
         display: flex;
         justify-content: space-between;
         align-items: stretch;

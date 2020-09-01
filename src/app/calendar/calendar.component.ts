@@ -1,9 +1,11 @@
 import {Component, ViewChild, OnInit, AfterViewInit, AfterContentInit} from '@angular/core';
-import {FullCalendarComponent} from '@fullcalendar/angular';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
-import interactionPlugin from '@fullcalendar/interaction';
-import listPlugin from '@fullcalendar/list';
+
+//import {FullCalendarComponent} from '@fullcalendar/angular';
+//import dayGridPlugin from '@fullcalendar/daygrid';
+//import timeGridPlugin from '@fullcalendar/timegrid';
+//import interactionPlugin from '@fullcalendar/interaction';
+//import listPlugin from '@fullcalendar/list';
+import { CalendarOptions, FullCalendarComponent } from '@fullcalendar/angular';
 
 import {MockEvents} from './mock-events';
 import {CalendarDataService} from './calendar-data.service';
@@ -17,29 +19,73 @@ import {CALENDAR_CONFIG} from './calendar.config';
   providers: [MockEvents, CalendarDataService, CalendarService]
 })
 export class CalendarComponent implements OnInit, AfterViewInit, AfterContentInit {
-  @ViewChild('calendar', {static: false}) calendarComponent: FullCalendarComponent;
+  @ViewChild('calendar') calendarComponent: FullCalendarComponent;
   config = CALENDAR_CONFIG;
-  calendarPlugins = [dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin];
-  calendarEvents = this.dataService.getEvents();
-  custButtons = {
-    myMonthView: {
-      text: 'month',
-      click: ()=>this.onViewChange('dayGridMonth')
-    },
-    myWeekView: {
-      text: 'week',
-      click: ()=>this.onViewChange('timeGridWeek')
-    },
-    myDayView: {
-      text: 'day',
-      click: ()=>this.onViewChange('timeGridDay')
-    },
-    myListView: {
-      text: 'list',
-      click: ()=>this.onViewChange('listWeek')
-    }
-  };
 
+  calendarEvents = this.dataService.getEvents();
+
+  calendarOptions: CalendarOptions = {
+    initialView: 'dayGridMonth',
+    headerToolbar: {
+      left: 'myPrev,myNext today',
+      center: 'title',
+      right: 'myMonthView,myWeekView,myDayView,myListView'
+    },
+    allDaySlot: true,
+    allDayContent: 'All Day',
+    slotEventOverlap: false,
+    eventTimeFormat: this.config.timeFormat,
+    slotLabelFormat: this.config.slotFormat,
+    displayEventEnd: true,
+    themeSystem: 'bootstrap',
+    events: [],
+    dayMaxEventRows: 3,
+    customButtons: {
+      myPrev: {
+        text: '<',
+        click: () => {
+          const api = this.calendarComponent.getApi();
+          api.prev();
+        },
+        icon: false
+      },
+      myNext: {
+        text: '>',
+        click: (mouseEvent, htmlElement) => {
+          const api = this.calendarComponent.getApi();
+          api.next();
+        },
+        icon: false,
+      },
+      myMonthView: {
+        text: 'month',
+        click: ()=>this.onViewChange('dayGridMonth')
+      },
+      myWeekView: {
+        text: 'week',
+        click: ()=>this.onViewChange('timeGridWeek')
+      },
+      myDayView: {
+        text: 'day',
+        click: ()=>this.onViewChange('timeGridDay')
+      },
+      myListView: {
+        text: 'list',
+        click: ()=>this.onViewChange('listWeek')
+      }
+    },
+    dateClick: this.onDateClick.bind(this),
+    viewDidMount: this.onViewSkeletonRender.bind(this),
+    viewWillUnmount: this.onViewSkeletonDestroy.bind(this),
+    datesSet: this.onDatesRender.bind(this),
+    select: this.onSelect.bind(this),
+    unselect: this.onUnselect.bind(this),
+    eventContent: this.onEventRender.bind(this),
+    eventDidMount: this.onEventPositioned.bind(this),
+    eventWillUnmount: this.onEventDestroy.bind(this),
+    eventDisplay: 'block',
+  };
+ 
   constructor(
     private dataService: CalendarDataService,
     private service: CalendarService
@@ -52,6 +98,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
     // this.service.logMsg('...afterContentInit...');
   }
   ngAfterViewInit() {
+    this.loadEvents();
     // this.service.logMsg('...afterViewInit...');
   }
   
@@ -81,9 +128,16 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
     if(this.calendarComponent) {
       this.dataService.currView = newView;
       const api = this.calendarComponent.getApi();
-      this.calendarEvents = this.dataService.getEvents();
+      //this.calendarEvents = this.dataService.getEvents();
+      this.loadEvents();
       api.changeView(newView);
     }
+  }
+
+  loadEvents() {
+    const events = this.dataService.getEvents();
+    const api = this.calendarComponent.getApi();
+    api.setOption('events', events);
   }
 
   onSelect(arg) { }
@@ -93,7 +147,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
   onEventRender(arg) {
     // this.service.logMsg('eventRender: ' + arg.event.title);
 
-    if (arg.event.extendedProps.allDay && arg.view.type !== 'listWeek') {
+   /* if (arg.event.extendedProps.allDay && arg.view.type !== 'listWeek') {
       arg.el.querySelector('.fc-title').innerHTML = 'All Day - ' + arg.event.title;
     }
     if (arg.event.extendedProps.multiDay && !arg.event.extendedProps.allDay) {
@@ -153,7 +207,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
           arg.el.appendChild(divEl);
         }
       }
-    }
+    }*/
     
   }
 

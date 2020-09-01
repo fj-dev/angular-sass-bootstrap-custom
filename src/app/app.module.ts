@@ -5,6 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
+import interactionPlugin from '@fullcalendar/interaction';
+import listPlugin from '@fullcalendar/list';
+import bootstrapPlugin from '@fullcalendar/bootstrap';
 
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
@@ -50,6 +55,14 @@ import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
 import { MyCalendarComponent } from './my-calendar/my-calendar.component';
 import { MyFormComponent } from './my-form/my-form.component';
 import { MyLeftSidePanelComponent} from './my-sidepanel/my-left-side-panel.component';
+
+FullCalendarModule.registerPlugins([
+  bootstrapPlugin,
+  dayGridPlugin,
+  timeGridPlugin,
+  interactionPlugin,
+  listPlugin  
+]);
 
 @NgModule({
   imports:      [ 
