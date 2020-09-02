@@ -45,9 +45,18 @@ $link-color:                $success !default;
 $link-hover-color:          $link-color !default;
 
 // Components
+//$border-color:              $gray-300 !default;
+
+//$border-radius:             .25rem !default;
+$border-radius-sm:            .2rem !default;
+//$border-radius-lg:            .3rem !default;
+
+//$box-shadow:                  0 .5rem 1rem rgba($black, .15) !default;
+//$box-shadow-sm:               0 .125rem .25rem rgba($black, .075) !default;
+//$box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
+//$box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
 
 $component-active-color:      rgba(255,255,255,.75) !default;
-//$component-active-bg:         $gray-800 !default;
 $component-active-bg:         $secondary !default;
 
 // Fonts
@@ -67,12 +76,13 @@ $table-dark-color:            $body-bg !default;
 
 // Forms
 
-$input-bg:                              $gray-400 !default;
-$input-disabled-bg:                     #657B83 !default;
+$input-bg:                              $gray-200 !default;
+$input-disabled-bg:                     $gray-700 !default;
 
-$input-border-color:                    rgba($black,.15) !default;
+$input-color:                           $dark !default;
+$input-border-color:                    rgba($dark,.15) !default;
 
-$input-placeholder-color:               #657B83 !default;
+$input-placeholder-color:               $gray-700 !default;
 
 $input-group-addon-color:               $gray-600 !default;
 $input-group-addon-bg:                  $gray-800 !default;

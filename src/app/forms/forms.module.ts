@@ -11,6 +11,7 @@ import { DateTimePickersComponent } from './date-time-picker/date-time-pickers.c
 import { DateTimePickerComponent } from './date-time-picker/date-time-picker/date-time-picker.component';
 import { DateTimePickerComponent2 } from './date-time-picker/date-time-picker2/date-time-picker2.component';
 import { DateTimePickerComponent3 } from './date-time-picker/date-time-picker3/date-time-picker3.component';
+import { SelectMenuComponent } from './select-menu/select-menu.component';
 import { PickListComponent } from './pick-list/pick-list.component';
 
 import { NgbTime } from '@ng-bootstrap/ng-bootstrap/timepicker/ngb-time';
@@ -30,6 +31,7 @@ import { NgbTime } from '@ng-bootstrap/ng-bootstrap/timepicker/ngb-time';
     DateTimePickerComponent3,
     DateTimePickersComponent,
     PickListComponent,
+    SelectMenuComponent,
     MyFormsComponent
   ],
   exports: [
@@ -38,6 +40,7 @@ import { NgbTime } from '@ng-bootstrap/ng-bootstrap/timepicker/ngb-time';
    DateTimePickerComponent3,
    DateTimePickersComponent,
    PickListComponent,
+   SelectMenuComponent,
    MyFormsComponent
   ]
 })
