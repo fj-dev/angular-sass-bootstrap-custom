@@ -1,4 +1,36 @@
+@import "./../../vars.scss";
+.map-container {
+  /height: calc(93vh - .25rem);
+}
 #map {
-  height: 400px;
+  height: calc(93vh - 1rem);
   width: 100%;
+}
+::ng-deep .ol-control {
+  color: $secondary;
+  line-height: 1.5;
+  background-color: unset;
+  border-radius: .2rem;
+  &:hover {
+    background-color: unset;
+  }
+  &.ol-zoom {
+    left: unset;
+    right: 0.5em;
+    button {
+      font-size: .875rem;
+      padding: .25rem .5rem;
+      color: $white;
+      line-height: 1.5;
+      height: unset;
+      width: unset;
+      border-radius: .2rem;
+      background-color: rgba($primary, .7);
+      //background: rgba($primary, .6) linear-gradient(180deg, mix($white, rgba($primary, .6), 15%), rgba($primary, .6)) repeat-x;
+      &:hover {
+        background-image: unset;
+        background-color: darken($primary, 7.5%);
+      }
+    }
+  }
 }

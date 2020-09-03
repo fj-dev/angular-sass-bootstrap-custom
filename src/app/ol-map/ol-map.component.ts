@@ -6,6 +6,7 @@ import { Style, Icon } from 'ol/style';
 import OSM from 'ol/source/OSM';
 import * as olProj from 'ol/proj';
 import TileLayer from 'ol/layer/Tile';
+import { Control, defaults as defaultControls, Zoom } from 'ol/control';
 
 @Component({
   selector: 'my-ol-map',
@@ -14,11 +15,18 @@ import TileLayer from 'ol/layer/Tile';
 })
 export class OlMapComponent implements OnInit, AfterViewInit {
   map: ElementRef;
+  
   ngOnInit(){
   }
 
   ngAfterViewInit(){
     this.map = new Map({
+      controls: defaultControls({
+        zoomOptions: {
+          zoomInLabel: document.getElementById('zoom-in'),
+          zoomOutLabel: document.getElementById('zoom-out')
+        }
+      }),
       target: 'map',
       layers: [
         new TileLayer({
