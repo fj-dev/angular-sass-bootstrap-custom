@@ -56,8 +56,8 @@ $border-radius-sm:            .2rem !default;
 //$box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
 //$box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
 
-$component-active-color:      rgba(255,255,255,.75) !default;
-$component-active-bg:         $secondary !default;
+$component-active-color:      $white !default;//rgba(255,255,255,.75) !default;
+$component-active-bg:         $primary !default;
 
 // Fonts
 
@@ -89,7 +89,6 @@ $input-group-addon-bg:                  $gray-800 !default;
 $input-btn-focus-box-shadow: 0 0 0 .2rem rgba($component-active-bg, .25) !default;
 
 $custom-file-color:                 $gray-600 !default;
-//$custom-file-button-color:          $gray-600 !default;
 $custom-file-border-color:          $body-bg !default;
 
 // Dropdowns
