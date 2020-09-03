@@ -27,9 +27,10 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/ol/ol.css",
               "./node_modules/@ng-select/ng-select/themes/default.theme.css",
               "./node_modules/bootstrap/scss/bootstrap.scss",
-              "src/styles.scss"
+              "src/styles.scss"              
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",

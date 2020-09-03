@@ -55,6 +55,8 @@ import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
 import { MyCalendarComponent } from './my-calendar/my-calendar.component';
 import { MyFormComponent } from './my-form/my-form.component';
 import { MyLeftSidePanelComponent} from './my-sidepanel/my-left-side-panel.component';
+import { MyMapComponent } from './my-map/my-map.component';
+import { OlMapComponent } from './ol-map/ol-map.component';
 
 FullCalendarModule.registerPlugins([
   bootstrapPlugin,
@@ -92,6 +94,8 @@ FullCalendarModule.registerPlugins([
     MyCalendarComponent,
     MyFormComponent,
     MyLeftSidePanelComponent,
+    MyMapComponent,
+    OlMapComponent,
   ],
   bootstrap:    [ AppComponent ]
 })
