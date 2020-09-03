@@ -76,11 +76,11 @@ $table-dark-color:            $body-bg !default;
 
 // Forms
 
-$input-bg:                              $gray-200 !default;
-$input-disabled-bg:                     $gray-700 !default;
+$input-bg:                              $gray-100 !default;
+$input-disabled-bg:                     $gray-500 !default;
 
 $input-color:                           $dark !default;
-$input-border-color:                    rgba($dark,.15) !default;
+$input-border-color:                    $body-bg !default;
 
 $input-placeholder-color:               $gray-700 !default;
 
@@ -88,7 +88,9 @@ $input-group-addon-color:               $gray-600 !default;
 $input-group-addon-bg:                  $gray-800 !default;
 $input-btn-focus-box-shadow: 0 0 0 .2rem rgba($component-active-bg, .25) !default;
 
-$custom-file-button-color:                $gray-600 !default;
+$custom-file-color:                 $gray-600 !default;
+//$custom-file-button-color:          $gray-600 !default;
+$custom-file-border-color:          $body-bg !default;
 
 // Dropdowns
 
