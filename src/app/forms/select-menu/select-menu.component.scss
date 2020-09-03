@@ -2,10 +2,10 @@
 .ng-select.custom ::ng-deep .ng-select-container {
   height: calc(1.5em + .5rem + 2px);
   min-height: 0;
-  border-radius: $border-radius-sm;
+  //border-radius: $border-radius-sm;
   color: $input-color;
   background-color: $input-bg;
-  border-color: $input-border-color;
+  //border-color: $input-border-color;
   .ng-value-container {
     padding-left: .5rem;
 
