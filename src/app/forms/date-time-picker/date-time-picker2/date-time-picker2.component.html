@@ -1,6 +1,6 @@
-<div class="input-group my-datetime">
+<div class="input-group input-group-sm my-datetime">
   <input 
-    class="form-control form-control-sm" 
+    class="form-control" 
     (blur)="inputBlur($event)" 
     [placeholder]="placeholder" 
     [ngModel]="date | date: inputDatetimeFormat" 
@@ -8,13 +8,12 @@
   />
 
   <div class="input-group-append">
-    <button 
-      class="btn btn-sm btn-outline-secondary"
+    <span
+      class="input-group-text"
       [ngbPopover]="calendarContent"
-      placement="bottom-right"
-      type="button">
+      placement="bottom-right">
       <fa-icon [icon]="['far', 'calendar-alt']"></fa-icon>
-    </button>
+    </span>
   </div>
 </div>
 

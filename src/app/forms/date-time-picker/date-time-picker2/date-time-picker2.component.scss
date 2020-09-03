@@ -1,5 +1,11 @@
 @import "../../../.././vars.scss";
-
+.my-datetime {
+  .input-group-text {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
 .calendar-content {
   ::ng-deep ngb-datepicker .btn-light {
     color: $secondary;

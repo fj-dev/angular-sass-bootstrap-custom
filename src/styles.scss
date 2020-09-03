@@ -193,6 +193,28 @@ $theme-colors: (
   -webkit-appearance: none;
 }
 
+.input-group-sm {
+  button, .input-group-text {
+    background-clip: padding-box;
+  }
+  .custom-file, .custom-file-input {
+    font-size: 0.875rem;
+    height: calc(1.5em + .5rem + 2px);
+  }
+  .custom-file-label {
+    height: calc(1.5em + .5rem + 2px);
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    border-radius: .2rem;
+    background-clip: padding-box;
+  }
+  .custom-file-label::after {
+    padding: .25rem .5rem;
+    height: calc(1.5em + .5rem);
+    border-radius: 0 .2rem .2rem 0;
+  }
+}
+
 // Navs ========================================================================
 
 // Indicators ==================================================================
