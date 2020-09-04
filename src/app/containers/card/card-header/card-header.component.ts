@@ -34,7 +34,9 @@ export class CardHeaderComponent {
   }
 
   myClasses: {};
-  constructor() { }
+  constructor() {
+    this.setMyClasses();
+  }
 
   private setMyClasses() {
     this.myClasses = {
@@ -70,5 +72,4 @@ export class CardHeaderComponent {
       'text-white': this.textColor && this.textColor === 'white'
     }
   };
-
 }
