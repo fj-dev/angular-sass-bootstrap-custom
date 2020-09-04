@@ -1,0 +1,10 @@
+<div class="card">
+  <ng-container *ngFor="let content of contents">
+    <ng-container *ngSwitch="content.type">
+      <my-card-header *ngSwitchCase="'header'"></my-card-header>
+      <my-card-body *ngSwitchCase="'body'"></my-card-body>
+      <my-card-footer *ngSwitchCase="'footer'"></my-card-footer>
+      <ng-template *ngSwitchDefault></ng-template>
+    </ng-container>
+  </ng-container>
+</div>
