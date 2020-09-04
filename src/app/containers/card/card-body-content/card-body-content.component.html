@@ -1,0 +1,11 @@
+<div [ngSwitch]="contentType">
+  <ng-template *ngSwitchCase="'text'">
+    <p [ngClass]="myClasses">{{displayText}}</p>
+  </ng-template>
+  <ng-template *ngSwitchCase="'link'">
+    <a [ngClass]="myClasses" href="#">{{displayText}}</a>
+  </ng-template>
+  <ng-template *ngSwitchDefault>
+    <div [ngClass]="myClasses">{{displayText}}</div>
+  </ng-template>
+</d>

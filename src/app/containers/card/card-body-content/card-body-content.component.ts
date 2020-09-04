@@ -1,11 +1,20 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'my-card-header',
-  templateUrl: './card-header.component.html',
-  styleUrls: ['./card-header.component.scss']
+  selector: 'my-card-body-content',
+  templateUrl: './card-body-content.component.html',
+  styleUrls: ['./card-body-content.component.scss']
 })
-export class CardHeaderComponent {
+export class CardBodyContentComponent {
+  private _contentType = 'title';
+  @Input() set contentType(val) {
+    this._contentType = val;
+    this.setMyClasses();
+  }
+  get contentType() {
+    return this._contentType;
+  }
+
   private _bgColor;
   @Input() set bgColor(val) {
     this._bgColor = val;
@@ -33,6 +42,28 @@ export class CardHeaderComponent {
     return this._textColor;
   }
 
+  private _displayText;
+  @Input() set displayText(val) {
+    this._displayText = val;
+  }  
+  get displayText() {
+    if (this._displayText) {
+      return this._displayText;
+    }
+    let defaultText = 'Card ';
+    switch (this.contentType) {
+      case 'text': {
+        defaultText = 'Some quick example text to build on the card title and make up the bulk of the card/\'s content.';
+        break;
+      }
+      default: {
+        defaultText += this.contentType;
+        break;
+      }
+    }
+    return defaultText;
+  }
+
   myClasses: {};
   constructor() {
     this.setMyClasses();
@@ -40,7 +71,10 @@ export class CardHeaderComponent {
 
   private setMyClasses() {
     this.myClasses = {
-      'card-header': true,
+      'card-text': this.contentType === 'text',
+      'card-link': this.contentType === 'link',
+      'card-title': this.contentType === 'title',
+      'card-subtitle': this.contentType === 'subtitle',
       'bg-primary': this.bgColor && this.bgColor === 'primary',
       'bg-secondary': this.bgColor && this.bgColor ===  'secondary',
       'bg-dark': this.bgColor && this.bgColor === 'dark',
@@ -68,7 +102,8 @@ export class CardHeaderComponent {
       'text-info': this.textColor && this.textColor === 'info',
       'text-warning': this.textColor && this.textColor === 'warning',
       'text-danger': this.textColor && this.textColor === 'danger',
-      'text-muted': this.textColor && this.textColor === 'muted',
+      'text-muted': (this.textColor && this.textColor === 'muted') ||
+        (this.contentType === 'subtitle' && !this.textColor),
       'text-white': this.textColor && this.textColor === 'white'
     };
   }

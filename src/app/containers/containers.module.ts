@@ -1,15 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+
 import { CardComponent } from './card/card.component';
 import { CardHeaderComponent } from './card/card-header/card-header.component';
 import { CardBodyComponent } from './card/card-body/card-body.component';
-import { CardImageComponent } from './card/card-image/card-image.component';
 import { CardFooterComponent } from './card/card-footer/card-footer.component';
+import { CardBodyContentComponent } from './card/card-body-content/card-body-content.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    BrowserModule
   ],
-  declarations: [CardComponent, CardHeaderComponent, CardBodyComponent, CardImageComponent, CardFooterComponent]
+  declarations: [
+    CardComponent,
+    CardHeaderComponent,
+    CardBodyComponent,
+    CardFooterComponent,
+    CardBodyContentComponent
+  ],
+  exports: [
+    CardComponent,
+    CardHeaderComponent,
+    CardBodyComponent,
+    CardFooterComponent,
+    CardBodyContentComponent
+  ]
 })
-export class ContainersModule { }
+export class MyContainersModule { }

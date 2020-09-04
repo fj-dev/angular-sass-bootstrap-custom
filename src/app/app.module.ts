@@ -47,6 +47,7 @@ import { MyButtonsModule } from './buttons/buttons.module';
 import { MyFormsModule } from './forms/forms.module';
 import { MyNavsModule } from './navs/navs.module';
 import { MyCalendarModule } from './calendar/calendar.module';
+import { MyContainersModule } from './containers/containers.module';
 
 import { MyNavbarComponent } from './my-navbar/my-navbar.component';
 import { CustomButtonsComponent } from './custom-buttons/custom-buttons.component';
@@ -80,6 +81,7 @@ FullCalendarModule.registerPlugins([
     MyNavsModule,
     MyFormsModule,
     MyCalendarModule,
+    MyContainersModule,
     AppRoutingModule
   ],
   exports: [

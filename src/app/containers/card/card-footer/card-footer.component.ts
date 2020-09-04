@@ -70,6 +70,6 @@ private _bgColor;
       'text-danger': this.textColor && this.textColor === 'danger',
       'text-muted': this.textColor && this.textColor === 'muted',
       'text-white': this.textColor && this.textColor === 'white'
-    }
-  };
+    };
+  }
 }
