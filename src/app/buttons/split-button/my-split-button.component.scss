@@ -1,0 +1,8 @@
+@import "./../../../vars.scss";
+
+.btn-group {
+  button:not(.dropdown-toggle-split) {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0;
+  }
+}

@@ -1,0 +1,24 @@
+<div *ngIf="buttonType==='checkbox' else radioDiv" class="btn-group btn-group-toggle">
+  <label [ngClass]="btnClass" ngbButtonLabel>
+    <input type="checkbox" ngbButton [(ngModel)]="checkboxValues.left"> Left (pre-checked)
+  </label>
+  <label [ngClass]="btnClass" ngbButtonLabel>
+    <input type="checkbox" ngbButton [(ngModel)]="checkboxValues.middle"> Middle
+  </label>
+  <label [ngClass]="btnClass" ngbButtonLabel>
+    <input type="checkbox" ngbButton [(ngModel)]="checkboxValues.right"> Right
+  </label>
+</div>
+<ng-template #radioDiv>
+  <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="radioValue">
+  <label ngbButtonLabel [ngClass]="btnClass">
+    <input ngbButton type="radio" [value]="1"> Left (pre-checked)
+  </label>
+  <label ngbButtonLabel [ngClass]="btnClass">
+    <input ngbButton type="radio" value="middle"> Middle
+  </label>
+  <label ngbButtonLabel [ngClass]="btnClass">
+    <input ngbButton type="radio" [value]="false"> Right
+  </label>
+</div>
+</ng-template>

@@ -1,0 +1,11 @@
+<div class="btn-group">
+  <button [ngClass]="btnClass" type="button">{{title}}</button>
+	<div class="btn-group my-split-dropdown" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+		<button [ngClass]="btnSplitClass" ngbDropdownToggle></button>
+		<div class="dropdown-menu" ngbDropdownMenu>
+			<button ngbDropdownItem>One</button>
+			<button ngbDropdownItem>Two</button>
+			<button ngbDropdownItem>Four!</button>
+		</div>
+	</div>
+</div>

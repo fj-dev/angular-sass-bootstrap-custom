@@ -1,20 +1,75 @@
 <p class="h1 m-2">Buttons</p>
 <hr class="border-primary mx-2">
-<div class="custom-buttons-container my-3 ml-4">
-  <p class="h4 mb-1 mt-2">Default Size</p>
-  <ng-container *ngFor="let btn of controls">
-    <my-button [title]=btn.title [theme]=btn.theme [size]="default"></my-button>
-  </ng-container>
+
+<div class="row mt-4 mb-1 ml-3">
+  <div class="h4 ml-3">Default Size</div>
 </div>
-<div class="custom-buttons-container my-3 ml-4">
-  <p class="h4 mb-1 mt-2">Disabled</p>
-  <ng-container *ngFor="let btn of controls">
-    <my-button [title]=btn.title [theme]=btn.theme [size]="default" [disabled]="true"></my-button>
-  </ng-container>
+<div class="row ml-3">	
+	<div class="custom-buttons-container ml-5">
+		<ng-container *ngFor="let btn of controls">
+			<my-button class="mx-1" [title]=btn.title [theme]=btn.theme [size]="default"></my-button>
+		</ng-container>
+	</div>
 </div>
-<div class="custom-buttons-container my-3 ml-4">
-  <p class="h4 mb-1 mt-2">Small Size</p>
-  <ng-container *ngFor="let btn of controls">
-    <my-button [title]=btn.title [theme]=btn.theme size="small"></my-button>
-  </ng-container>
+
+<div class="row mt-4 mb-1 ml-3">
+  <div class="h4 ml-3">Disabled</div>
+</div>
+<div class="row ml-3 mb-3">
+	<div class="custom-buttons-container ml-5">		
+		<ng-container *ngFor="let btn of controls">
+			<my-button class="mx-1" [title]=btn.title [theme]=btn.theme [size]="default" [disabled]="true"></my-button>
+		</ng-container>
+	</div>
+</div>
+
+<div class="row mt-4 mb-1 ml-3">
+  <div class="h4 ml-3">Outlined</div>
+</div>
+<div class="row ml-3 mb-3">
+	<div class="custom-buttons-container ml-5">		
+		<ng-container *ngFor="let btn of controls">
+			<my-button class="mx-1" [title]=btn.title [theme]=btn.theme size="default" [outline]="true"></my-button>
+		</ng-container>
+	</div>
+</div>
+
+<div class="row mt-4 mb-1 ml-3">
+  <div class="h4 ml-3">Small Size</div>
+</div>
+<div class="row ml-3 mb-3">
+	<div class="custom-buttons-container ml-5">		
+		<ng-container *ngFor="let btn of controls">
+			<my-button class="mx-1" [title]=btn.title [theme]=btn.theme size="small"></my-button>
+		</ng-container>
+	</div>
+</div>
+
+<div class="row mt-4 mb-1 ml-3">
+  <div class="h4 ml-3">Split Buttons - Buttons with Dropdowns</div>
+</div>
+<div class="row ml-3">	
+	<div class="custom-buttons-container ml-5">
+		<ng-container *ngFor="let btn of controls">
+      <my-split-button class="mx-1" *ngIf="btn.theme !== 'link'" [title]=btn.title [theme]=btn.theme></my-split-button>
+		</ng-container>
+	</div>
+</div>
+
+<div class="row mt-4 mb-1 ml-3">
+  <div class="h4 ml-3">Checkbox buttons</div>
+</div>
+<div class="row ml-3 mb-3">
+	<div class="custom-buttons-container ml-5">		
+		<my-input-buttons [buttonType]="'checkbox'" [theme]="'primary'"></my-input-buttons>    
+	</div>
+</div>
+
+<div class="row mt-4 mb-1 ml-3">
+  <div class="h4 ml-3">Radio buttons</div>
+</div>
+<div class="row ml-3 mb-3">
+	<div class="custom-buttons-container ml-5">		
+		<my-input-buttons [buttonType]="'radio'" [theme]="'primary'"></my-input-buttons>    
+	</div>
 </div>

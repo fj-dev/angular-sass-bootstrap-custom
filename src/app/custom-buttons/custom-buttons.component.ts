@@ -20,7 +20,8 @@ export class CustomButtonsComponent {
     new ButtonBase('Warning', 'warning', 'default'),
     new ButtonBase('Danger', 'danger', 'default'),
     new ButtonBase('Dark', 'dark', 'default'),
-    new ButtonBase('Light', 'light', 'default')
+    new ButtonBase('Light', 'light', 'default'),
+    new ButtonBase('Link', 'link', 'default')
   ];
   constructor(){}
   

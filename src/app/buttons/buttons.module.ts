@@ -1,22 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { MyButtonComponent } from './button/my-button.component';
-import { MyRadioButtonsComponent } from './radio-buttons/my-radio-buttons.component';
+import { MyInputButtonsComponent } from './input-buttons/my-input-buttons.component';
 import { MyDropdownComponent } from './dropdown/my-dropdown.component';
+import { MySplitButtonComponent } from './split-button/my-split-button.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    BrowserModule,
+    FormsModule,
+    NgbModule
   ],
   declarations: [
     MyButtonComponent,
-    MyRadioButtonsComponent,
-    MyDropdownComponent
+    MyInputButtonsComponent,
+    MyDropdownComponent,
+    MySplitButtonComponent
   ],
   exports: [
     MyButtonComponent,
-    MyRadioButtonsComponent,
-    MyDropdownComponent
+    MyInputButtonsComponent,
+    MyDropdownComponent,
+    MySplitButtonComponent,
   ]
 })
 export class MyButtonsModule{}
