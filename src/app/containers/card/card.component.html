@@ -1,5 +1,5 @@
 <div [ngClass]="cardClasses">
-  <div *ngFor="let content of cardContents">    
+  <!--<div *ngFor="let content of cardContents">    
     <div [ngSwitch]="content.type">
       <my-card-header *ngSwitchCase="'header'"
         [bgColor]=content.bgColor
@@ -17,7 +17,24 @@
         [borderColor]=content.borderColor
         [textColor]=content.textColor
       ></my-card-footer>
-      <!--<ng-template *ngSwitchDefault></ng-template>-->
-    </div>
-  </div>
+   </div>
+  </div>-->
+  <ng-template ngFor let-content [ngForOf]="cardContents">
+    <my-card-header *ngIf="content.type === 'header'"
+        [bgColor]=content.bgColor
+        [borderColor]=content.borderColor
+        [textColor]=content.textColor
+      ></my-card-header>
+      <my-card-body *ngIf="content.type === 'body'"
+        [bgColor]=content.bgColor
+        [borderColor]=content.borderColor
+        [textColor]=content.textColor
+        [contents]=content.contents
+      ></my-card-body>
+      <my-card-footer *ngIf="content.type === 'footer'"
+        [bgColor]=content.bgColor
+        [borderColor]=content.borderColor
+        [textColor]=content.textColor
+      ></my-card-footer>
+  </ng-template>
 </div>

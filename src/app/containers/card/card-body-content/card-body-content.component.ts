@@ -8,7 +8,6 @@ import { Component, Input } from '@angular/core';
 export class CardBodyContentComponent {
   private _contentType = 'title';
   @Input() set contentType(val) {
-console.log('set contentType: ', val);    
     this._contentType = val;
     this.setMyClasses();
   }

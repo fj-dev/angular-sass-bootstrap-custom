@@ -13,7 +13,7 @@ export class MyContainerComponent implements OnInit {
       type: 'header', 
       bgColor: '', 
       borderColor: '', 
-      textColor: 'white'
+      textColor: ''
     }),
     new CardBase({
       type: 'body', 
@@ -25,7 +25,7 @@ export class MyContainerComponent implements OnInit {
           contentType: 'title',
           bgColor: '',
           borderColor: '',
-          textColor: 'primary'
+          textColor: ''
         }),
         new CardBodyContent({
           contentType: 'subtitle',
@@ -67,7 +67,7 @@ export class MyContainerComponent implements OnInit {
       type: 'footer', 
       bgColor: '', 
       borderColor: '', 
-      textColor: ''
+      textColor: 'muted'
     }),
   ];
 
