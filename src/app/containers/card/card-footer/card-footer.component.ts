@@ -9,7 +9,7 @@ export class CardFooterComponent {
 private _bgColor;
   @Input() set bgColor(val) {
     this._bgColor = val;
-    this.setMyClasses();
+    this.setMyCardFooterClasses();
   }
   get bgColor() {
     return this._bgColor;
@@ -18,7 +18,7 @@ private _bgColor;
   private _borderColor;
   @Input() set borderColor(val){
     this._borderColor = val;
-    this.setMyClasses();
+    this.setMyCardFooterClasses();
   }
   get borderColor() {
     return this._borderColor;
@@ -27,19 +27,19 @@ private _bgColor;
   private _textColor;
   @Input() set textColor(val) {
     this._textColor = val;
-    this.setMyClasses();
+    this.setMyCardFooterClasses();
   }
   get textColor() {
     return this._textColor;
   }
 
-  myClasses: {};
+  myCardFooterClasses: {};
   constructor() {
-    this.setMyClasses();
+    this.setMyCardFooterClasses();
   }
 
-  private setMyClasses() {
-    this.myClasses = {
+  private setMyCardFooterClasses() {
+    this.myCardFooterClasses = {
       'card-footer': true,
       'bg-primary': this.bgColor && this.bgColor === 'primary',
       'bg-secondary': this.bgColor && this.bgColor ===  'secondary',

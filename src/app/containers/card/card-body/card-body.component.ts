@@ -9,7 +9,7 @@ export class CardBodyComponent {
   private _bgColor;
   @Input() set bgColor(val) {
     this._bgColor = val;
-    this.setMyClasses();
+    this.setMyCardBodyClasses();
   }
   get bgColor() {
     return this._bgColor;
@@ -18,7 +18,7 @@ export class CardBodyComponent {
   private _borderColor;
   @Input() set borderColor(val){
     this._borderColor = val;
-    this.setMyClasses();
+    this.setMyCardBodyClasses();
   }
   get borderColor() {
     return this._borderColor;
@@ -27,7 +27,7 @@ export class CardBodyComponent {
   private _textColor;
   @Input() set textColor(val) {
     this._textColor = val;
-    this.setMyClasses();
+    this.setMyCardBodyClasses();
   }
   get textColor() {
     return this._textColor;
@@ -41,14 +41,14 @@ export class CardBodyComponent {
     return this._contents;
   }
 
-  myClasses: {};
+  myCardBodyClasses: {};
   constructor() {
-    this.setMyClasses();
+    this.setMyCardBodyClasses();
   }
 
-  private setMyClasses() {
-    this.myClasses = {
-      'card-header': true,
+  private setMyCardBodyClasses() {
+    this.myCardBodyClasses = {
+      'card-body': true,
       'bg-primary': this.bgColor && this.bgColor === 'primary',
       'bg-secondary': this.bgColor && this.bgColor ===  'secondary',
       'bg-dark': this.bgColor && this.bgColor === 'dark',

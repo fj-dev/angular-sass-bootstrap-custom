@@ -8,6 +8,7 @@ import { Component, Input } from '@angular/core';
 export class CardBodyContentComponent {
   private _contentType = 'title';
   @Input() set contentType(val) {
+console.log('set contentType: ', val);    
     this._contentType = val;
     this.setMyClasses();
   }
@@ -44,27 +45,26 @@ export class CardBodyContentComponent {
 
   private _displayText;
   @Input() set displayText(val) {
-    this._displayText = val;
+    if (val !== undefined && val !== null) {
+      this._displayText = val;
+    } else {
+      switch(this.contentType) {
+        case 'text': {
+          this._displayText = 'Some quick example text to build on the card title and make up the bulk of the card\'s content.';
+          break;
+        }
+        default: {
+          this._displayText = 'Card ' + this.contentType;
+          break;
+        }
+      }
+    }
   }  
   get displayText() {
-    if (this._displayText) {
-      return this._displayText;
-    }
-    let defaultText = 'Card ';
-    switch (this.contentType) {
-      case 'text': {
-        defaultText = 'Some quick example text to build on the card title and make up the bulk of the card/\'s content.';
-        break;
-      }
-      default: {
-        defaultText += this.contentType;
-        break;
-      }
-    }
-    return defaultText;
+    return this._displayText;
   }
 
-  myClasses: {};
+  private myClasses: {};
   constructor() {
     this.setMyClasses();
   }
@@ -74,7 +74,9 @@ export class CardBodyContentComponent {
       'card-text': this.contentType === 'text',
       'card-link': this.contentType === 'link',
       'card-title': this.contentType === 'title',
+      'h5': this.contentType === 'title',
       'card-subtitle': this.contentType === 'subtitle',
+      'h6': this.contentType === 'subtitle',
       'bg-primary': this.bgColor && this.bgColor === 'primary',
       'bg-secondary': this.bgColor && this.bgColor ===  'secondary',
       'bg-dark': this.bgColor && this.bgColor === 'dark',

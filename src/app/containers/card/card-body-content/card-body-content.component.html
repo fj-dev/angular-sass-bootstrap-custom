@@ -1,11 +1,3 @@
-<div [ngSwitch]="contentType">
-  <ng-template *ngSwitchCase="'text'">
-    <p [ngClass]="myClasses">{{displayText}}</p>
-  </ng-template>
-  <ng-template *ngSwitchCase="'link'">
-    <a [ngClass]="myClasses" href="#">{{displayText}}</a>
-  </ng-template>
-  <ng-template *ngSwitchDefault>
-    <div [ngClass]="myClasses">{{displayText}}</div>
-  </ng-template>
-</di>
+<p *ngIf="contentType==='text' then" [ngClass]="myClasses">{{displayText}}</p>
+<a *ngIf="contentType==='link'" [ngClass]="myClasses" href="#">{{displayText}}</a>
+<div *ngIf="contentType==='title' || contentType==='subtitle'" [ngClass]="myClasses">{{displayText}}</div>

@@ -1,11 +1,11 @@
-<div [ngClass]="myClasses">
-  <ng-template *ngFor="let content of contents">
-    <my-card-body-content
-      [contentType]=content.type
-      [bgColor]=content.bgColor
-      [borderColor]=content.borderColor
-      [textColor]=content.textColor
-      [displayText]=content.displayText      
+<div [ngClass]="myCardBodyClasses">
+  <!--<div *ngFor="let content of contents">-->
+    <my-card-body-content *ngFor="let content of contents"
+      [contentType]="content.contentType"
+      [bgColor]="content.bgColor"
+      [borderColor]="content.borderColor"
+      [textColor]="content.textColor"
+      [displayText]="content.displayText"
     ></my-card-body-content>
-  </ng-template>
+  <!--</div>-->
 </div>

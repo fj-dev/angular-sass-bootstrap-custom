@@ -6,6 +6,7 @@ import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
 import { MyCalendarComponent } from './my-calendar/my-calendar.component';
 import { MyFormComponent } from './my-form/my-form.component';
 import { MyMapComponent } from './my-map/my-map.component';
+import { MyContainerComponent } from './my-container/my-container.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'buttons', component: CustomButtonsComponent },
   { path: 'calendar', component: MyCalendarComponent },
   { path: 'form', component: MyFormComponent},
-  { path: 'map', component: MyMapComponent}
+  { path: 'map', component: MyMapComponent},
+  { path: 'container', component: MyContainerComponent}
 ];
 
 @NgModule({
