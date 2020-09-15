@@ -8,7 +8,7 @@ import { ICardBase, CardBase, ICardContentBase, CardBodyContent } from './card-b
   styleUrls: ['./my-container.component.scss']
 })
 export class MyContainerComponent implements OnInit {
-  cardContents = [
+  kitchenSinkCardContents = [
     new CardBase({
       type: 'header', 
       bgColor: '', 
@@ -71,9 +71,50 @@ export class MyContainerComponent implements OnInit {
     }),
   ];
 
+  private primaryCard = this.getSimpleContent('primary');
+  private secondaryCard = this.getSimpleContent('secondary');
+  private successCard = this.getSimpleContent('success');
+  private infoCard = this.getSimpleContent('info');
+  private warningCard = this.getSimpleContent('warning');
+  private dangerCard = this.getSimpleContent('danger');
+  private darkCard = this.getSimpleContent('dark');
+  private lightCard = this.getSimpleContent('light');
+  
   constructor() { }
 
   ngOnInit() {
   }
 
+  getSimpleContent(theme) {
+    const simpleCardContents = [
+      new CardBase({
+        type: 'header', 
+        bgColor: '', 
+        borderColor: '', 
+        textColor: ''
+      }),
+      new CardBase({
+        type: 'body', 
+        bgColor: '', 
+        borderColor: '', 
+        textColor: '', 
+        contents: [
+          new CardBodyContent({
+            contentType: 'title',
+            bgColor: '',
+            borderColor: '',
+            textColor: '',
+            displayText: theme.charAt(0).toUpperCase() + theme.slice(1) + ' card title'
+          }),
+          new CardBodyContent({
+            contentType: 'text',
+            bgColor: '',
+            borderColor: '',
+            textColor: ''
+          })
+        ]
+      })
+    ];
+    return simpleCardContents;
+  }
 }

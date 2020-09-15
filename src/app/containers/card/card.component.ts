@@ -49,6 +49,7 @@ export class CardComponent {
   private setCardClasses() {
     this.cardClasses = {
       'card': true,
+      'mb-3': true,
       'bg-primary': this.bgColor && this.bgColor === 'primary',
       'bg-secondary': this.bgColor && this.bgColor ===  'secondary',
       'bg-dark': this.bgColor && this.bgColor === 'dark',

@@ -6,6 +6,29 @@
 </div>
 <div class="row ml-3 mb-3">
   <div class="custom-card-container ml-5">
-    <my-card [bgColor]="'dark'" [textColor]="'white'" [cardContents]="cardContents"></my-card>
+    <my-card [bgColor]="'dark'" [textColor]="'white'" [cardContents]="kitchenSinkCardContents"></my-card>
+  </div>
+</div>
+<div class="row ml-3 mb-3">
+  <div class="col-4 ml-2">
+    <my-card [bgColor]="'primary'" [textColor]="'light'" [cardContents]="primaryCard"></my-card>
+    <my-card [bgColor]="'secondary'" [textColor]="'light'" [cardContents]="secondaryCard"></my-card>
+    <my-card [bgColor]="'success'" [textColor]="'light'" [cardContents]="successCard"></my-card>
+    <my-card [bgColor]="'info'" [textColor]="'light'" [cardContents]="infoCard"></my-card>
+    <my-card [bgColor]="'warning'" [textColor]="'light'" [cardContents]="warningCard"></my-card>
+    <my-card [bgColor]="'danger'" [textColor]="'light'" [cardContents]="dangerCard"></my-card>
+    <my-card [bgColor]="'dark'" [textColor]="'light'" [cardContents]="darkCard"></my-card>
+    <my-card [bgColor]="'light'" [textColor]="'dark'" [cardContents]="lightCard"></my-card>
+  </div>
+  
+  <div class="col-4">
+    <my-card [borderColor]="'primary'" [bgColor]="'dark'" [textColor]="'white'" [cardContents]="primaryCard"></my-card>
+    <my-card [borderColor]="'secondary'" [bgColor]="'dark'" [textColor]="'light'" [cardContents]="secondaryCard"></my-card>
+    <my-card [borderColor]="'success'" [bgColor]="'dark'" [textColor]="'light'" [cardContents]="successCard"></my-card>
+    <my-card [borderColor]="'info'" [bgColor]="'dark'" [textColor]="'light'" [cardContents]="infoCard"></my-card>
+    <my-card [borderColor]="'warning'" [bgColor]="'dark'" [textColor]="'light'" [cardContents]="warningCard"></my-card>
+    <my-card [borderColor]="'danger'" [bgColor]="'dark'" [textColor]="'light'" [cardContents]="dangerCard"></my-card>
+    <my-card [borderColor]="'dark'" [bgColor]="'dark'" [textColor]="'light'" [cardContents]="darkCard"></my-card>
+    <my-card [borderColor]="'light'" [bgColor]="'dark'" [textColor]="'light'" [cardContents]="lightCard"></my-card>
   </div>
 </div>
