@@ -1,34 +1,47 @@
 <p class="h1 m-2">Containers</p>
 <hr class="border-primary mx-2">
+<div class="row my-4 ml-3">
+	<div class="h2 ml-2">Cards</div>
+</div>
+<div class="row px-5 mb-3">
+	<div class="col">
+		<div class="row">
+			<div class="col">
+				<my-card [bgColor]="'primary'" [textColor]="'light'" [cardContents]="primaryCard"></my-card>
+				<my-card [bgColor]="'secondary'" [textColor]="'light'" [cardContents]="secondaryCard"></my-card>
+				<my-card [bgColor]="'success'" [textColor]="'light'" [cardContents]="successCard"></my-card>
+				<my-card [bgColor]="'info'" [textColor]="'light'" [cardContents]="infoCard"></my-card>
+				<my-card [bgColor]="'warning'" [textColor]="'light'" [cardContents]="warningCard"></my-card>
+				<my-card [bgColor]="'danger'" [textColor]="'light'" [cardContents]="dangerCard"></my-card>
+				<my-card [bgColor]="'dark'" [textColor]="'light'" [cardContents]="darkCard"></my-card>
+				<my-card [bgColor]="'light'" [textColor]="'dark'" [cardContents]="lightCard"></my-card>
+			</div>
 
-<div class="row mt-4 mb-1 ml-3">
-  <div class="h4 ml-3">Card</div>
-</div>
-<div class="row ml-3 mb-3">
-  <div class="custom-card-container ml-5">
-    <my-card [bgColor]="'dark'" [textColor]="'white'" [cardContents]="kitchenSinkCardContents"></my-card>
-  </div>
-</div>
-<div class="row ml-3 mb-3">
-  <div class="col-4 ml-2">
-    <my-card [bgColor]="'primary'" [textColor]="'light'" [cardContents]="primaryCard"></my-card>
-    <my-card [bgColor]="'secondary'" [textColor]="'light'" [cardContents]="secondaryCard"></my-card>
-    <my-card [bgColor]="'success'" [textColor]="'light'" [cardContents]="successCard"></my-card>
-    <my-card [bgColor]="'info'" [textColor]="'light'" [cardContents]="infoCard"></my-card>
-    <my-card [bgColor]="'warning'" [textColor]="'light'" [cardContents]="warningCard"></my-card>
-    <my-card [bgColor]="'danger'" [textColor]="'light'" [cardContents]="dangerCard"></my-card>
-    <my-card [bgColor]="'dark'" [textColor]="'light'" [cardContents]="darkCard"></my-card>
-    <my-card [bgColor]="'light'" [textColor]="'dark'" [cardContents]="lightCard"></my-card>
-  </div>
-  
-  <div class="col-4">
-    <my-card [borderColor]="'primary'" [bgColor]="'dark'" [textColor]="'white'" [cardContents]="primaryCard"></my-card>
-    <my-card [borderColor]="'secondary'" [bgColor]="'dark'" [textColor]="'light'" [cardContents]="secondaryCard"></my-card>
-    <my-card [borderColor]="'success'" [bgColor]="'dark'" [textColor]="'light'" [cardContents]="successCard"></my-card>
-    <my-card [borderColor]="'info'" [bgColor]="'dark'" [textColor]="'light'" [cardContents]="infoCard"></my-card>
-    <my-card [borderColor]="'warning'" [bgColor]="'dark'" [textColor]="'light'" [cardContents]="warningCard"></my-card>
-    <my-card [borderColor]="'danger'" [bgColor]="'dark'" [textColor]="'light'" [cardContents]="dangerCard"></my-card>
-    <my-card [borderColor]="'dark'" [bgColor]="'dark'" [textColor]="'light'" [cardContents]="darkCard"></my-card>
-    <my-card [borderColor]="'light'" [bgColor]="'dark'" [textColor]="'light'" [cardContents]="lightCard"></my-card>
-  </div>
+			<div class="col">
+				<my-card [borderColor]="'primary'" [textColor]="'white'" [cardContents]="primaryCard"></my-card>
+				<my-card [borderColor]="'secondary'" [textColor]="'light'" [cardContents]="secondaryCard"></my-card>
+				<my-card [borderColor]="'success'" [textColor]="'light'" [cardContents]="successCard"></my-card>
+				<my-card [borderColor]="'info'" [textColor]="'light'" [cardContents]="infoCard"></my-card>
+				<my-card [borderColor]="'warning'" [textColor]="'light'" [cardContents]="warningCard"></my-card>
+				<my-card [borderColor]="'danger'" [textColor]="'light'" [cardContents]="dangerCard"></my-card>
+				<my-card [borderColor]="'dark'" [textColor]="'light'" [cardContents]="darkCard"></my-card>
+				<my-card [borderColor]="'light'" [textColor]="'light'" [cardContents]="lightCard"></my-card>
+			</div>
+
+      <div class="col">
+				<my-card [textColor]="'light'" [cardContents]="primaryCardHeader"></my-card>
+				<my-card [textColor]="'light'" [cardContents]="secondaryCardHeader"></my-card>
+				<my-card [textColor]="'light'" [cardContents]="successCardHeader"></my-card>
+				<my-card [textColor]="'light'" [cardContents]="infoCardHeader"></my-card>
+				<my-card [textColor]="'light'" [cardContents]="warningCardHeader"></my-card>
+				<my-card [textColor]="'light'" [cardContents]="dangerCardHeader"></my-card>
+				<my-card [textColor]="'light'" [cardContents]="darkCardHeader"></my-card>
+				<my-card [textColor]="'light'" [cardContents]="lightCardHeader"></my-card>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-4">
+		<my-card [textColor]="'white'" [cardContents]="kitchenSinkCardContents"></my-card>
+	</div>
 </div>
