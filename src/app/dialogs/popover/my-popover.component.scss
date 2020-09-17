@@ -1,0 +1,236 @@
+@import "./../../../vars.scss";
+
+::ng-deep .my-custom-popover-primary {
+  background-color: $primary;
+  .popover-header {
+    background-color: darken($primary, 8%);
+    border-bottom-color: darken($primary, 5%);
+  }
+  &.bs-popover-bottom {
+    .arrow::before, .arrow::after {
+      border-bottom-color: darken($primary, 8%);
+    }
+  }
+  &.bs-popover-top {
+    .arrow::before, .arrow::after {
+      border-top-color: $primary;
+    }
+  }
+  &.bs-popover-right {
+    .arrow::before, .arrow::after {
+      border-right-color: $primary;
+    }
+  }
+  &.bs-popover-left {
+    .arrow::before, .arrow::after {
+      border-left-color: $primary;
+    }
+  }
+}
+
+::ng-deep .my-custom-popover-secondary {
+  background-color: $secondary;
+  .popover-header {
+    background-color: darken($secondary, 10%);
+    border-bottom-color: darken($secondary, 5%);
+  }
+  .popover-body {
+    color: $light;
+  }
+  &.bs-popover-bottom {
+    .arrow::before, .arrow::after {
+      border-bottom-color: darken($secondary, 8%);;
+    }
+  }
+  &.bs-popover-top {
+    .arrow::before, .arrow::after {
+      border-top-color: $secondary;
+    }
+  }
+  &.bs-popover-right {
+    .arrow::before, .arrow::after {
+      border-right-color: $secondary;
+    }
+  }
+  &.bs-popover-left {
+    .arrow::before, .arrow::after {
+      border-left-color: $secondary;
+    }
+  }
+}
+
+::ng-deep .my-custom-popover-info {
+  background-color: $info;
+  .popover-header {
+    background-color: darken($info, 8%);
+    border-bottom-color: darken($info, 5%);
+  }
+  &.bs-popover-bottom {
+    .arrow::before, .arrow::after {
+      border-bottom-color: darken($info, 8%);
+    }
+  }
+  &.bs-popover-top {
+    .arrow::before, .arrow::after {
+      border-top-color: $info;
+    }
+  }
+  &.bs-popover-right {
+    .arrow::before, .arrow::after {
+      border-right-color: $info;
+    }
+  }
+  &.bs-popover-left {
+    .arrow::before, .arrow::after {
+      border-left-color: $info;
+    }
+  }
+}
+
+::ng-deep .my-custom-popover-success {
+  background-color: $success;
+  .popover-header {
+    background-color: darken($success, 8%);
+    border-bottom-color: darken($success, 5%);
+  }
+  &.bs-popover-bottom {
+    .arrow::before, .arrow::after {
+      border-bottom-color: darken($success, 8%);
+    }
+  }
+  &.bs-popover-top {
+    .arrow::before, .arrow::after {
+      border-top-color: $success;
+    }
+  }
+  &.bs-popover-right {
+    .arrow::before, .arrow::after {
+      border-right-color: $success;
+    }
+  }
+  &.bs-popover-left {
+    .arrow::before, .arrow::after {
+      border-left-color: $success;
+    }
+  }
+}
+
+::ng-deep .my-custom-popover-warning {
+  background-color: $warning;
+  .popover-header {
+    background-color: darken($warning, 8%);
+    border-bottom-color: darken($warning, 5%);
+  }
+  &.bs-popover-bottom {
+    .arrow::before, .arrow::after {
+      border-bottom-color: darken($warning, 8%);
+    }
+  }
+  &.bs-popover-top {
+    .arrow::before, .arrow::after {
+      border-top-color: $warning;
+    }
+  }
+  &.bs-popover-right {
+    .arrow::before, .arrow::after {
+      border-right-color: $warning;
+    }
+  }
+  &.bs-popover-left {
+    .arrow::before, .arrow::after {
+      border-left-color: $warning;
+    }
+  }
+}
+
+::ng-deep .my-custom-popover-danger {
+  background-color: $danger;
+  .popover-header {
+    background-color: darken($danger, 8%);
+    border-bottom-color: darken($danger, 5%);
+  }
+  .popover-body {
+    color: $light;
+  }
+  &.bs-popover-bottom {
+    .arrow::before, .arrow::after {
+      border-bottom-color: darken($danger, 8%);
+    }
+  }
+  &.bs-popover-top {
+    .arrow::before, .arrow::after {
+      border-top-color: $danger;
+    }
+  }
+  &.bs-popover-right {
+    .arrow::before, .arrow::after {
+      border-right-color: $danger;
+    }
+  }
+  &.bs-popover-left {
+    .arrow::before, .arrow::after {
+      border-left-color: $danger;
+    }
+  } 
+}
+
+::ng-deep .my-custom-popover-dark {
+  background-color: $dark;
+  .popover-header {
+    background-color: darken($dark, 8%);
+    border-bottom-color: darken($dark, 5%);
+  }
+  .popover-body {
+    color: $light;
+  }
+  &.bs-popover-bottom {
+    .arrow::before, .arrow::after {
+      border-bottom-color: darken($dark, 8%);
+    }
+  }
+  &.bs-popover-top {
+    .arrow::before, .arrow::after {
+      border-top-color: $dark;
+    }
+  }
+  &.bs-popover-right {
+    .arrow::before, .arrow::after {
+      border-right-color: $dark;
+    }
+  }
+  &.bs-popover-left {
+    .arrow::before, .arrow::after {
+      border-left-color: $dark;
+    }
+  }
+}
+
+::ng-deep .my-custom-popover-light {
+  background-color: $light;
+  
+  .popover-header {
+    color: $dark;
+    background-color: darken($light, 8%);
+    border-bottom-color: darken($light, 5%);
+  }
+  &.bs-popover-bottom {
+    .arrow::before, .arrow::after {
+      border-bottom-color: darken($light, 8%);
+    }
+  }
+  &.bs-popover-top {
+    .arrow::before, .arrow::after {
+      border-top-color: $light;
+    }
+  }
+  &.bs-popover-right {
+    .arrow::before, .arrow::after {
+      border-right-color: $light;
+    }
+  }
+  &.bs-popover-left {
+    .arrow::before, .arrow::after {
+      border-left-color: $light;
+    }
+  }
+}

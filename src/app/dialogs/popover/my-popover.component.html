@@ -1,0 +1,16 @@
+<ng-template #popContent>
+  Vivamus sagittis lacus vel augue laoreet rutrum faucibus.
+</ng-template>
+<ng-template #popTitle>
+  {{ title }}
+</ng-template>
+<button
+  type="button"
+  class="btn btn-outline-secondary mr-2"
+  [ngbPopover]="popContent"
+  [popoverTitle]="popTitle"
+  popoverClass={{theme}}
+  placement={{popoverPlacement}}
+>
+  {{ buttonText }}
+</button>

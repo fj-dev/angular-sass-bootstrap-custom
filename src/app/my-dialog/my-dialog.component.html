@@ -1,28 +1,67 @@
 <p class="h1 m-2">Dialogs</p>
 <hr class="border-primary mx-2">
-<div class="row my-4 ml-3">
-	<div class="h2 ml-2">Tooltips</div>
+
+<div class="row mt-3 mb-2 ml-4">
+	<div class="h2">Tooltips</div>
 </div>
-<div class="row h5 mb-1 ml-4">Positioned - Default styling</div>
-<div class="row ml-5 mb-3">
-  <my-tooltip
-    [tooltipPlacement]="'left'"
-    [tooltipContent]="'Tooltip on left.'"
-    [buttonText]="'Left'"
-  ></my-tooltip>
-  <my-tooltip
-    [tooltipPlacement]="'top'"
-    [tooltipContent]="'Tooltip on top.'"
-    [buttonText]="'Top'"
-  ></my-tooltip>
-  <my-tooltip
-    [tooltipPlacement]="'bottom'"
-    [tooltipContent]="'Tooltip on bottom.'"
-    [buttonText]="'Bottom'"
-  ></my-tooltip>
-  <my-tooltip
-    [tooltipPlacement]="'right'"
-    [tooltipContent]="'Tooltip on right.'"
-    [buttonText]="'Right'"
-  ></my-tooltip>
+<div class="row mb-3 ml-5">
+	<div class="h4">Different Position:</div>
+	<div class="row ml-5 mb-3">
+		<my-tooltip [tooltipPlacement]="'left'" [tooltipContent]="'Tooltip on left.'" [buttonText]="'Left'">
+		</my-tooltip>
+		<my-tooltip [tooltipPlacement]="'top'" [tooltipContent]="'Tooltip on top.'" [buttonText]="'Top'"></my-tooltip>
+		<my-tooltip [tooltipPlacement]="'bottom'" [tooltipContent]="'Tooltip on bottom.'" [buttonText]="'Bottom'">
+		</my-tooltip>
+		<my-tooltip [tooltipPlacement]="'right'" [tooltipContent]="'Tooltip on right.'" [buttonText]="'Right'">
+		</my-tooltip>
+	</div>
+</div>
+
+<div class="row mb-2 ml-5">
+	<div class="h4">Different Styling:</div>
+	<div class="row ml-5 mb-3">
+		<my-tooltip [tooltipContent]="'Tooltip with default style.'" [buttonText]="'Default'"></my-tooltip>
+		<my-tooltip [theme]="'primary'" [tooltipContent]="'Tooltip with primary style.'" [buttonText]="'Primary'">
+		</my-tooltip>
+		<my-tooltip [theme]="'secondary'" [tooltipContent]="'Tooltip with secondary style.'" [buttonText]="'Secondary'">
+		</my-tooltip>
+		<my-tooltip [theme]="'info'" [tooltipContent]="'Tooltip with info style.'" [buttonText]="'Info'"></my-tooltip>
+		<my-tooltip [theme]="'success'" [tooltipContent]="'Tooltip with success style.'" [buttonText]="'Success'">
+		</my-tooltip>
+		<my-tooltip [tooltipPlacement]="'top'" [theme]="'warning'" [tooltipContent]="'Tooltip with warning style.'"
+			[buttonText]="'Warning'"></my-tooltip>
+		<my-tooltip [theme]="'danger'" [tooltipContent]="'Tooltip with danger style.'" [buttonText]="'Danger'">
+		</my-tooltip>
+		<my-tooltip [theme]="'dark'" [tooltipContent]="'Tooltip with dark style.'" [buttonText]="'Dark'"></my-tooltip>
+		<my-tooltip [theme]="'light'" [tooltipContent]="'Tooltip with light style.'" [buttonText]="'Light'">
+		</my-tooltip>
+	</div>
+</div>
+
+<div class="row mt-3 mb-2 ml-4">
+	<div class="h2">Popovers</div>
+</div>
+<div class="row mb-2 ml-5">
+	<div class="h4">Different Position:</div>
+	<div class="row ml-5 mb-3">
+		<my-popover [popoverPlacement]="'left'" [buttonText]="'Left'" [title]="'Popover on left'"></my-popover>
+		<my-popover [popoverPlacement]="'top'" [buttonText]="'Top'" [title]="'Popover on top'"></my-popover>
+		<my-popover [popoverPlacement]="'bottom'" [buttonText]="'Bottom'" [title]="'Popover on bottom'"></my-popover>
+		<my-popover [popoverPlacement]="'right'" [buttonText]="'Right'" [title]="'Popover on right'"></my-popover>
+	</div>
+</div>
+
+<div class="row mb-2 ml-5">
+	<div class="h4">Different Styling:</div>
+	<div class="row ml-5 mb-3">
+		<my-popover [theme]="'primary'" [buttonText]="'Primary'" [title]="'Popover with primary style.'"></my-popover>
+		<my-popover [theme]="'secondary'" [buttonText]="'Secondary'" [title]="'Popover with secondary style.'">
+		</my-popover>
+		<my-popover [theme]="'info'" [buttonText]="'Info'" [title]="'Popover with info style.'"></my-popover>
+		<my-popover [theme]="'success'" [buttonText]="'Success'" [title]="'Popover with success style.'"></my-popover>
+		<my-popover [theme]="'warning'" [buttonText]="'Warning'" [title]="'Popover with warning style.'"></my-popover>
+		<my-popover [theme]="'danger'" [buttonText]="'Danger'" [title]="'Popover with danger style.'"></my-popover>
+		<my-popover [theme]="'dark'" [buttonText]="'Dark'" [title]="'Popover with dark style.'"></my-popover>
+		<my-popover [theme]="'light'" [buttonText]="'Light'" [title]="'Popover with light style.'"></my-popover>
+	</div>
 </div>

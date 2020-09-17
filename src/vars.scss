@@ -141,10 +141,14 @@ $card-bg:                           rgba($gray-600, .125) !default;
 
 // Popovers
 
-$popover-bg:                        $gray-800 !default;
-$popover-border-color:              $body-bg !default;
+$popover-bg:                        $gray-400 !default; //$white !default;
+$popover-border-color:              rgba($gray-900, .95) !default; //rgba($black, .2) !default;
+$popover-box-shadow:                0 .25rem .5rem rgba($gray-200, .95) !default;//0 .25rem .5rem rgba($black, .2) !default;
 
-$popover-header-bg:                 $gray-800 !default;
+$popover-header-bg:                 darken($popover-bg, 30%) !default; //darken($popover-bg, 3%) !default;
+$popover-header-color:              $light !default;//$headings-color !default;
+
+$popover-body-color:                $dark !default;
 
 // Toasts
 
