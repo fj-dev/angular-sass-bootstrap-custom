@@ -1,0 +1,210 @@
+@import "./../../../vars.scss";
+
+::ng-deep .my-custom-tooltip-primary {
+  &.bs-tooltip-bottom {
+    .arrow::before {
+      border-bottom-color: $primary;
+    }
+  }
+  &.bs-tooltip-top {
+    .arrow::before {
+      border-top-color: $primary;
+    }
+  }
+  &.bs-tooltip-right {
+    .arrow::before {
+      border-right-color: $primary;
+    }
+  }
+  &.bs-tooltip-left {
+    .arrow::before {
+      border-left-color: $primary;
+    }
+  }
+  .tooltip-inner {
+    background-color: $primary;
+  }  
+}
+
+::ng-deep .my-custom-tooltip-secondary {
+  &.bs-tooltip-bottom {
+    .arrow::before {
+      border-bottom-color: $secondary;
+    }
+  }
+  &.bs-tooltip-top {
+    .arrow::before {
+      border-top-color: $secondary;
+    }
+  }
+  &.bs-tooltip-right {
+    .arrow::before {
+      border-right-color: $secondary;
+    }
+  }
+  &.bs-tooltip-left {
+    .arrow::before {
+      border-left-color: $secondary;
+    }
+  }
+  .tooltip-inner {
+    background-color: $secondary;
+  }  
+}
+
+::ng-deep .my-custom-tooltip-info {
+  &.bs-tooltip-bottom {
+    .arrow::before {
+      border-bottom-color: $info;
+    }
+  }
+  &.bs-tooltip-top {
+    .arrow::before {
+      border-top-color: $info;
+    }
+  }
+  &.bs-tooltip-right {
+    .arrow::before {
+      border-right-color: $info;
+    }
+  }
+  &.bs-tooltip-left {
+    .arrow::before {
+      border-left-color: $info;
+    }
+  }
+  .tooltip-inner {
+    background-color: $info;
+  }  
+}
+
+::ng-deep .my-custom-tooltip-success {
+  &.bs-tooltip-bottom {
+    .arrow::before {
+      border-bottom-color: $success;
+    }
+  }
+  &.bs-tooltip-top {
+    .arrow::before {
+      border-top-color: $success;
+    }
+  }
+  &.bs-tooltip-right {
+    .arrow::before {
+      border-right-color: $success;
+    }
+  }
+  &.bs-tooltip-left {
+    .arrow::before {
+      border-left-color: $success;
+    }
+  }
+  .tooltip-inner {
+    background-color: $success;
+  }  
+}
+
+::ng-deep .my-custom-tooltip-warning {
+  &.bs-tooltip-bottom {
+    .arrow::before {
+      border-bottom-color: $warning;
+    }
+  }
+  &.bs-tooltip-top {
+    .arrow::before {
+      border-top-color: $warning;
+    }
+  }
+  &.bs-tooltip-right {
+    .arrow::before {
+      border-right-color: $warning;
+    }
+  }
+  &.bs-tooltip-left {
+    .arrow::before {
+      border-left-color: $warning;
+    }
+  }
+  .tooltip-inner {
+    background-color: $warning;
+  }  
+}
+
+::ng-deep .my-custom-tooltip-danger {
+  &.bs-tooltip-bottom {
+    .arrow::before {
+      border-bottom-color: $danger;
+    }
+  }
+  &.bs-tooltip-top {
+    .arrow::before {
+      border-top-color: $danger;
+    }
+  }
+  &.bs-tooltip-right {
+    .arrow::before {
+      border-right-color: $danger;
+    }
+  }
+  &.bs-tooltip-left {
+    .arrow::before {
+      border-left-color: $danger;
+    }
+  }
+  .tooltip-inner {
+    background-color: $danger;
+  }  
+}
+
+::ng-deep .my-custom-tooltip-dark {
+  &.bs-tooltip-bottom {
+    .arrow::before {
+      border-bottom-color: $dark;
+    }
+  }
+  &.bs-tooltip-top {
+    .arrow::before {
+      border-top-color: $dark;
+    }
+  }
+  &.bs-tooltip-right {
+    .arrow::before {
+      border-right-color: $dark;
+    }
+  }
+  &.bs-tooltip-left {
+    .arrow::before {
+      border-left-color: $dark;
+    }
+  }
+  .tooltip-inner {
+    background-color: $dark;
+  }  
+}
+
+::ng-deep .my-custom-tooltip-light {
+  &.bs-tooltip-bottom {
+    .arrow::before {
+      border-bottom-color: $light;
+    }
+  }
+  &.bs-tooltip-top {
+    .arrow::before {
+      border-top-color: $light;
+    }
+  }
+  &.bs-tooltip-right {
+    .arrow::before {
+      border-right-color: $light;
+    }
+  }
+  &.bs-tooltip-left {
+    .arrow::before {
+      border-left-color: $light;
+    }
+  }
+  .tooltip-inner {
+    color: $dark;
+    background-color: $light;
+  }  
+}

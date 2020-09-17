@@ -1,0 +1,10 @@
+<ng-template #tipContent>{{ tooltipContent }}</ng-template>
+<button 
+  type="button"
+  class="btn btn-outline-secondary mr-2"
+  [ngbTooltip]="tipContent"
+  placement={{tooltipPlacement}}
+  tooltipClass={{theme}}
+>
+  {{ buttonText }}
+</button>
