@@ -1,0 +1,28 @@
+<p class="h1 m-2">Dialogs</p>
+<hr class="border-primary mx-2">
+<div class="row my-4 ml-3">
+	<div class="h2 ml-2">Tooltips</div>
+</div>
+<div class="row h5 mb-1 ml-4">Positioned - Default styling</div>
+<div class="row ml-5 mb-3">
+  <my-tooltip
+    [tooltipPlacement]="'left'"
+    [tooltipContent]="'Tooltip on left.'"
+    [buttonText]="'Left'"
+  ></my-tooltip>
+  <my-tooltip
+    [tooltipPlacement]="'top'"
+    [tooltipContent]="'Tooltip on top.'"
+    [buttonText]="'Top'"
+  ></my-tooltip>
+  <my-tooltip
+    [tooltipPlacement]="'bottom'"
+    [tooltipContent]="'Tooltip on bottom.'"
+    [buttonText]="'Bottom'"
+  ></my-tooltip>
+  <my-tooltip
+    [tooltipPlacement]="'right'"
+    [tooltipContent]="'Tooltip on right.'"
+    [buttonText]="'Right'"
+  ></my-tooltip>
+</div>
