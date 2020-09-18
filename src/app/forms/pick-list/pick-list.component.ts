@@ -20,7 +20,11 @@ export class PickListComponent {
 
   open(content) {
     this.modalService.open(content, { size: 'sm'}).result.then((result) => {
-      this.addEmployeeToPicked(result);
+      if (result) {
+        this.addEmployeeToPicked(result);
+      }
+    }, (reason) => {
+      
     });
   }
   resetLists() {
