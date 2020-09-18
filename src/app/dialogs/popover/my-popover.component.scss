@@ -2,6 +2,7 @@
 
 ::ng-deep .my-custom-popover-primary {
   background-color: $primary;
+  border-color: rgba($primary, .5);
   .popover-header {
     background-color: darken($primary, 8%);
     border-bottom-color: darken($primary, 5%);
@@ -33,6 +34,7 @@
 
 ::ng-deep .my-custom-popover-secondary {
   background-color: $secondary;
+  border-color: rgba($secondary, .5);
   .popover-header {
     background-color: darken($secondary, 10%);
     border-bottom-color: darken($secondary, 5%);
@@ -67,6 +69,7 @@
 
 ::ng-deep .my-custom-popover-info {
   background-color: $info;
+  border-color: rgba($info, .5);
   .popover-header {
     background-color: darken($info, 8%);
     border-bottom-color: darken($info, 5%);
@@ -98,6 +101,7 @@
 
 ::ng-deep .my-custom-popover-success {
   background-color: $success;
+  border-color: rgba($success, .5);
   .popover-header {
     background-color: darken($success, 8%);
     border-bottom-color: darken($success, 5%);
@@ -129,6 +133,7 @@
 
 ::ng-deep .my-custom-popover-warning {
   background-color: $warning;
+  border-color: rgba($warning, .5);
   .popover-header {
     background-color: darken($warning, 8%);
     border-bottom-color: darken($warning, 5%);
@@ -160,6 +165,7 @@
 
 ::ng-deep .my-custom-popover-danger {
   background-color: $danger;
+  border-color: rgba($danger, .5);
   .popover-header {
     background-color: darken($danger, 8%);
     border-bottom-color: darken($danger, 5%);
@@ -194,6 +200,7 @@
 
 ::ng-deep .my-custom-popover-dark {
   background-color: $dark;
+  border-color: rgba($dark, .5);
   .popover-header {
     background-color: darken($dark, 8%);
     border-bottom-color: darken($dark, 5%);
@@ -228,7 +235,7 @@
 
 ::ng-deep .my-custom-popover-light {
   background-color: $light;
-  
+  border-color: rgba($light, .5);
   .popover-header {
     color: $dark;
     background-color: darken($light, 8%);
