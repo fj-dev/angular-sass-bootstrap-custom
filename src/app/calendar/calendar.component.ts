@@ -17,8 +17,8 @@ import { createDayGridEvent, createTimeGridEvent, createListWeekEvent } from './
 export class CalendarComponent implements OnInit, AfterViewInit, AfterContentInit {
   @ViewChild('calendar') calendarComponent: FullCalendarComponent;
   
-  private myMorePopoverTitle = '';
-  private myMorePopoverEvents = [];
+  myMorePopoverTitle = '';
+  myMorePopoverEvents = [];
   private myMorePopoverStyles = {};
   //calendarEvents = this.dataService.getEvents();
 
@@ -94,7 +94,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
     eventDidMount: this.onEventPositioned.bind(this),
     eventWillUnmount: this.onEventDestroy.bind(this),
     eventDisplay: 'block',
-    moreLinkClick: this.onMoreLinkClick.bind(this),
+    moreLinkClick: (info)=>this.onMoreLinkClick.bind(info),
   };
  
   constructor(
@@ -185,10 +185,15 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
   }
 
   onMoreLinkClick(args) {
+    console.log('onMoreLinkClick', args);
+    //args.jsEvent.cancelBubble = true;
+    //args.jsEvent.stopPropogation();
+    args.jsEvent.preventDefault();
+    console.log('onMoreLinkClick', args.allSegs);
     // arg = {date: Date, allSegs: EventSegments, hiddenSegs: EventSegments, jsEvent}
     this.setMyMorePopoverStyles(null, null);
     this.myMorePopoverTitle = formatDate(args.date, {month: 'long',  year: 'numeric', day: 'numeric'});
-    const newEvents = args.allSegs.map(seg => {
+    const newEvents = args.allSegs.m(seg => {
       // isStart = T, isEnd = T
       // isStart = F, isEnd = F
       // isStart = T, isEnd = F
@@ -196,21 +201,22 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
       let title = seg.event.title;
       if (seg.event.allDay === true) {
         title = 'All day - ' + title;
-        return title;
       } else {
         title = formatDate(seg.start, {month: '2-digit', day: '2-digit', year: '2-digit', seperator: '/'}) + ' - ' + seg.end.toLocaleDateString() + ' ' + seg.event.title;
-        return title;
-      }      
+      }  
+      return title;    
     });
+
     this.myMorePopoverEvents = newEvents;
     this.setMyMorePopoverStyles(args.jsEvent.pageY, args.jsEvent.pageX);
   }
 
   setMyMorePopoverStyles(top, left) {
     this.myMorePopoverStyles = {
-      top: top ? top + 'px' : 'unset',
-      left: left ? left + 'px' : 'unset',
-      display: top && left ? 'block' : 'none'
+      'top': top ? top + 'px' : 'unset',
+      'left': left ? left + 'px' : 'unset',
+      'position': 'relative',
+      'display': top && left ? 'block' : 'none'
     };
   }
 

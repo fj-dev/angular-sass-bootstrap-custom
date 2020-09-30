@@ -3,9 +3,9 @@
     #calendar
     [options]="calendarOptions">
   </full-calendar>
-  <div id="my-more-popover" class="card">
-    <div class="card-header">
-      <span class="card-title">{{ myMorePopoverTitle }}</span>
+  <div id="my-more-popover" [ngStyle]="myMorePopoverStyles">
+    <div class="my-popover-header">
+      <span class="title">{{ myMorePopoverTitle }}</span>
       <button type="button" class="close" click="setMyMorePopoverStyles(null, null)" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
