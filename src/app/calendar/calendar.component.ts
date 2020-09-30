@@ -94,7 +94,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
     eventDidMount: this.onEventPositioned.bind(this),
     eventWillUnmount: this.onEventDestroy.bind(this),
     eventDisplay: 'block',
-    moreLinkClick: (info)=>{info.jsEvent.preventDefault();this.onMoreLinkClick(info);},
+    moreLinkClick: this.onMoreLinkClick.bind(this),
   };
  
   constructor(
@@ -210,6 +210,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
 
     this.myMorePopoverEvents = newEvents;
     this.setMyMorePopoverStyles(args.jsEvent.pageY, args.jsEvent.pageX);
+    return 'none';
   }
 
   setMyMorePopoverStyles(top, left) {
