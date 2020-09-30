@@ -215,10 +215,10 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
 
   setMyMorePopoverStyles(top, left) {
     this.myMorePopoverStyles = {
-      //'top': top ? top + 'px' : 'unset',
-      //'left': left ? left + 'px' : 'unset',
+      'top': top ? top + 'px' : 'unset',
+      'left': left ? left + 'px' : 'unset',
       'position': 'relative',
-     // 'display': top && left ? 'block' : 'none'
+      'display': top && left ? 'block' : 'none'
     };
   }
 
