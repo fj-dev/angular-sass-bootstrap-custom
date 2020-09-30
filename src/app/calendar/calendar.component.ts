@@ -19,7 +19,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
   
   myMorePopoverTitle = '';
   myMorePopoverEvents = [];
-  private myMorePopoverStyles = {};
+  myMorePopoverStyles = {};
   //calendarEvents = this.dataService.getEvents();
 
   calendarOptions: CalendarOptions = {
@@ -193,7 +193,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
     // arg = {date: Date, allSegs: EventSegments, hiddenSegs: EventSegments, jsEvent}
     this.setMyMorePopoverStyles(null, null);
     this.myMorePopoverTitle = formatDate(args.date, {month: 'long',  year: 'numeric', day: 'numeric'});
-    const newEvents = args.allSegs.m(seg => {
+    const newEvents = args.allSegs.map(seg => {
       // isStart = T, isEnd = T
       // isStart = F, isEnd = F
       // isStart = T, isEnd = F
@@ -213,10 +213,10 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
 
   setMyMorePopoverStyles(top, left) {
     this.myMorePopoverStyles = {
-      'top': top ? top + 'px' : 'unset',
-      'left': left ? left + 'px' : 'unset',
+      //'top': top ? top + 'px' : 'unset',
+      //'left': left ? left + 'px' : 'unset',
       'position': 'relative',
-      'display': top && left ? 'block' : 'none'
+     // 'display': top && left ? 'block' : 'none'
     };
   }
 
