@@ -1,6 +1,6 @@
 import {Component, ViewChild, OnInit, AfterViewInit, AfterContentInit} from '@angular/core';
 
-import { CalendarOptions, FullCalendarComponent } from '@fullcalendar/angular';
+import { CalendarOptions, formatDate, FullCalendarComponent } from '@fullcalendar/angular';
 
 import {MockEvents} from './mock-events';
 import {CalendarDataService} from './calendar-data.service';
@@ -17,12 +17,14 @@ import { createDayGridEvent, createTimeGridEvent, createListWeekEvent } from './
 export class CalendarComponent implements OnInit, AfterViewInit, AfterContentInit {
   @ViewChild('calendar') calendarComponent: FullCalendarComponent;
   
+  private myMorePopoverTitle = '';
+  private myMorePopoverEvents = [];
+  private myMorePopoverStyles = {};
   //calendarEvents = this.dataService.getEvents();
 
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
-    dayMaxEventRows: true,
-    dayMaxEvents:
+    dayMaxEvents: true,
     headerToolbar: {
       left: 'myPrev,myNext today',
       center: 'title',
@@ -92,6 +94,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
     eventDidMount: this.onEventPositioned.bind(this),
     eventWillUnmount: this.onEventDestroy.bind(this),
     eventDisplay: 'block',
+    moreLinkClick: this.onMoreLinkClick.bind(this),
   };
  
   constructor(
@@ -180,4 +183,35 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
   onEventDestroy(arg) {
     // this.service.logMsg('eventDestroy: ' + arg.event.title);
   }
+
+  onMoreLinkClick(args) {
+    // arg = {date: Date, allSegs: EventSegments, hiddenSegs: EventSegments, jsEvent}
+    this.setMyMorePopoverStyles(null, null);
+    this.myMorePopoverTitle = formatDate(args.date, {month: 'long',  year: 'numeric', day: 'numeric'});
+    const newEvents = args.allSegs.map(seg => {
+      // isStart = T, isEnd = T
+      // isStart = F, isEnd = F
+      // isStart = T, isEnd = F
+      // isStart = F, isEnd = T
+      let title = seg.event.title;
+      if (seg.event.allDay === true) {
+        title = 'All day - ' + title;
+        return title;
+      } else {
+        title = formatDate(seg.start, {month: '2-digit', day: '2-digit', year: '2-digit', seperator: '/'}) + ' - ' + seg.end.toLocaleDateString() + ' ' + seg.event.title;
+        return title;
+      }      
+    });
+    this.myMorePopoverEvents = newEvents;
+    this.setMyMorePopoverStyles(args.jsEvent.pageY, args.jsEvent.pageX);
+  }
+
+  setMyMorePopoverStyles(top, left) {
+    this.myMorePopoverStyles = {
+      top: top ? top + 'px' : 'unset',
+      left: left ? left + 'px' : 'unset',
+      display: top && left ? 'block' : 'none'
+    };
+  }
+
 }
