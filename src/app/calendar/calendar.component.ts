@@ -100,7 +100,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
   constructor(
     private dataService: CalendarDataService,
     private service: CalendarService
-  ){ }
+  ){ this.setMyMorePopoverStyles(null,null); }
 
   ngOnInit() {
     // this.service.logMsg('...onInit...');
@@ -185,40 +185,39 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
   }
 
   onMoreLinkClick(args) {
-    console.log('onMoreLinkClick', args);
-    args.jsEvent.cancelBubble = true;
-    //args.jsEvent.stopPropogation();
-    args.jsEvent.preventDefault();
-    console.log('onMoreLinkClick', args.allSegs);
-    // arg = {date: Date, allSegs: EventSegments, hiddenSegs: EventSegments, jsEvent}
     this.setMyMorePopoverStyles(null, null);
     this.myMorePopoverTitle = formatDate(args.date, {month: 'long',  year: 'numeric', day: 'numeric'});
     const newEvents = [];
     args.allSegs.forEach(seg => {
-      // isStart = T, isEnd = T
-      // isStart = F, isEnd = F
-      // isStart = T, isEnd = F
-      // isStart = F, isEnd = T
       let title = seg.event.title;
       if (seg.event.allDay === true) {
         title = 'All day - ' + title;
       } else {
-        title = formatDate(seg.start, {month: '2-digit', day: '2-digit', year: '2-digit', seperator: '/'}) + ' - ' + seg.end.toLocaleDateString() + ' ' + seg.event.title;
+        if (seg.isStart === true && seg.isEnd === true) {
+          title = formatDate(seg.event.start, {hour: '2-digit', minute: '2-digit', meridiem: false, hour12: false});
+          title += ' - ' + formatDate(seg.event.end, {hour: '2-digit', minute: '2-digit', meridiem: false, hour12: false});
+          title += ' ' + seg.event.title;
+        } else {
+          title = formatDate(seg.event.start, {month: '2-digit', day: '2-digit', year: '2-digit', seperator: '/'}) + ' - ' + seg.event.end.toLocaleDateString() + ' ' + seg.event.title;
+        }
       }  
       newEvents.push(title);    
     });
 
     this.myMorePopoverEvents = newEvents;
-    this.setMyMorePopoverStyles(args.jsEvent.pageY, args.jsEvent.pageX);
+    const topX = args.jsEvent.pageY - 90;
+    const leftX = args.jsEvent.pageX - 20;
+    this.setMyMorePopoverStyles(topX, leftX);
     return 'none';
   }
 
   setMyMorePopoverStyles(top, left) {
     this.myMorePopoverStyles = {
-      'top': top ? top + 'px' : 'unset',
-      'left': left ? left + 'px' : 'unset',
-      'position': 'relative',
-      'display': top && left ? 'block' : 'none'
+      'top': !top || top === null ? 'unset' : top + 'px',
+      'left': !left || left === null ? 'unset' : left + 'px',
+      'position': 'absolute',
+      'width': '200px',
+      'display': (!top || !left || top === null || left === null) ? 'none' : 'block',
     };
   }
 
