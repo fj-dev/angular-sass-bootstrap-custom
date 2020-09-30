@@ -21,6 +21,8 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
 
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
+    dayMaxEventRows: true,
+    dayMaxEvents:
     headerToolbar: {
       left: 'myPrev,myNext today',
       center: 'title',
