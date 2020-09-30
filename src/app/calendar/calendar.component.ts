@@ -94,7 +94,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
     eventDidMount: this.onEventPositioned.bind(this),
     eventWillUnmount: this.onEventDestroy.bind(this),
     eventDisplay: 'block',
-    moreLinkClick: (info)=>this.onMoreLinkClick.bind(info),
+    moreLinkClick: (info)=>{info.jsEvent.preventDefault();this.onMoreLinkClick(info);},
   };
  
   constructor(
@@ -186,14 +186,15 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
 
   onMoreLinkClick(args) {
     console.log('onMoreLinkClick', args);
-    //args.jsEvent.cancelBubble = true;
+    args.jsEvent.cancelBubble = true;
     //args.jsEvent.stopPropogation();
     args.jsEvent.preventDefault();
     console.log('onMoreLinkClick', args.allSegs);
     // arg = {date: Date, allSegs: EventSegments, hiddenSegs: EventSegments, jsEvent}
     this.setMyMorePopoverStyles(null, null);
     this.myMorePopoverTitle = formatDate(args.date, {month: 'long',  year: 'numeric', day: 'numeric'});
-    const newEvents = args.allSegs.map(seg => {
+    const newEvents = [];
+    args.allSegs.forEach(seg => {
       // isStart = T, isEnd = T
       // isStart = F, isEnd = F
       // isStart = T, isEnd = F
@@ -204,7 +205,7 @@ export class CalendarComponent implements OnInit, AfterViewInit, AfterContentIni
       } else {
         title = formatDate(seg.start, {month: '2-digit', day: '2-digit', year: '2-digit', seperator: '/'}) + ' - ' + seg.end.toLocaleDateString() + ' ' + seg.event.title;
       }  
-      return title;    
+      newEvents.push(title);    
     });
 
     this.myMorePopoverEvents = newEvents;
